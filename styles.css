@@ -618,13 +618,15 @@ body {
     color: var(--color-accent);
     letter-spacing: 4px;
     margin-bottom: 5px;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
 }
 
 .side-arch-content p {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.9);
     font-style: italic;
     letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 /* Floating Action Icons */
@@ -702,7 +704,7 @@ body {
     letter-spacing: 8px; /* Increased from 5px */
     margin-bottom: 12px;
     font-weight: 500;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 15px rgba(0,0,0,0.9);
 }
 
 .center-text h1 {
@@ -723,15 +725,17 @@ body {
     letter-spacing: 14px;
     margin-bottom: 18px;
     font-weight: 400;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .hero-description {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.9);
     letter-spacing: 1.5px;
     max-width: 350px;
     margin: 0 auto 12px;
     line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .diamond-divider {
@@ -1077,6 +1081,12 @@ body {
     }
 
     /* Hero restructure for mobile */
+    .hero-section {
+        height: auto;
+        min-height: 100vh;
+        justify-content: flex-start; /* Prevent centering from pushing content off top */
+    }
+
     .hero-collage {
         height: auto;
         min-height: 100vh;

@@ -163,8 +163,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const interest = enquiryForm.querySelector('input[placeholder*="Travel Interest"]').value;
             const message = enquiryForm.querySelector('textarea').value;
 
-            // Send to Supabase
-            supabaseClient.from('enquiries').insert([
+            // Send to FormSubmit (Email) and Supabase (Database)
+            const formSubmitPromise = fetch("https://formsubmit.co/ajax/indtara.travel@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: fullName,
+                    Email: email,
+                    Phone: phone,
+                    Interest: interest,
+                    Message: message,
+                    _subject: "New Travel Enquiry: " + fullName
+                })
+            });
+
+            const supabasePromise = supabaseClient.from('enquiries').insert([
                 { 
                     full_name: fullName, 
                     email: email, 
@@ -172,13 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     interest: interest, 
                     message: message 
                 }
-            ]).then(({ error }) => {
-                if (error) {
-                    console.error('Error saving enquiry:', error);
-                    alert('There was an error sending your enquiry. Please try again.');
-                    submitBtn.innerHTML = originalBtnContent;
-                    submitBtn.disabled = false;
-                } else {
+            ]);
+
+            Promise.all([formSubmitPromise, supabasePromise])
+                .then(([fsRes, sbRes]) => {
+                    if (sbRes.error) throw sbRes.error;
+                    
                     submitBtn.innerHTML = '<span>MESSAGE SENT</span><span class="arrow">✓</span>';
                     submitBtn.style.background = 'var(--color-accent)';
                     submitBtn.style.color = '#000';
@@ -190,8 +205,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         submitBtn.disabled = false;
                         enquiryForm.reset();
                     }, 3000);
-                }
-            });
+                })
+                .catch((error) => {
+                    console.error('Submission error:', error);
+                    alert('There was an error sending your enquiry. Please try again.');
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                });
         });
     }
 });
