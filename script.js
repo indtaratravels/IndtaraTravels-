@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hide Preloader
     window.addEventListener('load', () => {
-        setTimeout(() => {
-            preloader.style.opacity = '0';
-            preloader.style.visibility = 'hidden';
-        }, 1000);
+        if (preloader) {
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 1000);
+        }
     });
 
     // Hamburger menu toggle
