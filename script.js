@@ -31,16 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const authLink = document.querySelector('.login-nav-link');
             
             if (mobileLinks && topNavLinks && !document.querySelector('.mobile-consolidated')) {
-                // Add "Navigation" header
+                // Get original destination links
+                const originalItems = Array.from(mobileLinks.querySelectorAll('li'));
+                
+                // Clear the menu to rebuild in order
+                mobileLinks.innerHTML = '';
+
+                // 1. Add "Main Menu" header
                 const navHeader = document.createElement('li');
                 navHeader.className = 'mobile-consolidated mobile-nav-label';
                 navHeader.innerHTML = '<span>Main Menu</span>';
-                mobileLinks.prepend(navHeader);
+                mobileLinks.appendChild(navHeader);
 
-                // Clone Home, Packages, About, Contact (skip Travel as we'll list destinations)
+                // 2. Add Cloned links from top header (Home, Packages, etc.)
                 const items = topNavLinks.querySelectorAll('li');
                 items.forEach(item => {
                     const link = item.querySelector('a');
+                    // Skip 'Travel' dropdown as we have the destination list
                     if (link && !link.textContent.includes('Travel')) {
                         const clone = item.cloneNode(true);
                         clone.classList.add('mobile-consolidated', 'top-link-item');
@@ -48,24 +55,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Add Auth link
+                // 3. Add "Destinations" label
+                const destHeader = document.createElement('li');
+                destHeader.className = 'mobile-consolidated mobile-nav-label dest-label';
+                destHeader.innerHTML = '<span>Our Destinations</span>';
+                mobileLinks.appendChild(destHeader);
+
+                // 4. Add original destination links back
+                originalItems.forEach(item => {
+                    mobileLinks.appendChild(item);
+                });
+
+                // 5. Add Auth link at the very bottom
                 if (authLink) {
                     const authLi = document.createElement('li');
                     authLi.className = 'mobile-consolidated auth-mobile-item';
                     const authClone = authLink.cloneNode(true);
                     authLi.appendChild(authClone);
                     mobileLinks.appendChild(authLi);
-                }
-
-                // Add "Destinations" label before the destination links
-                const destHeader = document.createElement('li');
-                destHeader.className = 'mobile-consolidated mobile-nav-label dest-label';
-                destHeader.innerHTML = '<span>Our Destinations</span>';
-                
-                // Find first original nav link (destination) to insert before
-                const firstOrig = mobileLinks.querySelector('li:not(.mobile-consolidated)');
-                if (firstOrig) {
-                    mobileLinks.insertBefore(destHeader, firstOrig);
                 }
             }
         }
