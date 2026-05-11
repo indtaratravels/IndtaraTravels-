@@ -1081,14 +1081,14 @@ body {
         height: auto;
         min-height: 100vh;
         padding-bottom: 20px;
-        padding-top: 100px; /* Increased to clear navbar */
+        padding-top: 140px; /* Increased further */
     }
 
     .main-arch-wrapper {
         width: 100vw;
         height: 60vh;
         bottom: auto;
-        top: 80px; /* Pushed down to clear navbar */
+        top: 130px; /* Pushed down significantly to clear logo */
         left: 0;
         transform: none;
     }
@@ -1117,7 +1117,7 @@ body {
     .center-text {
         order: 1;
         width: 100%;
-        padding-top: 60px; /* Added more space for the tagline and h1 */
+        padding-top: 100px; /* Added significant space for headers */
     }
 
     .side-arch-container.arch-left-container {
