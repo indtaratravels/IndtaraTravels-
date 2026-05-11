@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indtara Travels | Curated Journeys</title>
+    <meta name="description"
+        content="An intimate curated journey to India, Thailand, Singapore and more. Luxury, curated experiences, expert local guides.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Preload Hero Image -->
+    <link rel="preload" as="image" href="assets/palace.png" fetchpriority="high">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="assets/INDTARA LOGO MAIN.png" alt="Indtara Travels" class="loader-logo-img">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <header class="top-header">
+        <ul class="top-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="thailand.html">Travel</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="top-right-links">
+            <a href="login.html" class="login-nav-link">Login/Register</a>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="logo-container" onclick="window.location.href='index.html'">
+            <img src="assets/INDTARA LOGO MAIN.png" alt="Indtara Travels" class="main-logo-img">
+        </div>
+        <div class="nav-right">
+            <div class="language-picker">
+                <select id="language-selector">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="it">Italiano</option>
+                </select>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" data-i18n="nav_india">India</a></li>
+                <li><a href="thailand.html" data-i18n="nav_thailand">Thailand</a></li>
+                <li><a href="singapore.html" data-i18n="nav_singapore">Singapore</a></li>
+                <li><a href="malaysia.html" data-i18n="nav_malaysia">Malaysia</a></li>
+                <li><a href="dubai.html" data-i18n="nav_dubai">Dubai</a></li>
+                <li><a href="vietnam.html" data-i18n="nav_vietnam">Vietnam</a></li>
+                <li><a href="maldives.html" data-i18n="nav_maldives">Maldives</a></li>
+                <li><a href="mauritius.html" data-i18n="nav_mauritius">Mauritius</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <!-- Decorative mandala background -->
+            <div class="mandala-bg">
+                <svg viewBox="0 0 800 800" class="mandala-svg">
+                    <circle cx="400" cy="400" r="350" fill="none" stroke="rgba(203,161,83,0.06)" stroke-width="0.5" />
+                    <circle cx="400" cy="400" r="300" fill="none" stroke="rgba(203,161,83,0.05)" stroke-width="0.5" />
+                    <circle cx="400" cy="400" r="250" fill="none" stroke="rgba(203,161,83,0.04)" stroke-width="0.5" />
+                    <circle cx="400" cy="400" r="200" fill="none" stroke="rgba(203,161,83,0.03)" stroke-width="0.5" />
+                    <!-- Decorative petals -->
+                    <g stroke="rgba(203,161,83,0.06)" fill="none" stroke-width="0.5">
+                        <path d="M400 50 Q430 200 400 400 Q370 200 400 50" />
+                        <path d="M400 750 Q430 600 400 400 Q370 600 400 750" />
+                        <path d="M50 400 Q200 430 400 400 Q200 370 50 400" />
+                        <path d="M750 400 Q600 430 400 400 Q600 370 750 400" />
+                        <path d="M153 153 Q280 280 400 400 Q250 250 153 153" transform="rotate(45 400 400)" />
+                        <path d="M153 153 Q280 280 400 400 Q250 250 153 153" transform="rotate(135 400 400)" />
+                        <path d="M153 153 Q280 280 400 400 Q250 250 153 153" transform="rotate(225 400 400)" />
+                        <path d="M153 153 Q280 280 400 400 Q250 250 153 153" transform="rotate(315 400 400)" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="hero-collage">
+                <!-- Massive Center Background Arch -->
+                <div class="main-arch-wrapper">
+                    <div class="main-arch-border"></div>
+                    <div class="arch-top-icon">
+                        <svg viewBox="0 0 24 24" fill="var(--color-gold)">
+                            <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
+                        </svg>
+                    </div>
+                    <div class="main-arch-image" style="background-image: url('assets/yoga.png');"></div>
+                    <div class="main-arch-overlay"></div>
+                </div>
+
+                <!-- Overlapping Foreground Layer -->
+                <div class="hero-foreground">
+                    <!-- Left Arch: Wildlife -->
+                    <div class="side-arch-container arch-left-container">
+                        <div class="side-arch">
+                            <div class="side-arch-image" style="background-image: url('assets/safari.png');"></div>
+                            <div class="side-arch-overlay"></div>
+                            <div class="side-arch-content">
+                                <h3 data-i18n="wildlife_title">WILDLIFE</h3>
+                                <p data-i18n="wildlife_desc">Encounters in the wild</p>
+                            </div>
+                        </div>
+                        <div class="floating-icon icon-left">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 18c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-7-4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm14 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-7-8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-4.5 3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm9 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Center Text -->
+                    <div class="center-text">
+                        <div class="tagline-container">
+                            <span class="tagline-line"></span>
+                            <svg class="tagline-icon" viewBox="0 0 24 24" fill="var(--color-gold)">
+                                <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
+                            </svg>
+                            <span class="tagline-line"></span>
+                        </div>
+                        <p class="hero-tagline" data-i18n="hero_tagline">DISCOVER THE SOUL OF</p>
+                        <h1 data-i18n="hero_h1">INDIA,</h1>
+                        <h2 class="reimagined" data-i18n="hero_h2">REIMAGINED</h2>
+                        <p class="hero-description" data-i18n="hero_desc">An intimate curated journey through wildlife, culture and timeless traditions</p>
+                        <div class="diamond-divider">
+                            <span class="diamond"></span>
+                        </div>
+                        <a href="#" class="hero-cta">
+                            <span data-i18n="hero_btn">EXPLORE INDIA</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Right Arch: Culture -->
+                    <div class="side-arch-container arch-right-container">
+                        <div class="side-arch">
+                            <div class="side-arch-image" style="background-image: url('assets/palace.png');"></div>
+                            <div class="side-arch-overlay"></div>
+                            <div class="side-arch-content">
+                                <h3 data-i18n="culture_title">CULTURE</h3>
+                                <p data-i18n="culture_desc">Live the traditions</p>
+                            </div>
+                        </div>
+                        <div class="floating-icon icon-right">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1s1-.45 1-1V3c0-.55-.45-1-1-1zm0 16c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1zm10-7h-2c-.55 0-1 .45-1 1s.45 1 1 1h2c.55 0 1-.45 1-1s-.45-1-1-1zM6 12c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1s.45 1 1 1h2c.55 0 1-.45 1-1zm13.07-5.07c-.39-.39-1.02-.39-1.41 0l-1.41 1.41c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.41-1.41c.39-.39.39-1.02 0-1.41zM7.76 16.24c-.39-.39-1.02-.39-1.41 0l-1.41 1.41c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.41-1.41c.39-.39.39-1.02 0-1.41zm0-11.31c-.39-.39-1.02-.39-1.41 0L4.93 6.34c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.41-1.41c.39-.39.39-1.02 0-1.41zm11.31 11.31c-.39-.39-1.02-.39-1.41 0l-1.41 1.41c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.41-1.41c.39-.39.39-1.02 0-1.41zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Capsule -->
+                <div class="features-capsule">
+                    <div class="capsule-item">
+                        <div class="capsule-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" fill="rgba(203,161,83,0.2)"/>
+                            </svg>
+                        </div>
+                        <div class="capsule-text">
+                            <h4 data-i18n="feature_curated">CURATED<br>Experiences</h4>
+                        </div>
+                    </div>
+                    <div class="capsule-item">
+                        <div class="capsule-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="rgba(203,161,83,0.2)"/>
+                            </svg>
+                        </div>
+                        <div class="capsule-text">
+                            <h4 data-i18n="feature_authentic">AUTHENTIC<br>Connections</h4>
+                        </div>
+                    </div>
+                    <div class="capsule-item">
+                        <div class="capsule-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(203,161,83,0.2)"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div class="capsule-text">
+                            <h4 data-i18n="feature_responsible">RESPONSIBLE<br>Travel</h4>
+                        </div>
+                    </div>
+                    <div class="capsule-item">
+                        <div class="capsule-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" fill="rgba(203,161,83,0.2)"/>
+                            </svg>
+                        </div>
+                        <div class="capsule-text">
+                            <h4 data-i18n="feature_personalized">PERSONALIZED<br>Just for you</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom gradient fade -->
+            <div class="hero-bottom-fade"></div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <h2 class="section-title">Enquire Now</h2>
+                <p class="section-subtitle">Let us design your perfect journey.</p>
+                <form id="enquiry-form" class="contact-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" placeholder="Phone Number">
+                        <input type="text" placeholder="Travel Interest (e.g. Wildlife, Culture)">
+                    </div>
+                    <textarea placeholder="Tell us more about your dream trip..."></textarea>
+                    
+                    <div class="form-checkboxes">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="privacy-check" required>
+                            <span class="checkmark"></span>
+                            <span class="label-text">I have read and accept the <a href="privacy-policy.html">Privacy Policy</a>.</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="marketing-check">
+                            <span class="checkmark"></span>
+                            <span class="label-text">I agree to receive communications regarding my travel inquiry.</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="hero-cta">
+                        <span>SEND ENQUIRY</span>
+                        <span class="arrow">→</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer Banner -->
+        <section class="footer-banner" style="background-image: url('assets/footer_bg.png');">
+            <div class="footer-overlay"></div>
+            <div class="footer-content">
+                <p class="script-quote" data-i18n="footer_quote">You arrive. We take care of the rest.</p>
+                <p class="bold-text" data-i18n="footer_bold">ALL YOU HAVE TO DO IS LIVE IT.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="legal-notice.html" data-i18n="legal_notice">Legal Notice</a>
+            <a href="privacy-policy.html" data-i18n="privacy_policy">Privacy Policy</a>
+            <a href="cookie-policy.html" data-i18n="cookie_policy">Cookie Policy</a>
+            <a href="terms-and-conditions.html" data-i18n="terms_conditions">Terms & Conditions</a>
+            <a href="cancellation-policy.html" data-i18n="cancellation_policy">Cancellation Policy</a>
+        </div>
+        <p class="copyright">&copy; 2024 INDTARA TRAVELS. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="cookie-policy.html">Learn more</a></p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-btn accept">Accept</button>
+                <button id="reject-cookies" class="cookie-btn reject">Reject</button>
+                <button id="cookie-preferences" class="cookie-btn preferences">Preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Indtara Travels</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-gold: #cba153;
+            --color-dark: #0f1216;
+            --color-accent: #e5c07b;
+            --glass-bg: rgba(15, 18, 22, 0.8);
+            --glass-border: rgba(203, 161, 83, 0.2);
+        }
+
+        body {
+            background-color: var(--color-dark);
+            background-image: radial-gradient(circle at 50% 50%, #1a1f26 0%, #0f1216 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .login-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 2px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease-out;
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-logo img {
+            width: 150px;
+            filter: drop-shadow(0 0 10px rgba(203,161,83,0.3));
+        }
+
+        .login-title {
+            font-family: 'Cinzel', serif;
+            color: var(--color-gold);
+            text-align: center;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: none;
+            border-bottom: 1px solid rgba(203, 161, 83, 0.3);
+            padding: 12px 0;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            border-bottom-color: var(--color-gold);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--color-gold);
+            color: #000;
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .login-footer a {
+            color: var(--color-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .login-footer a:hover {
+            color: #fff;
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .success-message {
+            color: #28a745;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        /* Background Decorative Elements */
+        .bg-mandala {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            opacity: 0.05;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .mandala-1 { top: -200px; left: -200px; animation: rotate 60s linear infinite; }
+        .mandala-2 { bottom: -200px; right: -200px; animation: rotate 60s linear infinite reverse; }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-header">
+        <ul class="top-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="thailand.html">Travel</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="top-right-links">
+            <a href="login.html" class="login-nav-link">Login/Register</a>
+        </div>
+    </header>
+
+    <svg class="bg-mandala mandala-1" viewBox="0 0 800 800">
+        <circle cx="400" cy="400" r="350" fill="none" stroke="#cba153" stroke-width="1" />
+        <path d="M400 50 Q430 200 400 400 Q370 200 400 50" fill="none" stroke="#cba153" stroke-width="1" />
+    </svg>
+
+    <div class="login-container">
+        <div class="login-logo">
+            <img src="assets/INDTARA LOGO MAIN.png" alt="Indtara Travels">
+        </div>
+        <h1 class="login-title">REGISTER</h1>
+        
+        <div id="error-box" class="error-message"></div>
+        <div id="success-box" class="success-message">Registration successful! Please check your email.</div>
+
+        <form id="register-form">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="••••••••">
+            </div>
+            
+            <button type="submit" class="login-btn" id="register-submit">CREATE ACCOUNT</button>
+        </form>
+
+        <div class="login-footer">
+            <p>Already have an account? <a href="login.html">Sign In</a></p>
+        </div>
+    </div>
+
+    <svg class="bg-mandala mandala-2" viewBox="0 0 800 800">
+        <circle cx="400" cy="400" r="350" fill="none" stroke="#cba153" stroke-width="1" />
+    </svg>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
