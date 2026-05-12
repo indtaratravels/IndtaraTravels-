@@ -44,9 +44,8 @@ function setLanguage(lang) {
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            // Check if we should use innerHTML or textContent
-            // Using innerHTML for features that have <br> tags
-            if (key.startsWith('feature_') || key.startsWith('footer_') || key.startsWith('hero_')) {
+            // Use innerHTML if translation contains HTML tags, otherwise textContent
+            if (translations[lang][key].includes('<')) {
                 el.innerHTML = translations[lang][key];
             } else {
                 el.textContent = translations[lang][key];

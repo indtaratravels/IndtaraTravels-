@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     // Reveal on Scroll
-    const revealElements = document.querySelectorAll('.features-bar, .footer-banner');
+    const revealElements = document.querySelectorAll('.features-bar, .footer-banner, .discovery-block');
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -212,6 +212,91 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.innerHTML = originalBtnContent;
                     submitBtn.disabled = false;
                 });
+        });
+    }
+
+    // --- Cinematic GSAP Animations ---
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const track = document.querySelector('.horizontal-track');
+        if (track) {
+            let horizontalScroll = track.scrollWidth - window.innerWidth;
+            
+            gsap.to(track, {
+                x: -horizontalScroll,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.scroll-section',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                    pin: '.sticky-wrapper',
+                    invalidateOnRefresh: true
+                }
+            });
+
+            // 3D reveal animation for cards
+            gsap.utils.toArray('.destination-card').forEach((card, i) => {
+                gsap.from(card, {
+                    opacity: 0,
+                    rotateY: 45,
+                    rotateX: 20,
+                    z: -300,
+                    duration: 1.5,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        containerAnimation: null, // Use horizontal scroll as trigger if needed
+                        start: 'left right',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+        }
+
+        // Hero animation
+        gsap.from('.hero-cinematic h1', {
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            ease: 'power4.out'
+        });
+
+        gsap.from('.hero-cinematic p', {
+            y: 50,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.3,
+            ease: 'power4.out'
+        });
+
+        // Mouse parallax for cards
+        document.querySelectorAll('.destination-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const rotateY = ((x / rect.width) - 0.5) * 20;
+                const rotateX = ((y / rect.height) - 0.5) * -20;
+
+                card.style.transform = `
+                    rotateY(${rotateY}deg)
+                    rotateX(${rotateX}deg)
+                    translateY(-15px)
+                    scale(1.02)
+                `;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `
+                    rotateY(0deg)
+                    rotateX(0deg)
+                    translateY(0px)
+                    scale(1)
+                `;
+            });
         });
     }
 });

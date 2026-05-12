@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indtara Travels | Curated Journeys</title>
+    <title>Indtara Travels | Crafted Luxury Journeys</title>
     <meta name="description"
-        content="An intimate curated journey to India, Thailand, Singapore and more. Luxury, curated experiences, expert local guides.">
+        content="Discover the world in a way you've never imagined. Crafted luxury travel experiences across India, Thailand, Dubai, and beyond.">
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,25 +15,595 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <!-- Preload Hero Image -->
+    <!-- GSAP for Animations -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Preload First Destination Image -->
     <link rel="preload" as="image" href="assets/palace.png" fetchpriority="high">
+
+    <style>
+        /* ======= Infinite Luxury Carousel Hero Styles ======= */
+        :root {
+            --carousel-bg: #07130f;
+            --carousel-gold: #D4AF37;
+            --carousel-text: #F6F1E8;
+        }
+
+        .luxury-carousel-hero {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background: radial-gradient(circle at 75% 50%, rgba(212, 175, 55, 0.08) 0%, rgba(7, 19, 15, 1) 60%), #07130f;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 240px; /* Increased and using flex-start for more control */
+            padding-bottom: 60px;
+            box-sizing: border-box;
+        }
+
+        .luxury-hero-container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+            z-index: 2;
+            box-sizing: border-box;
+        }
+
+        /* Left Content Pane */
+        .luxury-hero-left {
+            flex: 1;
+            max-width: 550px;
+            z-index: 10;
+        }
+
+        .luxury-brand-badge {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 6px;
+            color: var(--carousel-gold);
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .luxury-brand-badge::after {
+            content: '';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            width: 30px;
+            height: 1px;
+            background: var(--carousel-gold);
+            opacity: 0.6;
+        }
+
+        .luxury-hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 5.2rem;
+            font-weight: 500;
+            line-height: 1.05;
+            color: #ffffff;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .luxury-hero-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 45px;
+            max-width: 460px;
+            font-weight: 300;
+        }
+
+        .luxury-hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .luxury-btn-explore {
+            background: var(--carousel-gold);
+            color: #050d0a;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+        }
+
+        .luxury-btn-explore:hover {
+            transform: translateY(-3px);
+            background: #e6c145;
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .luxury-link-all {
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .luxury-link-all::after {
+            content: '→';
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .luxury-link-all:hover {
+            color: var(--carousel-gold);
+            opacity: 1;
+        }
+
+        .luxury-link-all:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Right Carousel Showcase */
+        .luxury-carousel-right {
+            flex: 1.4;
+            height: 560px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1400px;
+            transform-style: preserve-3d;
+            user-select: none;
+        }
+
+        .carousel-3d-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+        }
+
+        .carousel-card {
+            position: absolute;
+            width: 320px;
+            height: 470px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #111;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            cursor: pointer;
+            transition: transform 0.85s cubic-bezier(0.2, 0.85, 0.3, 1), 
+                        opacity 0.85s cubic-bezier(0.2, 0.85, 0.3, 1),
+                        filter 0.85s cubic-bezier(0.2, 0.85, 0.3, 1),
+                        box-shadow 0.85s ease;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            will-change: transform, opacity, filter;
+        }
+
+        .carousel-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.2, 0.85, 0.3, 1);
+            z-index: 1;
+        }
+
+        .carousel-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 40%, transparent 100%);
+            z-index: 2;
+        }
+
+        .carousel-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        .carousel-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Active Card Extra Glow */
+        .carousel-card.active-card {
+            box-shadow: 0 30px 70px rgba(0,0,0,0.9), 0 0 40px rgba(212, 175, 55, 0.25);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .card-meta {
+            position: relative;
+            z-index: 3;
+            padding: 30px;
+            text-align: center;
+            transform: translateZ(30px);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card-flag {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        /* Custom Pagination Slider Track */
+        .luxury-carousel-track-wrapper {
+            width: 100%;
+            max-width: 1600px;
+            margin: 30px auto 0;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            z-index: 5;
+            box-sizing: border-box;
+        }
+
+        .track-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .track-current {
+            color: var(--carousel-gold);
+        }
+
+        .track-total {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .track-line-container {
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .track-line-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 12.5%; /* 1/8 init */
+            background: var(--carousel-gold);
+            transition: left 0.5s cubic-bezier(0.2, 0.85, 0.3, 1);
+        }
+
+        /* Carousel Navigation Chevrons */
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(7, 19, 15, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--carousel-gold);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav-btn:hover {
+            background: var(--carousel-gold);
+            color: #000;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-prev {
+            left: -20px;
+        }
+
+        .nav-next {
+            right: -20px;
+        }
+
+        /* Final Call to Action Section styling */
+        .cin-final-section {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 8%;
+            background: #050d0a;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cin-final-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .cin-final-section p {
+            font-family: 'Montserrat', sans-serif;
+            max-width: 650px;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .luxury-hero-title { font-size: 4.2rem; }
+            .carousel-card { width: 280px; height: 420px; }
+            .luxury-carousel-right { height: 480px; }
+        }
+
+        @media (max-width: 992px) {
+            .luxury-hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+                padding-top: 40px;
+            }
+            .luxury-hero-left {
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .luxury-brand-badge::after { display: none; }
+            .luxury-hero-title { font-size: 3.8rem; }
+            .luxury-hero-actions { justify-content: center; }
+            .luxury-carousel-right {
+                width: 100%;
+                flex: none;
+                height: 450px;
+            }
+            .carousel-card { width: 250px; height: 380px; }
+            .carousel-nav-btn { display: none; } /* Use swipe/click on mobile */
+        }
+
+        @media (max-width: 600px) {
+            .luxury-hero-title { font-size: 2.8rem; }
+            .luxury-hero-desc { font-size: 1rem; }
+            .carousel-card { width: 220px; height: 340px; }
+            .luxury-carousel-right { height: 380px; }
+            .card-title { font-size: 1.4rem; }
+            .cin-final-section h2 { font-size: 3rem; }
+        }
+        /* ========== Destinations Showcase Section ========== */
+        .destinations-showcase {
+            background: #07130f;
+            padding: 120px 0;
+            color: var(--carousel-text);
+        }
+
+        .showcase-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .showcase-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--carousel-gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .showcase-header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .discovery-block {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 150px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.2, 0.85, 0.3, 1);
+        }
+
+        .discovery-block.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .discovery-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .discovery-image-wrapper {
+            flex: 1;
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .discovery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s cubic-bezier(0.2, 0.85, 0.3, 1);
+        }
+
+        .discovery-block:hover .discovery-image {
+            transform: scale(1.1);
+        }
+
+        .discovery-content {
+            flex: 1;
+        }
+
+        .discovery-country {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--carousel-gold);
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .discovery-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .discovery-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+
+        .why-visit-list {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .why-visit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: var(--carousel-text);
+        }
+
+        .why-visit-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--carousel-gold);
+            flex-shrink: 0;
+        }
+
+        .discovery-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 40px;
+            background: transparent;
+            border: 1px solid var(--carousel-gold);
+            color: var(--carousel-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .discovery-btn:hover {
+            background: var(--carousel-gold);
+            color: #000;
+        }
+
+        @media (max-width: 1024px) {
+            .discovery-block, .discovery-block:nth-child(even) {
+                flex-direction: column;
+                gap: 40px;
+                margin-bottom: 100px;
+            }
+            .discovery-image-wrapper {
+                width: 100%;
+                height: 400px;
+            }
+            .discovery-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="theme-india">
+
+    <!-- Preloader (Home Page Only) -->
     <div id="preloader">
         <div class="loader-content">
-            <img src="assets/INDTARA LOGO MAIN.png" alt="Indtara Travels" class="loader-logo-img">
+            <div class="loader-logo">INDTARA</div>
             <div class="loader-bar"></div>
         </div>
     </div>
 
+    <!-- ========== TOP HEADER ========== -->
     <header class="top-header">
         <ul class="top-nav-links">
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
                 <a href="#">Travel <span class="dropdown-arrow">▾</span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="index.html">India</a></li>
+                    <li><a href="india.html">India</a></li>
                     <li><a href="thailand.html">Thailand</a></li>
                     <li><a href="singapore.html">Singapore</a></li>
                     <li><a href="malaysia.html">Malaysia</a></li>
@@ -43,7 +613,7 @@
                     <li><a href="mauritius.html">Mauritius</a></li>
                 </ul>
             </li>
-            <li><a href="#packages">Packages</a></li>
+            <li><a href="#all-destinations">Packages</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -52,6 +622,7 @@
         </div>
     </header>
 
+    <!-- ========== NAVBAR ========== -->
     <nav class="navbar">
         <div class="logo-container" onclick="window.location.href='index.html'">
             <img src="assets/INDTARA LOGO MAIN.png" alt="Indtara Travels" class="main-logo-img">
@@ -65,7 +636,7 @@
                 </select>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active" data-i18n="nav_india">India</a></li>
+                <li><a href="india.html" data-i18n="nav_india">India</a></li>
                 <li><a href="thailand.html" data-i18n="nav_thailand">Thailand</a></li>
                 <li><a href="singapore.html" data-i18n="nav_singapore">Singapore</a></li>
                 <li><a href="malaysia.html" data-i18n="nav_malaysia">Malaysia</a></li>
@@ -82,153 +653,357 @@
         </div>
     </nav>
 
+    <!-- ========== MAIN CONTENT ========== -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <!-- Decorative mandala background -->
-            <div class="mandala-bg">
-                <svg viewBox="0 0 800 800" class="mandala-svg">
-                    <circle cx="400" cy="400" r="350" fill="none" stroke="rgba(203,161,83,0.06)" stroke-width="0.5" />
-                    <circle cx="400" cy="400" r="300" fill="none" stroke="rgba(203,161,83,0.05)" stroke-width="0.5" />
-                    <circle cx="400" cy="400" r="250" fill="none" stroke="rgba(203,161,83,0.04)" stroke-width="0.5" />
-                    <circle cx="400" cy="400" r="200" fill="none" stroke="rgba(203,161,83,0.03)" stroke-width="0.5" />
-                    <!-- Decorative petals -->
-                    <g stroke="rgba(203,161,83,0.06)" fill="none" stroke-width="0.5">
-                        <path d="M400 50 Q430 200 400 400 Q370 200 400 50" />
-                        <path d="M400 750 Q430 600 400 400 Q370 600 400 750" />
-                        <path d="M50 400 Q200 430 400 400 Q200 370 50 400" />
-                        <path d="M750 400 Q600 430 400 400 Q600 370 750 400" />
-                        <path d="M153 153 Q280 280 400 400 Q250 250 153 153" transform="rotate(45 400 400)" />
-                        <path d="M153 153 Q280 280 400 400 Q250 250 153 153" transform="rotate(135 400 400)" />
-                        <path d="M153 153 Q280 280 400 400 Q250 250 153 153" transform="rotate(225 400 400)" />
-                        <path d="M153 153 Q280 280 400 400 Q250 250 153 153" transform="rotate(315 400 400)" />
-                    </g>
-                </svg>
-            </div>
-
-            <div class="hero-collage">
-                <!-- Massive Center Background Arch -->
-                <div class="main-arch-wrapper">
-                    <div class="main-arch-border"></div>
-                    <div class="arch-top-icon">
-                        <svg viewBox="0 0 24 24" fill="var(--color-gold)">
-                            <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
-                        </svg>
+        
+        <!-- Premium Infinite Luxury Carousel Hero Section -->
+        <section class="luxury-carousel-hero">
+            <div class="luxury-hero-container">
+                
+                <!-- Left Content Pane -->
+                <div class="luxury-hero-left">
+                    <span class="luxury-brand-badge" data-i18n="hero_sub">INDTARA</span>
+                    <h1 class="luxury-hero-title">
+                        <span data-i18n="hero_title_1">Crafted</span><br>
+                        <span data-i18n="hero_title_2">Luxury Journeys</span>
+                    </h1>
+                    <p class="luxury-hero-desc" data-i18n="hero_description">Discover the world in a way you've never imagined.</p>
+                    <div class="luxury-hero-actions">
+                        <button class="luxury-btn-explore" onclick="goToActiveDestination()">EXPLORE</button>
+                        <a href="#all-destinations" class="luxury-link-all">VIEW ALL DESTINATIONS</a>
                     </div>
-                    <div class="main-arch-image" style="background-image: url('assets/yoga.png');"></div>
-                    <div class="main-arch-overlay"></div>
                 </div>
 
-                <!-- Overlapping Foreground Layer -->
-                <div class="hero-foreground">
-                    <!-- Left Arch: Wildlife -->
-                    <div class="side-arch-container arch-left-container">
-                        <div class="side-arch">
-                            <div class="side-arch-image" style="background-image: url('assets/safari.png');"></div>
-                            <div class="side-arch-overlay"></div>
-                            <div class="side-arch-content">
-                                <h3 data-i18n="wildlife_title">WILDLIFE</h3>
-                                <p data-i18n="wildlife_desc">Encounters in the wild</p>
+                <!-- Right Carousel Showcase -->
+                <div class="luxury-carousel-right">
+                    <button class="carousel-nav-btn nav-prev" onclick="rotateCarousel(-1)" aria-label="Previous Destination">‹</button>
+                    
+                    <div class="carousel-3d-container" id="carousel-track">
+                        <!-- Card 0: India -->
+                        <div class="carousel-card" data-index="0" data-href="india.html">
+                            <img src="assets/palace.png" alt="India">
+                            <div class="card-meta">
+                                <div class="card-flag">🇮🇳</div>
+                                <div class="card-title">India</div>
                             </div>
                         </div>
-                        <div class="floating-icon icon-left">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 18c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-7-4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm14 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-7-8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-4.5 3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm9 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
-                            </svg>
-                        </div>
-                    </div>
 
-                    <!-- Center Text -->
-                    <div class="center-text">
-                        <div class="tagline-container">
-                            <span class="tagline-line"></span>
-                            <svg class="tagline-icon" viewBox="0 0 24 24" fill="var(--color-gold)">
-                                <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
-                            </svg>
-                            <span class="tagline-line"></span>
-                        </div>
-                        <p class="hero-tagline" data-i18n="hero_tagline">DISCOVER THE SOUL OF</p>
-                        <h1 data-i18n="hero_h1">INDIA,</h1>
-                        <h2 class="reimagined" data-i18n="hero_h2">REIMAGINED</h2>
-                        <p class="hero-description" data-i18n="hero_desc">An intimate curated journey through wildlife, culture and timeless traditions</p>
-                        <div class="diamond-divider">
-                            <span class="diamond"></span>
-                        </div>
-                        <a href="#" class="hero-cta">
-                            <span data-i18n="hero_btn">EXPLORE INDIA</span>
-                            <span class="arrow">→</span>
-                        </a>
-                    </div>
-
-                    <!-- Right Arch: Culture -->
-                    <div class="side-arch-container arch-right-container">
-                        <div class="side-arch">
-                            <div class="side-arch-image" style="background-image: url('assets/palace.png');"></div>
-                            <div class="side-arch-overlay"></div>
-                            <div class="side-arch-content">
-                                <h3 data-i18n="culture_title">CULTURE</h3>
-                                <p data-i18n="culture_desc">Live the traditions</p>
+                        <!-- Card 1: Thailand -->
+                        <div class="carousel-card" data-index="1" data-href="thailand.html">
+                            <img src="assets/thailand_island.png" alt="Thailand">
+                            <div class="card-meta">
+                                <div class="card-flag">🇹🇭</div>
+                                <div class="card-title">Thailand</div>
                             </div>
                         </div>
-                        <div class="floating-icon icon-right">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1s1-.45 1-1V3c0-.55-.45-1-1-1zm0 16c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1zm10-7h-2c-.55 0-1 .45-1 1s.45 1 1 1h2c.55 0 1-.45 1-1s-.45-1-1-1zM6 12c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1s.45 1 1 1h2c.55 0 1-.45 1-1zm13.07-5.07c-.39-.39-1.02-.39-1.41 0l-1.41 1.41c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.41-1.41c.39-.39.39-1.02 0-1.41zM7.76 16.24c-.39-.39-1.02-.39-1.41 0l-1.41 1.41c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.41-1.41c.39-.39.39-1.02 0-1.41zm0-11.31c-.39-.39-1.02-.39-1.41 0L4.93 6.34c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.41-1.41c.39-.39.39-1.02 0-1.41zm11.31 11.31c-.39-.39-1.02-.39-1.41 0l-1.41 1.41c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.41-1.41c.39-.39.39-1.02 0-1.41zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
-                            </svg>
+
+                        <!-- Card 2: Singapore -->
+                        <div class="carousel-card" data-index="2" data-href="singapore.html">
+                            <img src="assets/singapore_skyline.png" alt="Singapore">
+                            <div class="card-meta">
+                                <div class="card-flag">🇸🇬</div>
+                                <div class="card-title">Singapore</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Malaysia -->
+                        <div class="carousel-card" data-index="3" data-href="malaysia.html">
+                            <img src="assets/malaysia_petronas.png" alt="Malaysia">
+                            <div class="card-meta">
+                                <div class="card-flag">🇲🇾</div>
+                                <div class="card-title">Malaysia</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Dubai -->
+                        <div class="carousel-card" data-index="4" data-href="dubai.html">
+                            <img src="assets/dubai_burj.png" alt="Dubai">
+                            <div class="card-meta">
+                                <div class="card-flag">🇦🇪</div>
+                                <div class="card-title">Dubai</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Vietnam -->
+                        <div class="carousel-card" data-index="5" data-href="vietnam.html">
+                            <img src="assets/vietnam_halong_bay.png" alt="Vietnam">
+                            <div class="card-meta">
+                                <div class="card-flag">🇻🇳</div>
+                                <div class="card-title">Vietnam</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Maldives -->
+                        <div class="carousel-card" data-index="6" data-href="maldives.html">
+                            <img src="assets/maldives_ocean_view.png" alt="Maldives">
+                            <div class="card-meta">
+                                <div class="card-flag">🇲🇻</div>
+                                <div class="card-title">Maldives</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: Mauritius -->
+                        <div class="carousel-card" data-index="7" data-href="mauritius.html">
+                            <img src="assets/safari.png" alt="Mauritius">
+                            <div class="card-meta">
+                                <div class="card-flag">🇲🇺</div>
+                                <div class="card-title">Mauritius</div>
+                            </div>
                         </div>
                     </div>
+
+                    <button class="carousel-nav-btn nav-next" onclick="rotateCarousel(1)" aria-label="Next Destination">›</button>
                 </div>
 
-                <!-- Features Capsule -->
-                <div class="features-capsule">
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" fill="rgba(203,161,83,0.2)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_curated">CURATED<br>Experiences</h4>
-                        </div>
-                    </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="rgba(203,161,83,0.2)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_authentic">AUTHENTIC<br>Connections</h4>
-                        </div>
-                    </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(203,161,83,0.2)"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_responsible">RESPONSIBLE<br>Travel</h4>
-                        </div>
-                    </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                <circle cx="12" cy="7" r="4" fill="rgba(203,161,83,0.2)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_personalized">PERSONALIZED<br>Just for you</h4>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <!-- Bottom gradient fade -->
-            <div class="hero-bottom-fade"></div>
+            <!-- Custom Pagination Track -->
+            <div class="luxury-carousel-track-wrapper">
+                <span class="track-num track-current" id="track-current-idx">01</span>
+                <div class="track-line-container" onclick="handleTrackClick(event)">
+                    <div class="track-line-progress" id="track-progress-bar"></div>
+                </div>
+                <span class="track-num track-total">08</span>
+            </div>
         </section>
 
+        <!-- Curated Destinations Showcase -->
+        <section id="all-destinations" class="destinations-showcase">
+            <div class="showcase-container">
+                <div class="showcase-header">
+                    <h2 data-i18n="destinations_title">Global Destinations</h2>
+                    <p data-i18n="destinations_desc">Explore our curated collection of iconic escapes, each offering a unique blend of luxury and discovery.</p>
+                </div>
+
+                <!-- India -->
+                <div class="discovery-block">
+                    <div class="discovery-image-wrapper">
+                        <img src="assets/palace.png" alt="India" class="discovery-image">
+                    </div>
+                    <div class="discovery-content">
+                        <span class="discovery-country" data-i18n="nav_india">INDIA</span>
+                        <h3 class="discovery-title" data-i18n="hero_h1">INDIA, REIMAGINED</h3>
+                        <p class="discovery-desc" data-i18n="showcase_india_desc">Discover the majestic peaks of the Himalayas and the tranquil backwaters of Kerala.</p>
+                        <ul class="why-visit-list">
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_india_why_1">Spiritual Discovery & Ancient Yoga</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_india_why_2">Wildlife Safaris & Royal Palaces</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_india_why_3">Diverse Culinary Heritage</span>
+                            </li>
+                        </ul>
+                        <a href="india.html" class="discovery-btn">EXPLORE INDIA</a>
+                    </div>
+                </div>
+
+                <!-- Thailand -->
+                <div class="discovery-block">
+                    <div class="discovery-image-wrapper">
+                        <img src="assets/thailand_island.png" alt="Thailand" class="discovery-image">
+                    </div>
+                    <div class="discovery-content">
+                        <span class="discovery-country" data-i18n="nav_thailand">THAILAND</span>
+                        <h3 class="discovery-title" data-i18n="thailand_h2">SERENE & BOLD</h3>
+                        <p class="discovery-desc" data-i18n="showcase_thailand_desc">Explore golden temples in Bangkok and pristine white-sand islands in the south.</p>
+                        <ul class="why-visit-list">
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_thailand_why_1">Majestic Temples & Traditions</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_thailand_why_2">World-Class Diving Spots</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_thailand_why_3">Iconic Street Food Culture</span>
+                            </li>
+                        </ul>
+                        <a href="thailand.html" class="discovery-btn">EXPLORE THAILAND</a>
+                    </div>
+                </div>
+
+                <!-- Singapore -->
+                <div class="discovery-block">
+                    <div class="discovery-image-wrapper">
+                        <img src="assets/singapore_skyline.png" alt="Singapore" class="discovery-image">
+                    </div>
+                    <div class="discovery-content">
+                        <span class="discovery-country" data-i18n="nav_singapore">SINGAPORE</span>
+                        <h3 class="discovery-title" data-i18n="singapore_h2">THE FUTURE CITY</h3>
+                        <p class="discovery-desc" data-i18n="showcase_singapore_desc">Experience futuristic architecture like Gardens by the Bay and multicultural dining.</p>
+                        <ul class="why-visit-list">
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_singapore_why_1">Futuristic Architecture & Gardens</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_singapore_why_2">Michelin Star Dining Scene</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_singapore_why_3">High-End Luxury Shopping</span>
+                            </li>
+                        </ul>
+                        <a href="singapore.html" class="discovery-btn">EXPLORE SINGAPORE</a>
+                    </div>
+                </div>
+
+                <!-- Malaysia -->
+                <div class="discovery-block">
+                    <div class="discovery-image-wrapper">
+                        <img src="assets/malaysia_petronas.png" alt="Malaysia" class="discovery-image">
+                    </div>
+                    <div class="discovery-content">
+                        <span class="discovery-country" data-i18n="nav_malaysia">MALAYSIA</span>
+                        <h3 class="discovery-title" data-i18n="malaysia_h2">TRULY ASIA</h3>
+                        <p class="discovery-desc" data-i18n="showcase_malaysia_desc">From the iconic Petronas Towers to the ancient rainforests of Borneo.</p>
+                        <ul class="why-visit-list">
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_malaysia_why_1">Pristine Rainforests & Wildlife</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_malaysia_why_2">Iconic Skylines & Heritage</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_malaysia_why_3">Untouched Tropical Islands</span>
+                            </li>
+                        </ul>
+                        <a href="malaysia.html" class="discovery-btn">EXPLORE MALAYSIA</a>
+                    </div>
+                </div>
+
+                <!-- Dubai -->
+                <div class="discovery-block">
+                    <div class="discovery-image-wrapper">
+                        <img src="assets/dubai_burj.png" alt="Dubai" class="discovery-image">
+                    </div>
+                    <div class="discovery-content">
+                        <span class="discovery-country" data-i18n="nav_dubai">DUBAI</span>
+                        <h3 class="discovery-title" data-i18n="dubai_h2">DESERT LUXURY</h3>
+                        <p class="discovery-desc" data-i18n="showcase_dubai_desc">Witness the Burj Khalifa, explore golden dunes, and indulge in world-class shopping.</p>
+                        <ul class="why-visit-list">
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_dubai_why_1">Record-Breaking Architecture</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_dubai_why_2">Thrilling Desert Safaris</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_dubai_why_3">Unmatched Luxury Hotels</span>
+                            </li>
+                        </ul>
+                        <a href="dubai.html" class="discovery-btn">EXPLORE DUBAI</a>
+                    </div>
+                </div>
+
+                <!-- Vietnam -->
+                <div class="discovery-block">
+                    <div class="discovery-image-wrapper">
+                        <img src="assets/vietnam_halong_bay.png" alt="Vietnam" class="discovery-image">
+                    </div>
+                    <div class="discovery-content">
+                        <span class="discovery-country" data-i18n="nav_vietnam">VIETNAM</span>
+                        <h3 class="discovery-title" data-i18n="vietnam_h2">TIMELESS CHARM</h3>
+                        <p class="discovery-desc" data-i18n="showcase_vietnam_desc">Journey through the emerald waters of Halong Bay and ancient streets of Hoi An.</p>
+                        <ul class="why-visit-list">
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_vietnam_why_1">Emerald Bays & Limestone Karsts</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_vietnam_why_2">Ancient Trading Towns & Heritage</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_vietnam_why_3">Lush Rice Terraces & Culture</span>
+                            </li>
+                        </ul>
+                        <a href="vietnam.html" class="discovery-btn">EXPLORE VIETNAM</a>
+                    </div>
+                </div>
+
+                <!-- Maldives -->
+                <div class="discovery-block">
+                    <div class="discovery-image-wrapper">
+                        <img src="assets/maldives_ocean_view.png" alt="Maldives" class="discovery-image">
+                    </div>
+                    <div class="discovery-content">
+                        <span class="discovery-country" data-i18n="nav_maldives">MALDIVES</span>
+                        <h3 class="discovery-title" data-i18n="maldives_h2">PURE ESCAPE</h3>
+                        <p class="discovery-desc" data-i18n="showcase_maldives_desc">Stay in overwater bungalows and swim in crystal-clear lagoons in this tropical heaven.</p>
+                        <ul class="why-visit-list">
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_maldives_why_1">Private Island Overwater Luxury</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_maldives_why_2">Pristine Coral Reefs & Marine Life</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_maldives_why_3">World-Class Spas & Romantic Views</span>
+                            </li>
+                        </ul>
+                        <a href="maldives.html" class="discovery-btn">EXPLORE MALDIVES</a>
+                    </div>
+                </div>
+
+                <!-- Mauritius -->
+                <div class="discovery-block">
+                    <div class="discovery-image-wrapper">
+                        <img src="assets/safari.png" alt="Mauritius" class="discovery-image">
+                    </div>
+                    <div class="discovery-content">
+                        <span class="discovery-country" data-i18n="nav_mauritius">MAURITIUS</span>
+                        <h3 class="discovery-title" data-i18n="mauritius_h2">ISLAND SOUL</h3>
+                        <p class="discovery-desc" data-i18n="showcase_mauritius_desc">Discover volcanic craters, rare wildlife, and stunning tropical landscapes.</p>
+                        <ul class="why-visit-list">
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_mauritius_why_1">Rare Wildlife & Volcanic Landscapes</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_mauritius_why_2">Multicultural Vibrance & Charm</span>
+                            </li>
+                            <li class="why-visit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-i18n="showcase_mauritius_why_3">Endless White Sand Beaches</span>
+                            </li>
+                        </ul>
+                        <a href="mauritius.html" class="discovery-btn">EXPLORE MAURITIUS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Call to Action Section -->
+        <section class="cin-final-section">
+            <h2 data-i18n="final_title">
+                Your Next Journey <br>
+                Begins Here
+            </h2>
+            <p data-i18n="final_desc">
+                Discover cinematic luxury travel experiences curated exclusively for modern explorers.
+            </p>
+            <a href="#contact" class="luxury-btn-explore" style="text-decoration:none; display:inline-block;" data-i18n="final_btn">Begin Your Experience</a>
+        </section>
 
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
@@ -277,6 +1052,7 @@
         </section>
     </main>
 
+    <!-- ========== FOOTER ========== -->
     <footer class="site-footer">
         <div class="footer-links">
             <a href="legal-notice.html" data-i18n="legal_notice">Legal Notice</a>
@@ -300,12 +1076,233 @@
         </div>
     </div>
 
+    <!-- ========== SCRIPTS ========== -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>
     <script src="auth.js"></script>
     <script src="translations.js"></script>
     <script src="i18n.js"></script>
     <script src="script.js"></script>
+
+    <!-- Infinite Luxury 3D Carousel Implementation Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.carousel-card');
+            const totalCards = cards.length;
+            let currentIndex = 0;
+            let autoRotateInterval;
+            const trackCurrentStr = document.getElementById('track-current-idx');
+            const trackProgressBar = document.getElementById('track-progress-bar');
+            const carouselContainer = document.querySelector('.luxury-carousel-right');
+
+            // Responsive multi-device layout configuration for the 3D curves
+            function updateCarousel() {
+                const isMobile = window.innerWidth <= 600;
+                const isTablet = window.innerWidth <= 992 && window.innerWidth > 600;
+
+                cards.forEach((card) => {
+                    const index = parseInt(card.dataset.index);
+                    // Calculate direct offset in circular sequence
+                    let diff = (index - currentIndex + totalCards) % totalCards;
+                    
+                    // Convert back/fwd circular diffs to symmetrical ranges
+                    // e.g., for total 8: diff 0 is center, diffs 1,2,3 are right, diffs 5,6,7 are left (-3,-2,-1)
+                    let styleTransform = '';
+                    let opacityVal = 0;
+                    let filterVal = 'brightness(0.2)';
+                    let zIdx = 1;
+                    let isActive = false;
+
+                    if (diff === 0) {
+                        // Center/Active Card
+                        styleTransform = 'translateZ(0px) translateX(0px) scale(1)';
+                        opacityVal = 1;
+                        filterVal = 'brightness(1)';
+                        zIdx = 10;
+                        isActive = true;
+                    } else if (diff === 1) {
+                        // 1st Right
+                        const xOffset = isMobile ? 110 : (isTablet ? 140 : 180);
+                        styleTransform = `translateX(${xOffset}px) translateZ(-120px) rotateY(-18deg) scale(0.85)`;
+                        opacityVal = 0.8;
+                        filterVal = 'brightness(0.65)';
+                        zIdx = 9;
+                    } else if (diff === 2) {
+                        // 2nd Right
+                        const xOffset = isMobile ? 180 : (isTablet ? 240 : 320);
+                        styleTransform = `translateX(${xOffset}px) translateZ(-260px) rotateY(-28deg) scale(0.72)`;
+                        opacityVal = 0.5;
+                        filterVal = 'brightness(0.4)';
+                        zIdx = 8;
+                    } else if (diff === 3) {
+                        // 3rd Right
+                        const xOffset = isMobile ? 230 : (isTablet ? 310 : 430);
+                        styleTransform = `translateX(${xOffset}px) translateZ(-400px) rotateY(-36deg) scale(0.6)`;
+                        opacityVal = 0.2;
+                        filterVal = 'brightness(0.2)';
+                        zIdx = 7;
+                    } else if (diff === totalCards - 1) {
+                        // 1st Left (-1)
+                        const xOffset = isMobile ? -110 : (isTablet ? -140 : -180);
+                        styleTransform = `translateX(${xOffset}px) translateZ(-120px) rotateY(18deg) scale(0.85)`;
+                        opacityVal = 0.8;
+                        filterVal = 'brightness(0.65)';
+                        zIdx = 9;
+                    } else if (diff === totalCards - 2) {
+                        // 2nd Left (-2)
+                        const xOffset = isMobile ? -180 : (isTablet ? -240 : -320);
+                        styleTransform = `translateX(${xOffset}px) translateZ(-260px) rotateY(28deg) scale(0.72)`;
+                        opacityVal = 0.5;
+                        filterVal = 'brightness(0.4)';
+                        zIdx = 8;
+                    } else if (diff === totalCards - 3) {
+                        // 3rd Left (-3)
+                        const xOffset = isMobile ? -230 : (isTablet ? -310 : -430);
+                        styleTransform = `translateX(${xOffset}px) translateZ(-400px) rotateY(36deg) scale(0.6)`;
+                        opacityVal = 0.2;
+                        filterVal = 'brightness(0.2)';
+                        zIdx = 7;
+                    } else {
+                        // Hidden in far back
+                        styleTransform = 'translateZ(-600px) scale(0.4)';
+                        opacityVal = 0;
+                        zIdx = 1;
+                    }
+
+                    // Apply styles
+                    card.style.transform = styleTransform;
+                    card.style.opacity = opacityVal;
+                    card.style.filter = filterVal;
+                    card.style.zIndex = zIdx;
+
+                    if (isActive) {
+                        card.classList.add('active-card');
+                    } else {
+                        card.classList.remove('active-card');
+                    }
+                });
+
+                // Update pagination slider track string & indicator
+                const displayNum = currentIndex + 1;
+                trackCurrentStr.textContent = displayNum < 10 ? `0${displayNum}` : displayNum;
+                const progressPct = ((currentIndex + 1) / totalCards) * 100;
+                trackProgressBar.style.left = `${progressPct - (100 / totalCards)}%`;
+                trackProgressBar.style.width = `${100 / totalCards}%`;
+            }
+
+            // Expose carousel control globally
+            window.rotateCarousel = function(direction) {
+                currentIndex = (currentIndex + direction + totalCards) % totalCards;
+                updateCarousel();
+                resetAutoRotate();
+            };
+
+            // Direct Click on any card navigates immediately
+            cards.forEach((card) => {
+                card.addEventListener('click', (e) => {
+                    const clickedIndex = parseInt(card.dataset.index);
+                    // Navigate to destination page
+                    window.location.href = card.dataset.href;
+                });
+            });
+
+            // Action triggers
+            window.goToActiveDestination = function() {
+                const activeCard = document.querySelector('.carousel-card[data-index="' + currentIndex + '"]');
+                if (activeCard && activeCard.dataset.href) {
+                    window.location.href = activeCard.dataset.href;
+                }
+            };
+
+            window.handleTrackClick = function(e) {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const pct = clickX / rect.width;
+                const targetIdx = Math.floor(pct * totalCards);
+                if (targetIdx >= 0 && targetIdx < totalCards) {
+                    currentIndex = targetIdx;
+                    updateCarousel();
+                    resetAutoRotate();
+                }
+            };
+
+            // Touch support for swiping carousel
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            carouselContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                pauseAutoRotate();
+            }, { passive: true });
+
+            carouselContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                startAutoRotate();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const threshold = 40;
+                if (touchStartX - touchEndX > threshold) {
+                    // Swipe left -> Next
+                    rotateCarousel(1);
+                } else if (touchEndX - touchStartX > threshold) {
+                    // Swipe right -> Prev
+                    rotateCarousel(-1);
+                }
+            }
+
+            // Optional Mousewheel sliding over carousel container
+            carouselContainer.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                if (e.deltaY > 0 || e.deltaX > 0) {
+                    rotateCarousel(1);
+                } else {
+                    rotateCarousel(-1);
+                }
+            }, { passive: false });
+
+            // Auto rotation controller
+            function startAutoRotate() {
+                if (!autoRotateInterval) {
+                    autoRotateInterval = setInterval(() => {
+                        currentIndex = (currentIndex + 1) % totalCards;
+                        updateCarousel();
+                    }, 4500);
+                }
+            }
+
+            function pauseAutoRotate() {
+                if (autoRotateInterval) {
+                    clearInterval(autoRotateInterval);
+                    autoRotateInterval = null;
+                }
+            }
+
+            function resetAutoRotate() {
+                pauseAutoRotate();
+                startAutoRotate();
+            }
+
+            // Hover listeners to pause
+            carouselContainer.addEventListener('mouseenter', pauseAutoRotate);
+            carouselContainer.addEventListener('mouseleave', startAutoRotate);
+
+            // Responsive redraw trigger
+            window.addEventListener('resize', updateCarousel);
+
+            // Intro Animations
+            gsap.from('.luxury-brand-badge', { opacity: 0, y: 20, duration: 1, delay: 0.2 });
+            gsap.from('.luxury-hero-title', { opacity: 0, y: 40, duration: 1.2, delay: 0.4 });
+            gsap.from('.luxury-hero-desc', { opacity: 0, y: 30, duration: 1, delay: 0.6 });
+            gsap.from('.luxury-hero-actions', { opacity: 0, y: 20, duration: 1, delay: 0.8 });
+            gsap.from('.luxury-carousel-track-wrapper', { opacity: 0, y: 20, duration: 1, delay: 1 });
+
+            // Initialize display
+            updateCarousel();
+            startAutoRotate();
+        });
+    </script>
 </body>
 
 </html>
