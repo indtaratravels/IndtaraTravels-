@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const email = document.getElementById('email').value;
+            const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
+
 
             // Update UI to loading state
             loginSubmit.disabled = true;
@@ -34,11 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } catch (error) {
                 console.error('Login error:', error.message);
-                errorBox.textContent = error.message;
+                if (error.message === 'Invalid login credentials') {
+                    errorBox.textContent = 'Invalid email or password. Please check your credentials and try again.';
+                } else if (error.message.includes('Email not confirmed')) {
+                    errorBox.textContent = 'Please confirm your email address. Check your inbox for the confirmation link.';
+                } else {
+                    errorBox.textContent = error.message;
+                }
                 errorBox.style.display = 'block';
                 loginSubmit.disabled = false;
                 loginSubmit.textContent = 'SIGN IN';
             }
+
         });
     }
 
@@ -51,9 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
         registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const fullname = document.getElementById('fullname').value;
-            const email = document.getElementById('email').value;
+            const fullname = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
+
 
             registerSubmit.disabled = true;
             registerSubmit.textContent = 'CREATING ACCOUNT...';
@@ -74,13 +83,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (error) throw error;
 
                 // Successful signup
-                registerSubmit.textContent = 'ACCOUNT CREATED';
-                registerSubmit.style.background = '#28a745';
-                successBox.style.display = 'block';
-                
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 3000);
+                if (data.user && data.session) {
+                    // Auto-logged in (confirmation likely disabled)
+                    registerSubmit.textContent = 'ACCOUNT CREATED';
+                    registerSubmit.style.background = '#28a745';
+                    successBox.textContent = 'Registration successful! You are now logged in.';
+                    successBox.style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                } else {
+                    // Confirmation required
+                    registerSubmit.textContent = 'CHECK EMAIL';
+                    registerSubmit.style.background = '#cba153';
+                    successBox.textContent = 'Account created! Please check your email inbox to confirm your account before logging in.';
+                    successBox.style.display = 'block';
+                    
+                    // Don't redirect immediately so they can read the message
+                    registerSubmit.disabled = false;
+                    registerSubmit.textContent = 'RESEND EMAIL?';
+                    registerSubmit.onclick = () => window.location.reload();
+                }
+
 
             } catch (error) {
                 console.error('Registration error:', error.message);
