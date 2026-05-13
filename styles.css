@@ -132,7 +132,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    padding: 10px 40px; /* Reduced from 15px */
+
     /* More padding */
     background: #000;
     width: 100%;
@@ -260,8 +261,9 @@ body {
     position: fixed;
     width: 100%;
     max-width: 100vw;
-    top: 52px;
+    top: 42px; /* Adjusted from 52px for smaller top-header */
     /* Adjusted for larger top-header */
+
     left: 0;
     z-index: 1000;
     transition: var(--transition);
@@ -293,7 +295,8 @@ body {
 }
 
 .main-logo-img {
-    height: 90px;
+    height: 70px; /* Reduced from 90px */
+
     width: auto;
     object-fit: contain;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2119,21 +2122,22 @@ body {
     /* Reduce Header Rows Size and make them static (scrolling away) */
     .top-header {
         position: absolute; /* Changed from fixed to absolute */
-        padding: 8px 15px !important;
+        padding: 5px 15px !important; /* Further reduced from 8px */
         height: auto !important;
     }
 
     .navbar {
         position: absolute !important; /* Changed from fixed to absolute */
-        top: 36px !important; /* Adjusted for smaller top-header */
-        padding: 8px 15px !important;
+        top: 30px !important; /* Adjusted from 36px for smaller top-header */
+        padding: 5px 15px !important; /* Further reduced from 8px */
         background: transparent !important;
         box-shadow: none !important;
     }
 
     .main-logo-img {
-        height: 45px !important; /* Smaller logo as requested */
+        height: 40px !important; /* Further reduced from 45px */
     }
+
 
     .logo-container::before {
         width: 70px;
