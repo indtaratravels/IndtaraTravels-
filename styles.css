@@ -2205,7 +2205,7 @@ body {
     inset: 0;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.35); /* Darkened for better text contrast */
+    filter: brightness(0.45); /* Lightened from 0.35 */
     transition: transform 8s linear;
 }
 
@@ -2213,7 +2213,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 60%, transparent 100%); /* Softened from 0.85 */
     z-index: 1;
 }
 
