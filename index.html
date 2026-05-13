@@ -999,43 +999,95 @@
                 <span></span>
                 <span></span>
             </div>
+            <a href="login.html" class="mobile-login-link" aria-label="Login or Register"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+
         </div>
     </nav>
 
     <!-- ========== MAIN CONTENT ========== -->
     <main>
         <!-- Mobile-first Hook Section -->
-        <section class="mobile-home-hook" aria-label="Indtara travel planning">
-            <div class="mobile-hook-inner">
-                <span class="mobile-hook-eyebrow" data-i18n="mobile_hook_eyebrow">Tailor-Made Luxury Travel</span>
-                <h1 class="mobile-hook-title" data-i18n="mobile_hook_title">Luxury Trips, Planned Personally For You</h1>
-                <p class="mobile-hook-copy" data-i18n="mobile_hook_copy">Handpicked holidays across India and beyond, with stays, transfers, experiences, and support arranged end-to-end.</p>
-                <div class="mobile-hook-actions" aria-label="Primary travel actions">
-                    <a href="#contact" class="mobile-hook-btn primary" data-i18n="mobile_hook_primary">Plan My Trip</a>
-                    <a href="#all-destinations" class="mobile-hook-btn secondary" data-i18n="mobile_hook_secondary">Explore</a>
+        <!-- Mobile Night Carousel Section -->
+        <section class="mobile-night-carousel" aria-label="Cultural Night Destinations">
+            <div class="night-carousel-track">
+                <!-- Slide 1: Varanasi -->
+                <div class="night-slide active">
+                    <div class="night-bg" style="background-image: url('assets/varanasi_night.png');"></div>
+                    <div class="night-content">
+                        <span class="night-eyebrow">India</span>
+                        <h2 class="night-title">Varanasi Aarti</h2>
+                        <p class="night-copy">Experience the spiritual glow of the ancient Ganges at night.</p>
+                        <div class="night-actions">
+                            <a href="#contact" class="night-btn primary">Plan Trip</a>
+                            <a href="india.html" class="night-btn secondary">Details</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="mobile-hook-proof" aria-label="Indtara highlights">
-                    <span data-i18n="mobile_hook_proof_1">Custom Itineraries</span>
-                    <span data-i18n="mobile_hook_proof_2">Luxury Stays</span>
-                    <span data-i18n="mobile_hook_proof_3">24/7 Support</span>
+                <!-- Slide 2: Jaipur -->
+                <div class="night-slide">
+                    <div class="night-bg" style="background-image: url('assets/jaipur_night.png');"></div>
+                    <div class="night-content">
+                        <span class="night-eyebrow">India</span>
+                        <h2 class="night-title">Royal Jaipur</h2>
+                        <p class="night-copy">The Pink City illuminates with royal majesty after sunset.</p>
+                        <div class="night-actions">
+                            <a href="#contact" class="night-btn primary">Plan Trip</a>
+                            <a href="india.html" class="night-btn secondary">Details</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="mobile-hook-trips" aria-label="Popular trip styles">
-                    <article class="mobile-trip-card">
-                        <strong data-i18n="mobile_trip_1_title">Honeymoon Escapes</strong>
-                        <span data-i18n="mobile_trip_1_desc">Maldives, Mauritius, Dubai</span>
-                    </article>
-                    <article class="mobile-trip-card">
-                        <strong data-i18n="mobile_trip_2_title">Family Holidays</strong>
-                        <span data-i18n="mobile_trip_2_desc">Singapore, Thailand, Malaysia</span>
-                    </article>
-                    <article class="mobile-trip-card">
-                        <strong data-i18n="mobile_trip_3_title">Culture & Nature</strong>
-                        <span data-i18n="mobile_trip_3_desc">India, Vietnam, Thailand</span>
-                    </article>
+                <!-- Slide 3: Hoi An -->
+                <div class="night-slide">
+                    <div class="night-bg" style="background-image: url('assets/hoian_night.png');"></div>
+                    <div class="night-content">
+                        <span class="night-eyebrow">Vietnam</span>
+                        <h2 class="night-title">Lantern City</h2>
+                        <p class="night-copy">Wander through the magical glow of a thousand silk lanterns.</p>
+                        <div class="night-actions">
+                            <a href="#contact" class="night-btn primary">Plan Trip</a>
+                            <a href="vietnam.html" class="night-btn secondary">Details</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="mobile-scroll-cue" data-i18n="mobile_hook_scroll">Swipe and scroll to discover more</div>
+                <!-- Slide 4: Bangkok -->
+                <div class="night-slide">
+                    <div class="night-bg" style="background-image: url('assets/bangkok_night.png');"></div>
+                    <div class="night-content">
+                        <span class="night-eyebrow">Thailand</span>
+                        <h2 class="night-title">Wat Arun</h2>
+                        <p class="night-copy">A golden masterpiece reflecting on the Chao Phraya river.</p>
+                        <div class="night-actions">
+                            <a href="#contact" class="night-btn primary">Plan Trip</a>
+                            <a href="thailand.html" class="night-btn secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 5: Dubai -->
+                <div class="night-slide">
+                    <div class="night-bg" style="background-image: url('assets/dubai_night.png');"></div>
+                    <div class="night-content">
+                        <span class="night-eyebrow">Dubai</span>
+                        <h2 class="night-title">Heritage Night</h2>
+                        <p class="night-copy">Traditional Arabian elegance meets the starlit desert sky.</p>
+                        <div class="night-actions">
+                            <a href="#contact" class="night-btn primary">Plan Trip</a>
+                            <a href="dubai.html" class="night-btn secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="night-progress-container">
+                <div class="night-progress-bar"></div>
+            </div>
+            <div class="night-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
             </div>
         </section>
+
         
         <!-- Premium Infinite Luxury Carousel Hero Section -->
         <section class="luxury-carousel-hero">

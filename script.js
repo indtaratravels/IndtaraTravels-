@@ -350,4 +350,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
         statsObserver.observe(statsSection);
     }
+
+    // --- Mobile Night Carousel Logic ---
+    function initMobileCarousel() {
+        const carousel = document.querySelector('.mobile-night-carousel');
+        if (!carousel) return;
+
+        const slides = carousel.querySelectorAll('.night-slide');
+        const indicators = carousel.querySelectorAll('.indicator');
+        const progressBar = carousel.querySelector('.night-progress-bar');
+        let currentSlide = 0;
+        let autoPlayTimer;
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            indicators.forEach(i => i.classList.remove('active'));
+
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            currentSlide = index;
+
+            // Reset and animate progress bar
+            gsap.fromTo(progressBar, 
+                { width: '0%' }, 
+                { width: '100%', duration: 5, ease: 'none' }
+            );
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            showSlide(currentSlide);
+            autoPlayTimer = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayTimer);
+        }
+
+        // Swipe support
+        let touchStartX = 0;
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', e => {
+            let touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                // Swipe left
+                nextSlide();
+                startAutoPlay();
+            } else if (touchEndX - touchStartX > 50) {
+                // Swipe right
+                let prev = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prev);
+                startAutoPlay();
+            }
+        }, { passive: true });
+
+        // Initialize
+        if (window.innerWidth <= 768) {
+            startAutoPlay();
+        }
+
+        // Intersection Observer to stop carousel when not in view
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                startAutoPlay();
+            } else {
+                stopAutoPlay();
+            }
+        }, { threshold: 0.2 });
+
+        observer.observe(carousel);
+    }
+
+    initMobileCarousel();
 });
