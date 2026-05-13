@@ -15,6 +15,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
     <!-- GSAP for Animations -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -352,6 +354,206 @@
             right: -20px;
         }
 
+        /* Mobile conversion hook */
+        .mobile-home-hook,
+        .mobile-carousel-intro {
+            display: none;
+        }
+
+        .mobile-home-hook {
+            position: relative;
+            overflow: hidden;
+            background: #050d0a;
+            color: #fff;
+        }
+
+        .mobile-home-hook::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(5, 13, 10, 0.62) 0%, rgba(5, 13, 10, 0.2) 38%, rgba(5, 13, 10, 0.94) 100%),
+                url('assets/maldives_ocean_view.png') center/cover no-repeat;
+            transform: scale(1.03);
+        }
+
+        .mobile-home-hook::after {
+            content: '';
+            position: absolute;
+            inset: auto 0 0;
+            height: 45%;
+            background: linear-gradient(0deg, #050d0a 0%, rgba(5, 13, 10, 0) 100%);
+            pointer-events: none;
+        }
+
+        .mobile-hook-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .mobile-hook-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            color: var(--carousel-gold);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 2.8px;
+            text-transform: uppercase;
+        }
+
+        .mobile-hook-eyebrow::before {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.8;
+        }
+
+        .mobile-hook-title {
+            max-width: 360px;
+            margin: 0 0 14px;
+            font-family: 'Cinzel', serif;
+            font-size: 2.55rem;
+            font-weight: 500;
+            line-height: 1.04;
+            color: #fff;
+            text-shadow: 0 14px 35px rgba(0,0,0,0.65);
+        }
+
+        .mobile-hook-copy {
+            max-width: 350px;
+            margin: 0 0 20px;
+            color: rgba(255,255,255,0.82);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        .mobile-hook-actions {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .mobile-hook-btn {
+            display: inline-flex;
+            min-height: 46px;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 12px;
+            border-radius: 3px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            line-height: 1.2;
+            text-decoration: none;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .mobile-hook-btn.primary {
+            background: var(--carousel-gold);
+            color: #050d0a;
+            box-shadow: 0 14px 30px rgba(212, 175, 55, 0.24);
+        }
+
+        .mobile-hook-btn.secondary {
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.34);
+            background: rgba(5, 13, 10, 0.48);
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-hook-proof {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .mobile-hook-proof span {
+            display: flex;
+            min-height: 54px;
+            align-items: center;
+            justify-content: center;
+            padding: 9px 7px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(0,0,0,0.34);
+            color: rgba(255,255,255,0.82);
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            line-height: 1.35;
+            text-align: center;
+            text-transform: uppercase;
+            backdrop-filter: blur(12px);
+        }
+
+        .mobile-hook-trips {
+            display: flex;
+            gap: 10px;
+            margin: 0 -18px;
+            padding: 0 18px 6px;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .mobile-hook-trips::-webkit-scrollbar {
+            display: none;
+        }
+
+        .mobile-trip-card {
+            flex: 0 0 158px;
+            min-height: 106px;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.16);
+            background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+            backdrop-filter: blur(16px);
+            scroll-snap-align: start;
+        }
+
+        .mobile-trip-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            font-size: 0.95rem;
+            line-height: 1.18;
+            font-weight: 600;
+        }
+
+        .mobile-trip-card span {
+            display: block;
+            color: rgba(255,255,255,0.68);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            line-height: 1.45;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .mobile-scroll-cue {
+            margin-top: 10px;
+            color: rgba(255,255,255,0.52);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
         /* Final Call to Action Section styling */
         .cin-final-section {
             min-height: 70vh;
@@ -425,6 +627,120 @@
             .cin-final-section h2 { font-size: 2.2rem; }
             .luxury-brand-badge { font-size: 0.8rem; letter-spacing: 4px; }
         }
+
+        @media (max-width: 768px) {
+            .navbar {
+                min-height: 82px;
+                padding: 8px 14px;
+            }
+
+            .main-logo-img {
+                height: 58px;
+            }
+
+            .logo-container {
+                padding: 5px;
+            }
+
+            .logo-container::before {
+                width: 88px;
+                height: 88px;
+            }
+
+            .mobile-home-hook {
+                display: flex;
+                min-height: 100svh;
+                align-items: flex-end;
+                padding: 86px 18px 22px;
+                box-sizing: border-box;
+            }
+
+            .mobile-hook-title {
+                font-size: 2.38rem;
+            }
+
+            .luxury-carousel-hero {
+                min-height: auto;
+                padding-top: 34px;
+                padding-bottom: 32px;
+            }
+
+            .luxury-hero-container {
+                gap: 18px;
+                padding-top: 0;
+            }
+
+            .luxury-hero-left {
+                display: none;
+            }
+
+            .mobile-carousel-intro {
+                display: block;
+                width: 100%;
+                max-width: 330px;
+                margin: 0 auto 4px;
+                text-align: center;
+            }
+
+            .mobile-carousel-intro span {
+                display: block;
+                color: var(--carousel-gold);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.62rem;
+                font-weight: 700;
+                letter-spacing: 2.5px;
+                text-transform: uppercase;
+            }
+
+            .mobile-carousel-intro strong {
+                display: block;
+                margin-top: 6px;
+                color: #fff;
+                font-family: 'Cinzel', serif;
+                font-size: 1.45rem;
+                font-weight: 500;
+                line-height: 1.2;
+            }
+
+            .luxury-carousel-right {
+                height: 300px;
+            }
+
+            .luxury-carousel-track-wrapper {
+                margin-top: 2px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .mobile-home-hook {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .mobile-hook-title {
+                font-size: 2.16rem;
+            }
+
+            .mobile-hook-copy {
+                font-size: 0.84rem;
+            }
+
+            .mobile-hook-btn {
+                font-size: 0.61rem;
+                letter-spacing: 1px;
+            }
+
+            .mobile-hook-trips {
+                margin-left: -14px;
+                margin-right: -14px;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .mobile-trip-card {
+                flex-basis: 146px;
+            }
+        }
         /* ========== Destinations Showcase Section ========== */
         .destinations-showcase {
             background: #07130f;
@@ -476,8 +792,8 @@
         .discovery-block {
             display: flex;
             align-items: center;
-            gap: 80px;
-            margin-bottom: 150px;
+            gap: 50px;
+            margin-bottom: 100px;
             opacity: 0;
             transform: translateY(50px);
             transition: all 1s cubic-bezier(0.2, 0.85, 0.3, 1);
@@ -495,10 +811,10 @@
         .discovery-image-wrapper {
             flex: 1;
             position: relative;
-            height: 600px;
+            height: 480px;
             overflow: hidden;
             border-radius: 4px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .discovery-image {
@@ -527,17 +843,17 @@
 
         .discovery-title {
             font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            margin-bottom: 30px;
+            font-size: 2.6rem;
+            margin-bottom: 25px;
             line-height: 1.2;
         }
 
         .discovery-desc {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.05rem;
+            line-height: 1.7;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .why-visit-list {
@@ -615,6 +931,7 @@
             }
         }
     </style>
+    <link rel="icon" type="image/png" href="assets/indtara logo.png">
 </head>
 
 <body class="theme-india">
@@ -622,7 +939,7 @@
     <!-- Preloader (Home Page Only) -->
     <div id="preloader">
         <div class="loader-content">
-            <div class="loader-logo">INDTARA</div>
+            <img src="assets/indtara logo.png" alt="Indtara Travels" class="loader-logo-img">
             <div class="loader-bar"></div>
         </div>
     </div>
@@ -656,7 +973,7 @@
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar">
         <div class="logo-container" onclick="window.location.href='index.html'">
-            <img src="assets/INDTARA LOGO MAIN.png" alt="Indtara Travels" class="main-logo-img">
+            <img src="assets/indtara logo.png" alt="Indtara Travels" class="main-logo-img">
         </div>
         <div class="nav-right">
             <div class="language-picker">
@@ -686,6 +1003,38 @@
 
     <!-- ========== MAIN CONTENT ========== -->
     <main>
+        <!-- Mobile-first Hook Section -->
+        <section class="mobile-home-hook" aria-label="Indtara travel planning">
+            <div class="mobile-hook-inner">
+                <span class="mobile-hook-eyebrow" data-i18n="mobile_hook_eyebrow">Tailor-Made Luxury Travel</span>
+                <h1 class="mobile-hook-title" data-i18n="mobile_hook_title">Luxury Trips, Planned Personally For You</h1>
+                <p class="mobile-hook-copy" data-i18n="mobile_hook_copy">Handpicked holidays across India and beyond, with stays, transfers, experiences, and support arranged end-to-end.</p>
+                <div class="mobile-hook-actions" aria-label="Primary travel actions">
+                    <a href="#contact" class="mobile-hook-btn primary" data-i18n="mobile_hook_primary">Plan My Trip</a>
+                    <a href="#all-destinations" class="mobile-hook-btn secondary" data-i18n="mobile_hook_secondary">Explore</a>
+                </div>
+                <div class="mobile-hook-proof" aria-label="Indtara highlights">
+                    <span data-i18n="mobile_hook_proof_1">Custom Itineraries</span>
+                    <span data-i18n="mobile_hook_proof_2">Luxury Stays</span>
+                    <span data-i18n="mobile_hook_proof_3">24/7 Support</span>
+                </div>
+                <div class="mobile-hook-trips" aria-label="Popular trip styles">
+                    <article class="mobile-trip-card">
+                        <strong data-i18n="mobile_trip_1_title">Honeymoon Escapes</strong>
+                        <span data-i18n="mobile_trip_1_desc">Maldives, Mauritius, Dubai</span>
+                    </article>
+                    <article class="mobile-trip-card">
+                        <strong data-i18n="mobile_trip_2_title">Family Holidays</strong>
+                        <span data-i18n="mobile_trip_2_desc">Singapore, Thailand, Malaysia</span>
+                    </article>
+                    <article class="mobile-trip-card">
+                        <strong data-i18n="mobile_trip_3_title">Culture & Nature</strong>
+                        <span data-i18n="mobile_trip_3_desc">India, Vietnam, Thailand</span>
+                    </article>
+                </div>
+                <div class="mobile-scroll-cue" data-i18n="mobile_hook_scroll">Swipe and scroll to discover more</div>
+            </div>
+        </section>
         
         <!-- Premium Infinite Luxury Carousel Hero Section -->
         <section class="luxury-carousel-hero">
@@ -705,6 +1054,11 @@
                     </div>
                 </div>
 
+                <div class="mobile-carousel-intro">
+                    <span data-i18n="mobile_carousel_label">Popular Escapes</span>
+                    <strong data-i18n="mobile_carousel_title">Swipe Through Destinations</strong>
+                </div>
+
                 <!-- Right Carousel Showcase -->
                 <div class="luxury-carousel-right">
                     <button class="carousel-nav-btn nav-prev" onclick="rotateCarousel(-1)" aria-label="Previous Destination">‹</button>
@@ -714,7 +1068,7 @@
                         <div class="carousel-card" data-index="0" data-href="india.html">
                             <img src="assets/palace.png" alt="India">
                             <div class="card-meta">
-                                <div class="card-flag">🇮🇳</div>
+                                <div class="card-flag"><span class="flag-icon flag-icon-in"></span></div>
                                 <div class="card-title">India</div>
                             </div>
                         </div>
@@ -723,7 +1077,7 @@
                         <div class="carousel-card" data-index="1" data-href="thailand.html">
                             <img src="assets/thailand_island.png" alt="Thailand">
                             <div class="card-meta">
-                                <div class="card-flag">🇹🇭</div>
+                                <div class="card-flag"><span class="flag-icon flag-icon-th"></span></div>
                                 <div class="card-title">Thailand</div>
                             </div>
                         </div>
@@ -732,7 +1086,7 @@
                         <div class="carousel-card" data-index="2" data-href="singapore.html">
                             <img src="assets/singapore_skyline.png" alt="Singapore">
                             <div class="card-meta">
-                                <div class="card-flag">🇸🇬</div>
+                                <div class="card-flag"><span class="flag-icon flag-icon-sg"></span></div>
                                 <div class="card-title">Singapore</div>
                             </div>
                         </div>
@@ -741,7 +1095,7 @@
                         <div class="carousel-card" data-index="3" data-href="malaysia.html">
                             <img src="assets/malaysia_petronas.png" alt="Malaysia">
                             <div class="card-meta">
-                                <div class="card-flag">🇲🇾</div>
+                                <div class="card-flag"><span class="flag-icon flag-icon-my"></span></div>
                                 <div class="card-title">Malaysia</div>
                             </div>
                         </div>
@@ -750,7 +1104,7 @@
                         <div class="carousel-card" data-index="4" data-href="dubai.html">
                             <img src="assets/dubai_burj.png" alt="Dubai">
                             <div class="card-meta">
-                                <div class="card-flag">🇦🇪</div>
+                                <div class="card-flag"><span class="flag-icon flag-icon-ae"></span></div>
                                 <div class="card-title">Dubai</div>
                             </div>
                         </div>
@@ -759,7 +1113,7 @@
                         <div class="carousel-card" data-index="5" data-href="vietnam.html">
                             <img src="assets/vietnam_halong_bay.png" alt="Vietnam">
                             <div class="card-meta">
-                                <div class="card-flag">🇻🇳</div>
+                                <div class="card-flag"><span class="flag-icon flag-icon-vn"></span></div>
                                 <div class="card-title">Vietnam</div>
                             </div>
                         </div>
@@ -768,7 +1122,7 @@
                         <div class="carousel-card" data-index="6" data-href="maldives.html">
                             <img src="assets/maldives_ocean_view.png" alt="Maldives">
                             <div class="card-meta">
-                                <div class="card-flag">🇲🇻</div>
+                                <div class="card-flag"><span class="flag-icon flag-icon-mv"></span></div>
                                 <div class="card-title">Maldives</div>
                             </div>
                         </div>
@@ -777,7 +1131,7 @@
                         <div class="carousel-card" data-index="7" data-href="mauritius.html">
                             <img src="assets/safari.png" alt="Mauritius">
                             <div class="card-meta">
-                                <div class="card-flag">🇲🇺</div>
+                                <div class="card-flag"><span class="flag-icon flag-icon-mu"></span></div>
                                 <div class="card-title">Mauritius</div>
                             </div>
                         </div>
@@ -795,6 +1149,78 @@
                     <div class="track-line-progress" id="track-progress-bar"></div>
                 </div>
                 <span class="track-num track-total">08</span>
+            </div>
+        </section>
+
+        <!-- Horizontal Country Marquee -->
+        <div class="country-marquee">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-in"></span> <span class="marquee-name">India</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-th"></span> <span class="marquee-name">Thailand</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-sg"></span> <span class="marquee-name">Singapore</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-my"></span> <span class="marquee-name">Malaysia</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-ae"></span> <span class="marquee-name">Dubai</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-vn"></span> <span class="marquee-name">Vietnam</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-mv"></span> <span class="marquee-name">Maldives</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-mu"></span> <span class="marquee-name">Mauritius</span></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-in"></span> <span class="marquee-name">India</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-th"></span> <span class="marquee-name">Thailand</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-sg"></span> <span class="marquee-name">Singapore</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-my"></span> <span class="marquee-name">Malaysia</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-ae"></span> <span class="marquee-name">Dubai</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-vn"></span> <span class="marquee-name">Vietnam</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-mv"></span> <span class="marquee-name">Maldives</span></div>
+                <div class="marquee-item"><span class="marquee-flag flag-icon flag-icon-mu"></span> <span class="marquee-name">Mauritius</span></div>
+            </div>
+        </div>
+
+        <!-- Premium Animated Stats Bar -->
+        <section class="stats-bar-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <div class="stat-number" data-target="12000">0</div>
+                    <div class="stat-label">Happy Travelers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M2 12h20" />
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                    </div>
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Global Destinations</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">Expert Guides</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
             </div>
         </section>
 

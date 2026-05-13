@@ -299,4 +299,55 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Counter Animation for Stats Bar ---
+    const statsSection = document.querySelector('.stats-bar-section');
+    const counters = document.querySelectorAll('.stat-number');
+    let animated = false;
+
+    if (statsSection && counters.length > 0) {
+        const countTo = (el) => {
+            const target = +el.getAttribute('data-target');
+            const duration = 2000; // 2 seconds
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function (easeOutExpo)
+                const easedProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                
+                const currentCount = Math.floor(easedProgress * target);
+                
+                if (target >= 1000) {
+                    el.innerText = (currentCount / 1000).toFixed(currentCount % 1000 === 0 ? 0 : 1) + 'k+';
+                } else {
+                    el.innerText = currentCount + (target === 15 || target === 25 ? '+' : '');
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCount);
+                } else {
+                    // Final value check
+                    if (target >= 1000) {
+                        el.innerText = (target / 1000).toFixed(0) + 'k+';
+                    } else {
+                        el.innerText = target + (target === 15 || target === 25 ? '+' : '');
+                    }
+                }
+            };
+
+            requestAnimationFrame(updateCount);
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !animated) {
+                counters.forEach(counter => countTo(counter));
+                animated = true;
+            }
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
+    }
 });
