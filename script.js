@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
 
         const track = document.querySelector('.horizontal-track');
-        if (track) {
+        if (track && window.innerWidth > 900) {
             let horizontalScroll = track.scrollWidth - window.innerWidth;
             
             gsap.to(track, {
@@ -271,33 +271,35 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: 'power4.out'
         });
 
-        // Mouse parallax for cards
-        document.querySelectorAll('.destination-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+        // Mouse parallax for cards (desktop only)
+        if (window.innerWidth > 900) {
+            document.querySelectorAll('.destination-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
 
-                const rotateY = ((x / rect.width) - 0.5) * 20;
-                const rotateX = ((y / rect.height) - 0.5) * -20;
+                    const rotateY = ((x / rect.width) - 0.5) * 20;
+                    const rotateX = ((y / rect.height) - 0.5) * -20;
 
-                card.style.transform = `
-                    rotateY(${rotateY}deg)
-                    rotateX(${rotateX}deg)
-                    translateY(-15px)
-                    scale(1.02)
-                `;
+                    card.style.transform = `
+                        rotateY(${rotateY}deg)
+                        rotateX(${rotateX}deg)
+                        translateY(-15px)
+                        scale(1.02)
+                    `;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `
+                        rotateY(0deg)
+                        rotateX(0deg)
+                        translateY(0px)
+                        scale(1)
+                    `;
+                });
             });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `
-                    rotateY(0deg)
-                    rotateX(0deg)
-                    translateY(0px)
-                    scale(1)
-                `;
-            });
-        });
+        }
     }
 
     // --- Counter Animation for Stats Bar ---

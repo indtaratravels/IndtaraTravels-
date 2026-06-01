@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Travel Packages | Indtara Travels</title>
+    <meta name="description" content="Explore our handpicked luxury travel packages across the globe.">
+    <link rel="stylesheet" href="styles.css\?v=1.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <style>
+        .packages-hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(5, 13, 10, 0.6), #050d0a), url('assets/palace.png') center/cover;
+            padding-top: 100px;
+        }
+
+        .packages-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: #D4AF37;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .filter-section {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 110px;
+            z-index: 100;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #fff;
+            padding: 8px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: #D4AF37;
+            color: #000;
+            border-color: #D4AF37;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 60px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .packages-hero h1 { font-size: 2.5rem; }
+            .filter-section { top: 80px; }
+        }
+    </style>
+    <script src="components.js" defer></script>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Top Header -->
+    
+
+    
+
+    <header class="packages-hero">
+        <h1 data-i18n="packages_title">Luxury Packages</h1>
+        <p data-i18n="packages_desc">Handcrafted itineraries designed for the discerning traveler.</p>
+    </header>
+
+    <div class="filter-section" id="package-filters">
+        <button class="filter-btn active" data-country="all">All Destinations</button>
+        <button class="filter-btn" data-country="india">India</button>
+        <button class="filter-btn" data-country="dubai">Dubai</button>
+        <button class="filter-btn" data-country="thailand">Thailand</button>
+        <button class="filter-btn" data-country="singapore">Singapore</button>
+        <button class="filter-btn" data-country="vietnam">Vietnam</button>
+        <button class="filter-btn" data-country="maldives">Maldives</button>
+    </div>
+
+    <main class="packages-grid" id="packages-container">
+        <!-- Packages will be injected here -->
+    </main>
+
+    
+
+    <script src="packages.js"></script>
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('packages-container');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            function renderPackages(country = 'all') {
+                container.innerHTML = '';
+                
+                let packagesToRender = [];
+                if (country === 'all') {
+                    Object.values(travelPackages).forEach(countryPackages => {
+                        packagesToRender = [...packagesToRender, ...countryPackages];
+                    });
+                } else {
+                    packagesToRender = travelPackages[country] || [];
+                }
+
+                packagesToRender.forEach((pkg, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'package-card';
+                    card.innerHTML = `
+                        <div class="package-image-container">
+                            <img src="${pkg.image}" alt="${pkg.title}">
+                            <div class="package-price-badge">${pkg.price}</div>
+                        </div>
+                        <div class="package-body">
+                            <span class="package-duration-tag">${pkg.duration}</span>
+                            <h3 class="package-title-text">${pkg.title}</h3>
+                            <ul class="package-highlights-list">
+                                ${pkg.highlights.map(h => `<li>${h}</li>`).join('')}
+                            </ul>
+                            <div class="package-btn-group">
+                                <a href="package-details.html?id=${pkg.id}" class="package-btn package-btn-outline">Details</a>
+                                <a href="package-details.html?id=${pkg.id}#booking" class="package-btn package-btn-solid">Enquire</a>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                    
+                    // Use ScrollTrigger so it fades in when scrolled into view, instead of a massive delay
+                    gsap.from(card, {
+                        scrollTrigger: {
+                            trigger: card,
+                            start: "top 95%",
+                            toggleActions: "play none none none"
+                        },
+                        opacity: 0,
+                        y: 30,
+                        duration: 0.6,
+                        ease: 'power2.out'
+                    });
+                });
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderPackages(btn.dataset.country);
+                });
+            });
+
+            renderPackages();
+        });
+    </script>
+    <div id="footer-placeholder"></div>
+</body>
+</html>
+
+

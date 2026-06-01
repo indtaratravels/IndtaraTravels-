@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
     <title>Indtara Travels | Crafted Luxury Journeys</title>
     <meta name="description"
         content="Discover the world in a way you've never imagined. Crafted luxury travel experiences across India, Thailand, Dubai, and beyond.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css\?v=1.2">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,7 +154,7 @@
         }
 
         .luxury-link-all::after {
-            content: '→';
+            content: 'â†’';
             font-size: 1.1rem;
             transition: transform 0.3s ease;
         }
@@ -661,53 +661,83 @@
 
             .luxury-carousel-hero {
                 min-height: auto;
-                padding-top: 34px;
-                padding-bottom: 32px;
+                padding-top: 130px !important;
+                padding-bottom: 40px !important;
             }
 
             .luxury-hero-container {
-                gap: 18px;
+                gap: 25px !important;
                 padding-top: 0;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
             }
 
             .luxury-hero-left {
-                display: none;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 100% !important;
+                padding: 0 15px !important;
             }
 
-            .mobile-carousel-intro {
-                display: block;
-                width: 100%;
-                max-width: 330px;
-                margin: 0 auto 4px;
-                text-align: center;
+            .luxury-brand-badge {
+                font-size: 0.65rem !important;
+                letter-spacing: 3px !important;
+                margin-bottom: 12px !important;
+                display: inline-block !important;
+                text-align: center !important;
             }
 
-            .mobile-carousel-intro span {
-                display: block;
-                color: var(--carousel-gold);
-                font-family: 'Montserrat', sans-serif;
-                font-size: 0.62rem;
-                font-weight: 700;
-                letter-spacing: 2.5px;
-                text-transform: uppercase;
+            .luxury-hero-title {
+                font-size: 2.2rem !important;
+                line-height: 1.25 !important;
+                letter-spacing: 2px !important;
+                margin-bottom: 12px !important;
+                font-family: var(--font-heading) !important;
+                text-align: center !important;
             }
 
-            .mobile-carousel-intro strong {
-                display: block;
-                margin-top: 6px;
-                color: #fff;
-                font-family: 'Cinzel', serif;
-                font-size: 1.45rem;
-                font-weight: 500;
-                line-height: 1.2;
+            .luxury-hero-desc {
+                font-size: 0.8rem !important;
+                line-height: 1.5 !important;
+                margin-bottom: 20px !important;
+                max-width: 320px !important;
+                opacity: 0.8 !important;
+                text-align: center !important;
+            }
+
+            .luxury-hero-actions {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+                width: 100% !important;
+                max-width: 280px !important;
+                align-items: center !important;
+                margin: 0 auto !important;
+            }
+
+            .luxury-btn-explore {
+                width: 100% !important;
+                padding: 12px 20px !important;
+                font-size: 0.75rem !important;
+                letter-spacing: 2px !important;
+            }
+
+            .watch-video-btn {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 8px 15px !important;
             }
 
             .luxury-carousel-right {
-                height: 300px;
+                height: 340px !important;
+                margin-top: 10px !important;
             }
 
             .luxury-carousel-track-wrapper {
-                margin-top: 2px;
+                margin-top: 10px !important;
             }
         }
 
@@ -950,7 +980,7 @@
         <ul class="top-nav-links">
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
-                <a href="#">Travel <span class="dropdown-arrow">▾</span></a>
+                <a href="#">Travel <span class="dropdown-arrow">â–¾</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="india.html">India</a></li>
                     <li><a href="thailand.html">Thailand</a></li>
@@ -980,7 +1010,7 @@
             <div class="language-picker">
                 <select id="language-selector">
                     <option value="en">English</option>
-                    <option value="es">Español</option>
+                    <option value="es">EspaÃ±ol</option>
                     <option value="it">Italiano</option>
                 </select>
             </div>
@@ -1114,7 +1144,7 @@
 
                 <!-- Right Carousel Showcase -->
                 <div class="luxury-carousel-right">
-                    <button class="carousel-nav-btn nav-prev" onclick="rotateCarousel(-1)" aria-label="Previous Destination">‹</button>
+                    <button class="carousel-nav-btn nav-prev" onclick="rotateCarousel(-1)" aria-label="Previous Destination">â€¹</button>
                     
                     <div class="carousel-3d-container" id="carousel-track">
                         <!-- Card 0: India -->
@@ -1190,7 +1220,7 @@
                         </div>
                     </div>
 
-                    <button class="carousel-nav-btn nav-next" onclick="rotateCarousel(1)" aria-label="Next Destination">›</button>
+                    <button class="carousel-nav-btn nav-next" onclick="rotateCarousel(1)" aria-label="Next Destination">â€º</button>
                 </div>
 
             </div>
@@ -1546,7 +1576,7 @@
                     
                     <button type="submit" class="hero-cta">
                         <span>SEND ENQUIRY</span>
-                        <span class="arrow">→</span>
+                        <span class="arrow">â†’</span>
                     </button>
                 </form>
             </div>
@@ -1816,3 +1846,4 @@
 </body>
 
 </html>
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
     <title>Dubai | Indtara Travels</title>
     <meta name="description"
         content="Discover the luxury of Dubai with Indtara Travels. Curated journeys through desert dunes and architectural wonders.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css\?v=1.2">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,64 +18,15 @@
     <!-- Preload Hero Image -->
     <link rel="preload" as="image" href="assets/dubai_burj.png" fetchpriority="high">
     <link rel="icon" type="image/png" href="assets/indtara logo.png">
+    <script src="components.js" defer></script>
 </head>
 
 <body class="theme-dubai">
+    <div id="header-placeholder"></div>
 
-    <header class="top-header">
-        <ul class="top-nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#">Travel <span class="dropdown-arrow">?</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="india.html">India</a></li>
-                    <li><a href="thailand.html">Thailand</a></li>
-                    <li><a href="singapore.html">Singapore</a></li>
-                    <li><a href="malaysia.html">Malaysia</a></li>
-                    <li><a href="dubai.html">Dubai</a></li>
-                    <li><a href="vietnam.html">Vietnam</a></li>
-                    <li><a href="maldives.html">Maldives</a></li>
-                    <li><a href="mauritius.html">Mauritius</a></li>
-                </ul>
-            </li>
-            <li><a href="#packages">Packages</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="top-right-links">
-            <a href="login.html" class="login-nav-link">Login/Register</a>
-        </div>
-    </header>
+    
 
-    <nav class="navbar">
-        <div class="logo-container" onclick="window.location.href='index.html'">
-            <img src="assets/indtara logo.png" alt="Indtara Travels" class="main-logo-img">
-        </div>
-        <div class="nav-right">
-            <div class="language-picker">
-                <select id="language-selector">
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="it">Italiano</option>
-                </select>
-            </div>
-            <ul class="nav-links">
-                <li><a href="india.html" data-i18n="nav_india">India</a></li>
-                <li><a href="thailand.html" data-i18n="nav_thailand">Thailand</a></li>
-                <li><a href="singapore.html" data-i18n="nav_singapore">Singapore</a></li>
-                <li><a href="malaysia.html" data-i18n="nav_malaysia">Malaysia</a></li>
-                <li><a href="dubai.html" class="active" data-i18n="nav_dubai">Dubai</a></li>
-                <li><a href="vietnam.html" data-i18n="nav_vietnam">Vietnam</a></li>
-                <li><a href="maldives.html" data-i18n="nav_maldives">Maldives</a></li>
-                <li><a href="mauritius.html" data-i18n="nav_mauritius">Mauritius</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    
 
     <main>
         <!-- Hero Section -->
@@ -239,18 +190,54 @@
                 <p class="bold-text" data-i18n="footer_bold">ALL YOU HAVE TO DO IS LIVE IT.</p>
             </div>
         </section>
-    </main>
+    
+        <!-- Available Packages Section -->
+        <section class="packages-section" id="packages">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 60px; font-family: 'Cinzel', serif; font-size: 3rem; color: #D4AF37; text-transform: uppercase; letter-spacing: 4px;">Exclusive Dubai Packages</h2>
+                <div id="dubai-packages-grid" class="packages-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                    <!-- Packages will be injected here -->
+                </div>
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="packages.html" class="discovery-btn" style="padding: 15px 40px; border: 1px solid #D4AF37; color: #D4AF37; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease;">VIEW ALL GLOBAL PACKAGES</a>
+                </div>
+            </div>
+        </section>
 
-    <footer class="site-footer">
-        <div class="footer-links">
-            <a href="legal-notice.html" data-i18n="legal_notice">Legal Notice</a>
-            <a href="privacy-policy.html" data-i18n="privacy_policy">Privacy Policy</a>
-            <a href="cookie-policy.html" data-i18n="cookie_policy">Cookie Policy</a>
-            <a href="terms-and-conditions.html" data-i18n="terms_conditions">Terms & Conditions</a>
-            <a href="cancellation-policy.html" data-i18n="cancellation_policy">Cancellation Policy</a>
-        </div>
-        <p class="copyright">&copy; 2026 INDTARA TRAVELS. ALL RIGHTS RESERVED.</p>
-    </footer>
+        <script src="packages.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('dubai-packages-grid');
+                if (!container) return;
+                const countryPackages = travelPackages['dubai'] || [];
+                
+                countryPackages.forEach(pkg => {
+                    const card = document.createElement('div');
+                    card.className = 'package-card';
+                    card.innerHTML = `
+                        <div class="package-image-container">
+                            <img src="${pkg.image}" alt="${pkg.title}">
+                            <div class="package-price-badge">${pkg.price}</div>
+                        </div>
+                        <div class="package-body">
+                            <span class="package-duration-tag">${pkg.duration}</span>
+                            <h3 class="package-title-text">${pkg.title}</h3>
+                            <ul class="package-highlights-list">
+                                ${pkg.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}
+                            </ul>
+                            <div class="package-btn-group">
+                                <a href="package-details.html?id=${pkg.id}" class="package-btn package-btn-outline">Details</a>
+                                <a href="#contact" class="package-btn package-btn-solid">Enquire</a>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            });
+        </script>
+      </main>
+
+    
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner">
@@ -270,7 +257,9 @@
     <script src="translations.js"></script>
     <script src="i18n.js"></script>
     <script src="script.js"></script>
+    <div id="footer-placeholder"></div>
 </body>
 
 </html>
+
 

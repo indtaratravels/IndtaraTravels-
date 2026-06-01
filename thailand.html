@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
     <title>Thailand | Indtara Travels</title>
     <meta name="description"
         content="Discover the Land of Smiles with Indtara Travels. Luxury curated journeys through Thailand's temples and islands.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css\?v=1.2">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,178 +16,70 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <!-- Preload Hero Image -->
-    <link rel="preload" as="image" href="assets/thailand_temple.png" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/thailand_island.png" fetchpriority="high">
     <link rel="icon" type="image/png" href="assets/indtara logo.png">
+    <script src="components.js" defer></script>
 </head>
 
 <body class="theme-thailand">
-
-    <header class="top-header">
-        <ul class="top-nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#">Travel <span class="dropdown-arrow">?</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="india.html">India</a></li>
-                    <li><a href="thailand.html">Thailand</a></li>
-                    <li><a href="singapore.html">Singapore</a></li>
-                    <li><a href="malaysia.html">Malaysia</a></li>
-                    <li><a href="dubai.html">Dubai</a></li>
-                    <li><a href="vietnam.html">Vietnam</a></li>
-                    <li><a href="maldives.html">Maldives</a></li>
-                    <li><a href="mauritius.html">Mauritius</a></li>
-                </ul>
-            </li>
-            <li><a href="#packages">Packages</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="top-right-links">
-            <a href="login.html" class="login-nav-link">Login/Register</a>
-        </div>
-    </header>
-
-    <nav class="navbar">
-        <div class="logo-container" onclick="window.location.href='index.html'">
-            <img src="assets/indtara logo.png" alt="Indtara Travels" class="main-logo-img">
-        </div>
-        <div class="nav-right">
-            <div class="language-picker">
-                <select id="language-selector">
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="it">Italiano</option>
-                </select>
-            </div>
-            <ul class="nav-links">
-                <li><a href="india.html" data-i18n="nav_india">India</a></li>
-                <li><a href="thailand.html" class="active" data-i18n="nav_thailand">Thailand</a></li>
-                <li><a href="singapore.html" data-i18n="nav_singapore">Singapore</a></li>
-                <li><a href="malaysia.html" data-i18n="nav_malaysia">Malaysia</a></li>
-                <li><a href="dubai.html" data-i18n="nav_dubai">Dubai</a></li>
-                <li><a href="vietnam.html" data-i18n="nav_vietnam">Vietnam</a></li>
-                <li><a href="maldives.html" data-i18n="nav_maldives">Maldives</a></li>
-                <li><a href="mauritius.html" data-i18n="nav_mauritius">Mauritius</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="mandala-bg">
-                <svg viewBox="0 0 800 800" class="mandala-svg">
-                    <circle cx="400" cy="400" r="350" fill="none" stroke="var(--color-accent-glow)" stroke-width="0.5" />
-                </svg>
+        <section class="hero-section thailand-hero">
+            <div class="hero-bg-overlay"></div>
+            
+            <div class="hero-content-container">
+                <h1 class="hero-title" data-i18n="thailand_h1">THAILAND</h1>
+                <h2 class="hero-subtitle" data-i18n="thailand_h2">Serene & Bold</h2>
+                
+                <div class="hero-cta-wrapper" style="margin-top: 20px;">
+                    <a href="#contact" class="hero-btn-primary" data-i18n="thailand_btn">EXPLORE THAILAND &rarr;</a>
+                </div>
             </div>
 
-            <div class="hero-collage">
-                <div class="main-arch-wrapper">
-                    <div class="main-arch-border"></div>
-                    <div class="arch-top-icon">
-                        <svg viewBox="0 0 24 24" fill="var(--color-accent)">
-                            <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
+            <!-- Bottom Glassmorphic Capsules Row -->
+            <div class="bottom-features-row">
+                <div class="feature-capsule-item">
+                    <div class="feature-capsule-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5">
+                            <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" fill="rgba(var(--color-accent-rgb), 0.1)"/>
                         </svg>
                     </div>
-                    <div class="main-arch-image" style="background-image: url('assets/thailand_temple.png');"></div>
-                    <div class="main-arch-overlay"></div>
-                </div>
-
-                <div class="hero-foreground">
-                    <!-- Left Arch: Islands -->
-                    <div class="side-arch-container arch-left-container">
-                        <div class="side-arch">
-                            <div class="side-arch-image" style="background-image: url('assets/thailand_island.png');"></div>
-                            <div class="side-arch-overlay"></div>
-                            <div class="side-arch-content">
-                                <h3 data-i18n="islands_title">ISLANDS</h3>
-                                <p data-i18n="islands_desc">Turquoise paradise</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Center Text -->
-                    <div class="center-text">
-                        <div class="tagline-container">
-                            <span class="tagline-line" style="background: var(--color-accent);"></span>
-                            <svg class="tagline-icon" viewBox="0 0 24 24" fill="var(--color-accent)">
-                                <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
-                            </svg>
-                            <span class="tagline-line" style="background: var(--color-accent);"></span>
-                        </div>
-                        <p class="hero-tagline" data-i18n="hero_tagline">DISCOVER THE SOUL OF</p>
-                        <h1 data-i18n="thailand_h1">THAILAND,</h1>
-                        <h2 class="reimagined" data-i18n="thailand_h2">SERENE & BOLD</h2>
-                        <p class="hero-description" data-i18n="thailand_desc">Discover the Land of Smiles through its majestic temples, lush islands, and vibrant culture.</p>
-                        <div class="diamond-divider">
-                            <span class="diamond" style="background: var(--color-accent);"></span>
-                        </div>
-                        <a href="#contact" class="hero-cta">
-                            <span data-i18n="thailand_btn">EXPLORE THAILAND</span>
-                            <span class="arrow">?</span>
-                        </a>
-                    </div>
-
-                    <!-- Right Arch: Culture -->
-                    <div class="side-arch-container arch-right-container">
-                        <div class="side-arch">
-                            <div class="side-arch-image" style="background-image: url('assets/thailand_culture.png');"></div>
-                            <div class="side-arch-overlay"></div>
-                            <div class="side-arch-content">
-                                <h3 data-i18n="culture_title">CULTURE</h3>
-                                <p data-i18n="culture_desc">Live the traditions</p>
-                            </div>
-                        </div>
+                    <div class="feature-capsule-text">
+                        <span class="feature-capsule-title" data-i18n="feature_curated">CURATED EXPERIENCES</span>
                     </div>
                 </div>
-
-                <div class="features-capsule">
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_curated">CURATED<br>Experiences</h4>
-                        </div>
+                <div class="feature-capsule-item">
+                    <div class="feature-capsule-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="rgba(var(--color-accent-rgb), 0.1)"/>
+                        </svg>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_authentic">AUTHENTIC<br>Connections</h4>
-                        </div>
+                    <div class="feature-capsule-text">
+                        <span class="feature-capsule-title" data-i18n="feature_authentic">AUTHENTIC CONNECTIONS</span>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="var(--color-accent-glow)"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_responsible">RESPONSIBLE<br>Travel</h4>
-                        </div>
+                </div>
+                <div class="feature-capsule-item">
+                    <div class="feature-capsule-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(var(--color-accent-rgb), 0.1)"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                <circle cx="12" cy="7" r="4" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_personalized">PERSONALIZED<br>Just for you</h4>
-                        </div>
+                    <div class="feature-capsule-text">
+                        <span class="feature-capsule-title" data-i18n="feature_responsible">RESPONSIBLE TRAVEL</span>
+                    </div>
+                </div>
+                <div class="feature-capsule-item">
+                    <div class="feature-capsule-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" fill="rgba(var(--color-accent-rgb), 0.1)"/>
+                        </svg>
+                    </div>
+                    <div class="feature-capsule-text">
+                        <span class="feature-capsule-title" data-i18n="feature_personalized">PERSONALIZED JUST FOR YOU</span>
                     </div>
                 </div>
             </div>
@@ -239,18 +131,52 @@
                 <p class="bold-text" data-i18n="footer_bold">ALL YOU HAVE TO DO IS LIVE IT.</p>
             </div>
         </section>
-    </main>
+    
+        <!-- Available Packages Section -->
+        <section class="packages-section" id="packages">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 60px; font-family: 'Cinzel', serif; font-size: 3rem; color: #D4AF37; text-transform: uppercase; letter-spacing: 4px;">Exclusive Thailand Packages</h2>
+                <div id="thailand-packages-grid" class="packages-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                    <!-- Packages will be injected here -->
+                </div>
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="packages.html" class="discovery-btn" style="padding: 15px 40px; border: 1px solid #D4AF37; color: #D4AF37; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease;">VIEW ALL GLOBAL PACKAGES</a>
+                </div>
+            </div>
+        </section>
 
-    <footer class="site-footer">
-        <div class="footer-links">
-            <a href="legal-notice.html" data-i18n="legal_notice">Legal Notice</a>
-            <a href="privacy-policy.html" data-i18n="privacy_policy">Privacy Policy</a>
-            <a href="cookie-policy.html" data-i18n="cookie_policy">Cookie Policy</a>
-            <a href="terms-and-conditions.html" data-i18n="terms_conditions">Terms & Conditions</a>
-            <a href="cancellation-policy.html" data-i18n="cancellation_policy">Cancellation Policy</a>
-        </div>
-        <p class="copyright">&copy; 2026 INDTARA TRAVELS. ALL RIGHTS RESERVED.</p>
-    </footer>
+        <script src="packages.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('thailand-packages-grid');
+                if (!container) return;
+                const countryPackages = travelPackages['thailand'] || [];
+                
+                countryPackages.forEach(pkg => {
+                    const card = document.createElement('div');
+                    card.className = 'package-card';
+                    card.innerHTML = `
+                        <div class="package-image-container">
+                            <img src="${pkg.image}" alt="${pkg.title}">
+                            <div class="package-price-badge">${pkg.price}</div>
+                        </div>
+                        <div class="package-body">
+                            <span class="package-duration-tag">${pkg.duration}</span>
+                            <h3 class="package-title-text">${pkg.title}</h3>
+                            <ul class="package-highlights-list">
+                                ${pkg.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}
+                            </ul>
+                            <div class="package-btn-group">
+                                <a href="package-details.html?id=${pkg.id}" class="package-btn package-btn-outline">Details</a>
+                                <a href="#contact" class="package-btn package-btn-solid">Enquire</a>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            });
+        </script>
+    </main>
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner">
@@ -270,6 +196,29 @@
     <script src="translations.js"></script>
     <script src="i18n.js"></script>
     <script src="script.js"></script>
+    <!-- Dynamic Navigation Remodeling Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait slightly for components.js to execute and inject headers
+            setTimeout(() => {
+                // Update Top Header Member Link to match screen
+                const topRightLinks = document.querySelector('.top-right-links');
+                if (topRightLinks) {
+                    topRightLinks.innerHTML = `
+                        <a href="login.html" class="login-nav-link" data-i18n="nav_login">LOGIN/REGISTER</a>
+                    `;
+                }
+
+                // Re-apply full translation switching logic
+                const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+                if (typeof setLanguage === 'function') {
+                    setLanguage(currentLang);
+                }
+            }, 100);
+        });
+    </script>
+
+    <div id="footer-placeholder"></div>
 </body>
 
 </html>
