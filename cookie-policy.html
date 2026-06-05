@@ -1,16 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Policy | Indtara Travels</title>
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+    <title>Cookie Policy | Indtara Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         .legal-container {
             max-width: 800px;
-            margin: 120px auto 60px;
+            margin: 160px auto 60px;
             padding: 0 20px;
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.8;
@@ -45,46 +49,41 @@
         .legal-container li {
             margin-bottom: 10px;
         }
+
+        .cookie-settings-btn {
+            background: transparent;
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            padding: 12px 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        .cookie-settings-btn:hover {
+            background: var(--color-gold);
+            color: #000;
+            box-shadow: 0 0 15px var(--color-accent-glow);
+        }
     </style>
     <link rel="icon" type="image/png" href="assets/indtara logo.png">
+    <script src="components.js" defer></script>
 </head>
 
 <body>
-    <header class="top-header">
-        <ul class="top-nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#">Travel <span class="dropdown-arrow">?</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="india.html">India</a></li>
-                    <li><a href="thailand.html">Thailand</a></li>
-                    <li><a href="singapore.html">Singapore</a></li>
-                    <li><a href="malaysia.html">Malaysia</a></li>
-                    <li><a href="dubai.html">Dubai</a></li>
-                    <li><a href="vietnam.html">Vietnam</a></li>
-                    <li><a href="maldives.html">Maldives</a></li>
-                    <li><a href="mauritius.html">Mauritius</a></li>
-                </ul>
-            </li>
-            <li><a href="#packages">Packages</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="top-right-links">
-            <a href="login.html" class="login-nav-link">Login/Register</a>
-        </div>
-    </header>
-
-    <nav class="navbar scrolled">
-        <div class="logo-container" onclick="window.location.href='index.html'">
-            <img src="assets/indtara logo.png" alt="Indtara Travels" class="main-logo-img">
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <main class="legal-container">
         <h1>Cookie Policy</h1>
         
-        <p>This Cookie Policy explains how Indtara uses cookies and similar technologies to recognize you when you visit our website.</p>
+        <p>This Cookie Policy explains how Indtara Experiences uses cookies and similar technologies to recognize you when you visit our website.</p>
 
         <h2>1. What are Cookies?</h2>
         <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
@@ -94,31 +93,28 @@
 
         <h2>3. Types of Cookies we use</h2>
         <ul>
-            <li><strong>Essential Cookies:</strong> Necessary for the website to function.</li>
-            <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with the website (Google Analytics, etc.).</li>
-            <li><strong>Marketing Cookies:</strong> Used to track visitors across websites to display relevant ads (Meta Pixel, etc.).</li>
+            <li><strong>Essential Cookies:</strong> Necessary for the website to function. Enables page navigation, user authentication, and Supabase operations.</li>
+            <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with the website, helping us optimize the UI flow.</li>
+            <li><strong>Marketing Cookies:</strong> Used to track visitors across websites to display relevant promotional travel offers.</li>
+            <li><strong>Personalization Cookies:</strong> Remembers your chosen configuration preferences such as language, theme, and previous routes.</li>
         </ul>
 
         <h2>4. How can I control Cookies?</h2>
-        <p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by clicking on the appropriate opt-out links provided in the cookie banner or by adjusting your browser settings.</p>
+        <p>You have the right to decide whether to accept or reject cookies. You can manage your preferences at any time by clicking the button below or by adjusting your browser settings to reject non-essential tracking cookies.</p>
+        
+        <div>
+            <button class="cookie-settings-btn open-cookie-settings">Manage Cookie Preferences</button>
+        </div>
 
         <h2>5. Updates to this Policy</h2>
         <p>We may update this Cookie Policy from time to time in order to reflect changes to the cookies we use or for other operational, legal, or regulatory reasons.</p>
     </main>
 
-    <footer style="padding: 40px 20px; border-top: 1px solid rgba(203,161,83,0.1); text-align: center; margin-top: 60px;">
-        <div style="margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="legal-notice.html" style="color: var(--color-gold); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Legal Notice</a>
-            <a href="privacy-policy.html" style="color: var(--color-gold); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Privacy Policy</a>
-            <a href="cookie-policy.html" style="color: var(--color-gold); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Cookie Policy</a>
-            <a href="terms-and-conditions.html" style="color: var(--color-gold); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Terms & Conditions</a>
-            <a href="cancellation-policy.html" style="color: var(--color-gold); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Cancellation Policy</a>
-        </div>
-        <p style="color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 1px;">&copy; 2026 INDTARA TRAVELS. ALL RIGHTS RESERVED.</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="auth.js"></script>
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="auth.js" defer></script>
 </body>
 
 </html>

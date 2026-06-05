@@ -1,16 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curated Journey | Indtara Travels</title>
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+    <title>Curated Journey | Indtara Experiences</title>
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
     <style>
         :root {
             --gold: #cba153;
@@ -320,7 +322,7 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="packages.js"></script>
+    <script src="packages.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
@@ -338,7 +340,7 @@
             }
 
             // Update page title
-            document.title = `${pkg.title} | Indtara Travels`;
+            document.title = `${pkg.title} | Indtara Experiences`;
             document.getElementById('mobile-price').innerText = pkg.price.split('from ')[1] || pkg.price;
             
             // Set booking link
@@ -351,7 +353,7 @@
             let html = `
                 <section class="cinematic-hero">
                     <div class="hero-bg-wrapper">
-                        <img src="${pkg.image}" alt="${pkg.title}">
+                        <img loading="lazy" src="${pkg.image}" alt="${pkg.title}">
                     </div>
                     <div class="hero-vignette"></div>
                     <div class="hero-content">
@@ -413,7 +415,7 @@
                     <h2 class="section-title">Luxury Stays</h2>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px;">
                         <div style="background: var(--glass); border: 1px solid var(--border); padding: 0; overflow: hidden; border-radius: 4px;">
-                            <img src="${pkg.image}" style="width: 100%; height: 300px; object-fit: cover;">
+                            <img loading="lazy" src="${pkg.image}" style="width: 100%; height: 300px; object-fit: cover;">
                             <div style="padding: 30px;">
                                 <h3 style="font-family: 'Cinzel', serif; color: var(--gold); margin-top: 0;">Royal Suite Experience</h3>
                                 <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.6;">Handpicked boutique hotels and ultra-luxury resorts that define the spirit of the destination.</p>
@@ -442,9 +444,9 @@
                     <span class="section-label">The Visuals</span>
                     <h2 class="section-title">Cinematic Gallery</h2>
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 250px); gap: 20px; margin-top: 50px;">
-                        <div style="grid-column: span 2; grid-row: span 2;"><img src="${pkg.image}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;"></div>
-                        <div><img src="assets/varanasi_night.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;"></div>
-                        <div><img src="assets/jaipur_night.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;"></div>
+                        <div style="grid-column: span 2; grid-row: span 2;"><img loading="lazy" src="${pkg.image}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;"></div>
+                        <div><img loading="lazy" src="assets/varanasi_night.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;"></div>
+                        <div><img loading="lazy" src="assets/jaipur_night.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;"></div>
                     </div>
                 </section>
 

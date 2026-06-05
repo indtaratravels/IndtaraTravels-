@@ -1,17 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curated Travel Packages | Indtara Travels</title>
+    <title>Curated Travel Packages | Indtara Experiences</title>
     <meta name="description" content="Explore our handpicked luxury travel packages across the globe.">
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
     <style>
         .packages-hero {
             height: 50vh;
@@ -113,9 +115,9 @@
 
     
 
-    <script src="packages.js"></script>
-    <script src="translations.js"></script>
-    <script src="i18n.js"></script>
+    <script src="packages.js" defer></script>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('packages-container');
@@ -138,7 +140,7 @@
                     card.className = 'package-card';
                     card.innerHTML = `
                         <div class="package-image-container">
-                            <img src="${pkg.image}" alt="${pkg.title}">
+                            <img loading="lazy" src="${pkg.image}" alt="${pkg.title}">
                             <div class="package-price-badge">${pkg.price}</div>
                         </div>
                         <div class="package-body">

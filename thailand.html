@@ -1,16 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thailand | Indtara Travels</title>
+    <title>Thailand | Indtara Experiences</title>
     <meta name="description"
-        content="Discover the Land of Smiles with Indtara Travels. Luxury curated journeys through Thailand's temples and islands.">
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+        content="Discover the Land of Smiles with Indtara Experiences. Luxury curated journeys through Thailand's temples and islands.">
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
@@ -117,7 +119,7 @@
                     
                     <button type="submit" class="hero-cta">
                         <span>SEND ENQUIRY</span>
-                        <span class="arrow">?</span>
+                        <span class="arrow">&rarr;</span>
                     </button>
                 </form>
             </div>
@@ -145,7 +147,7 @@
             </div>
         </section>
 
-        <script src="packages.js"></script>
+        <script src="packages.js" defer></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const container = document.getElementById('thailand-packages-grid');
@@ -157,7 +159,7 @@
                     card.className = 'package-card';
                     card.innerHTML = `
                         <div class="package-image-container">
-                            <img src="${pkg.image}" alt="${pkg.title}">
+                            <img loading="lazy" src="${pkg.image}" alt="${pkg.title}">
                             <div class="package-price-badge">${pkg.price}</div>
                         </div>
                         <div class="package-body">
@@ -190,33 +192,13 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="auth.js"></script>
-    <script src="translations.js"></script>
-    <script src="i18n.js"></script>
-    <script src="script.js"></script>
-    <!-- Dynamic Navigation Remodeling Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Wait slightly for components.js to execute and inject headers
-            setTimeout(() => {
-                // Update Top Header Member Link to match screen
-                const topRightLinks = document.querySelector('.top-right-links');
-                if (topRightLinks) {
-                    topRightLinks.innerHTML = `
-                        <a href="login.html" class="login-nav-link" data-i18n="nav_login">LOGIN/REGISTER</a>
-                    `;
-                }
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="auth.js" defer></script>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
 
-                // Re-apply full translation switching logic
-                const currentLang = localStorage.getItem('preferredLanguage') || 'en';
-                if (typeof setLanguage === 'function') {
-                    setLanguage(currentLang);
-                }
-            }, 100);
-        });
-    </script>
 
     <div id="footer-placeholder"></div>
 </body>

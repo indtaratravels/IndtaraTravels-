@@ -1,10 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Indtara Travels</title>
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+    <title>Login | Indtara Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -200,16 +204,22 @@
         <ul class="top-nav-links">
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
-                <a href="#">Travel <span class="dropdown-arrow">?</span></a>
+                <a href="#">Travel <span class="dropdown-arrow">&#9662;</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="india.html">India</a></li>
                     <li><a href="thailand.html">Thailand</a></li>
                     <li><a href="singapore.html">Singapore</a></li>
-                    <li><a href="malaysia.html">Malaysia</a></li>
                     <li><a href="dubai.html">Dubai</a></li>
-                    <li><a href="vietnam.html">Vietnam</a></li>
+                    <li><a href="malaysia.html">Malaysia</a></li>
                     <li><a href="maldives.html">Maldives</a></li>
                     <li><a href="mauritius.html">Mauritius</a></li>
+                    <li><a href="vietnam.html">Vietnam</a></li>
+                    <li><a href="usa.html">USA</a></li>
+                    <li><hr style="border: 0; border-top: 1px solid rgba(203, 161, 83, 0.2); margin: 5px 10px;"></li>
+                    <li><a href="#">Canada</a></li>
+                    <li><a href="#">United Kingdom</a></li>
+                    <li><a href="#">Switzerland</a></li>
+                    <li><a href="#">France</a></li>
                 </ul>
             </li>
             <li><a href="#packages">Packages</a></li>
@@ -229,7 +239,7 @@
 
     <div class="login-container">
         <div class="login-logo">
-            <img src="assets/indtara logo.png" alt="Indtara Travels">
+            <img loading="lazy" src="assets/indtara logo.png" alt="Indtara Experiences">
         </div>
         <h1 class="login-title">LOGIN</h1>
         
@@ -258,9 +268,9 @@
     </svg>
 
     <!-- Supabase SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="auth.js" defer></script>
 </body>
 </html>
 

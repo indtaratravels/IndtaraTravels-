@@ -161,6 +161,83 @@ const packages = {
             highlights: ['Ile aux Cerfs', 'Chamarel Seven Colored Earth', 'Port Louis Waterfront', 'Grand Bassin'],
             tags: ['Nature', 'Beach', 'Relaxation']
         }
+    ],
+    usa: [
+        {
+            id: 'usa-east-coast-luxury',
+            title: 'East Coast Luxury & History',
+            duration: '7 Days / 6 Nights',
+            price: 'Starting from $1,499',
+            image: 'assets/usa_nyc.png',
+            category: 'Luxury',
+            highlights: ['Manhattan Private Helicopter Tour', 'Central Park Horse Carriage', 'Washington D.C. Monument Tour', 'Private Yacht Cruise'],
+            tags: ['Luxury', 'City', 'History'],
+            bestExperiences: [
+                'Sunset dinner cruise in New York Harbor',
+                'Private historical tour of the US Capitol',
+                'Vintage town car ride in Washington D.C.'
+            ],
+            itinerary: [
+                { day: 1, title: 'Arrival in New York', description: 'Private luxury transfer to your high-rise hotel in Manhattan.' },
+                { day: 2, title: 'The Manhattan Skyline', description: 'Private helicopter tour followed by a sunset carriage ride in Central Park.' },
+                { day: 3, title: 'Scenic Transit', description: 'Travel via luxury first-class train to Washington D.C.' },
+                { day: 4, title: 'Historic Monuments', description: 'Bespoke guided tour of the D.C. monuments and museums.' },
+                { day: 5, title: 'Philadelphia Heritage', description: 'Guided day-trip to Philadelphia to visit the Liberty Bell and Independence Hall.' },
+                { day: 6, title: 'VIP NYC Experience', description: 'Return to New York for a Broadway show with VIP access.' },
+                { day: 7, title: 'Farewell', description: 'Private transfer to JFK airport for your flight home.' }
+            ],
+            upgrades: ['Penthouse suite upgrade', 'Backstage Broadway access'],
+            similarPackages: ['dubai-luxury-escape', 'singapore-modern-luxury']
+        },
+        {
+            id: 'usa-canyon-adventure',
+            title: 'Grand Canyon & Western Wonders',
+            duration: '6 Days / 5 Nights',
+            price: 'Starting from $1,299',
+            image: 'assets/usa_grand_canyon.png',
+            category: 'Adventure',
+            highlights: ['Private Helicopter over Canyon', 'Scenic Desert Stargazing', 'Luxury Glamping Retreat', 'Route 66 Historic Drive'],
+            tags: ['Adventure', 'Nature', 'Bespoke']
+        }
+    ],
+    vietnam: [
+        {
+            id: 'vietnam-heritage-cruise',
+            title: 'Vietnam Cultural Heritage & Luxury Cruise',
+            duration: '8 Days / 7 Nights',
+            price: 'Starting from $1,199',
+            image: 'assets/vietnam_halong_bay.png',
+            category: 'Luxury',
+            highlights: ['Luxury Halong Bay Cruise', 'Hoi An Lantern Walk', 'Hanoi Old Quarter Tour', 'Imperial City of Hue'],
+            tags: ['Heritage', 'Culture', 'Luxury'],
+            bestExperiences: [
+                'Overnight stay on a 5-star boutique junk boat',
+                'Private lantern making workshop in Hoi An',
+                'Sunset dinner overlooking the Perfume River'
+            ],
+            itinerary: [
+                { day: 1, title: 'Arrival in Hanoi', description: 'VIP transfer to your luxury hotel in the French Quarter. Welcome dinner.' },
+                { day: 2, title: 'Hanoi Traditions', description: 'Cyclo tour of the Old Quarter, Temple of Literature, and a traditional Water Puppet show.' },
+                { day: 3, title: 'Halong Bay Cruise', description: 'Drive to Halong Bay and board a luxury cruise ship. Kayak through hidden limestone caves.' },
+                { day: 4, title: 'Bay Sunrise & Flight to Danang', description: 'Tai Chi at sunrise, breakfast on board. Disembark and fly to Danang/Hoi An.' },
+                { day: 5, title: 'Hoi An Ancient Town', description: 'Guided walking tour of the ancient town, Japanese Covered Bridge, and custom tailoring experience.' },
+                { day: 6, title: 'Hoi An Eco-Village', description: 'Bamboo basket boat ride through coconut forests and organic cooking class.' },
+                { day: 7, title: 'Imperial Hue', description: 'Scenic drive over the Hai Van Pass to Hue. Explore the ancient Citadel.' },
+                { day: 8, title: 'Departure', description: 'Private transfer to Danang International Airport for your departure flight.' }
+            ],
+            upgrades: ['Suite cabin with private balcony', 'Private food tasting tour in Hanoi'],
+            similarPackages: ['rajasthan-royal-heritage', 'thailand-island-hopping']
+        },
+        {
+            id: 'vietnam-highlands-adventure',
+            title: 'Emerald Highlands & Northern Adventure',
+            duration: '6 Days / 5 Nights',
+            price: 'Starting from $849',
+            image: 'assets/vietnam_rice_fields.png',
+            category: 'Adventure',
+            highlights: ['Sapa Terraced Rice Fields Trek', 'Fansipan Peak Cable Car', 'Ninh Binh Karst Landscapes', 'Authentic Homestay Dinner'],
+            tags: ['Adventure', 'Nature', 'Bespoke']
+        }
     ]
 };
 

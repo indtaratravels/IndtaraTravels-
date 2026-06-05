@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indtara Travels | Crafted Luxury Journeys</title>
+    <title>Indtara Experiences | Crafted Luxury Journeys</title>
     <meta name="description"
         content="Discover the world in a way you've never imagined. Crafted luxury travel experiences across India, Thailand, Dubai, and beyond.">
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,12 @@
         rel="stylesheet">
     <!-- Flag Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
-    <!-- GSAP for Animations -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- CDN Preconnect Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- GSAP for Animations (deferred to not block rendering) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <!-- Preload First Destination Image -->
     <link rel="preload" as="image" href="assets/palace.png" fetchpriority="high">
 
@@ -154,7 +157,7 @@
         }
 
         .luxury-link-all::after {
-            content: 'â†’';
+            content: '\2192';
             font-size: 1.1rem;
             transition: transform 0.3s ease;
         }
@@ -200,10 +203,7 @@
             background: #111;
             border: 1px solid rgba(212, 175, 55, 0.15);
             cursor: pointer;
-            transition: transform 0.85s cubic-bezier(0.2, 0.85, 0.3, 1), 
-                        opacity 0.85s cubic-bezier(0.2, 0.85, 0.3, 1),
-                        filter 0.85s cubic-bezier(0.2, 0.85, 0.3, 1),
-                        box-shadow 0.85s ease;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
             box-shadow: 0 25px 60px rgba(0,0,0,0.8);
             display: flex;
             flex-direction: column;
@@ -963,6 +963,7 @@
         }
     </style>
     <link rel="icon" type="image/png" href="assets/indtara logo.png">
+    <script src="components.js" defer></script>
 </head>
 
 <body class="theme-india">
@@ -970,69 +971,12 @@
     <!-- Preloader (Home Page Only) -->
     <div id="preloader">
         <div class="loader-content">
-            <img src="assets/indtara logo.png" alt="Indtara Travels" class="loader-logo-img">
+            <img src="assets/indtara logo.png" alt="Indtara Experiences" class="loader-logo-img">
             <div class="loader-bar"></div>
         </div>
     </div>
 
-    <!-- ========== TOP HEADER ========== -->
-    <header class="top-header">
-        <ul class="top-nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#">Travel <span class="dropdown-arrow">â–¾</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="india.html">India</a></li>
-                    <li><a href="thailand.html">Thailand</a></li>
-                    <li><a href="singapore.html">Singapore</a></li>
-                    <li><a href="malaysia.html">Malaysia</a></li>
-                    <li><a href="dubai.html">Dubai</a></li>
-                    <li><a href="vietnam.html">Vietnam</a></li>
-                    <li><a href="maldives.html">Maldives</a></li>
-                    <li><a href="mauritius.html">Mauritius</a></li>
-                </ul>
-            </li>
-            <li><a href="#all-destinations">Packages</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="top-right-links">
-            <a href="login.html" class="login-nav-link">Login/Register</a>
-        </div>
-    </header>
-
-    <!-- ========== NAVBAR ========== -->
-    <nav class="navbar">
-        <div class="logo-container" onclick="window.location.href='index.html'">
-            <img src="assets/indtara logo.png" alt="Indtara Travels" class="main-logo-img">
-        </div>
-        <div class="nav-right">
-            <div class="language-picker">
-                <select id="language-selector">
-                    <option value="en">English</option>
-                    <option value="es">EspaÃ±ol</option>
-                    <option value="it">Italiano</option>
-                </select>
-            </div>
-            <ul class="nav-links">
-                <li><a href="india.html" data-i18n="nav_india">India</a></li>
-                <li><a href="thailand.html" data-i18n="nav_thailand">Thailand</a></li>
-                <li><a href="singapore.html" data-i18n="nav_singapore">Singapore</a></li>
-                <li><a href="malaysia.html" data-i18n="nav_malaysia">Malaysia</a></li>
-                <li><a href="dubai.html" data-i18n="nav_dubai">Dubai</a></li>
-                <li><a href="vietnam.html" data-i18n="nav_vietnam">Vietnam</a></li>
-                <li><a href="maldives.html" data-i18n="nav_maldives">Maldives</a></li>
-                <li><a href="mauritius.html" data-i18n="nav_mauritius">Mauritius</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <a href="login.html" class="mobile-login-link" aria-label="Login or Register"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
-
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <!-- ========== MAIN CONTENT ========== -->
     <main>
@@ -1118,7 +1062,65 @@
             </div>
         </section>
 
-        
+        <!-- Mobile Countries Grid Section (Mobile Only) -->
+        <section class="mobile-countries-section" aria-label="Explore Destinations">
+            <h3 class="mobile-countries-title">OUR DESTINATIONS</h3>
+            <div class="mobile-countries-grid">
+                <a href="india.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-in mobile-country-flag"></span>
+                    <span class="mobile-country-name">India</span>
+                </a>
+                <a href="thailand.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-th mobile-country-flag"></span>
+                    <span class="mobile-country-name">Thailand</span>
+                </a>
+                <a href="singapore.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-sg mobile-country-flag"></span>
+                    <span class="mobile-country-name">Singapore</span>
+                </a>
+                <a href="dubai.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-ae mobile-country-flag"></span>
+                    <span class="mobile-country-name">Dubai</span>
+                </a>
+                <a href="malaysia.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-my mobile-country-flag"></span>
+                    <span class="mobile-country-name">Malaysia</span>
+                </a>
+                <a href="maldives.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-mv mobile-country-flag"></span>
+                    <span class="mobile-country-name">Maldives</span>
+                </a>
+                <a href="mauritius.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-mu mobile-country-flag"></span>
+                    <span class="mobile-country-name">Mauritius</span>
+                </a>
+                <a href="vietnam.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-vn mobile-country-flag"></span>
+                    <span class="mobile-country-name">Vietnam</span>
+                </a>
+                <a href="usa.html" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-us mobile-country-flag"></span>
+                    <span class="mobile-country-name">USA</span>
+                </a>
+                <a href="#" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-ca mobile-country-flag"></span>
+                    <span class="mobile-country-name">Canada</span>
+                </a>
+                <a href="#" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-gb mobile-country-flag"></span>
+                    <span class="mobile-country-name">UK</span>
+                </a>
+                <a href="#" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-ch mobile-country-flag"></span>
+                    <span class="mobile-country-name">Switzerland</span>
+                </a>
+                <a href="#" class="mobile-country-card">
+                    <span class="flag-icon flag-icon-fr mobile-country-flag"></span>
+                    <span class="mobile-country-name">France</span>
+                </a>
+            </div>
+        </section>
+
         <!-- Premium Infinite Luxury Carousel Hero Section -->
         <section class="luxury-carousel-hero">
             <div class="luxury-hero-container">
@@ -1144,7 +1146,7 @@
 
                 <!-- Right Carousel Showcase -->
                 <div class="luxury-carousel-right">
-                    <button class="carousel-nav-btn nav-prev" onclick="rotateCarousel(-1)" aria-label="Previous Destination">â€¹</button>
+                    <button class="carousel-nav-btn nav-prev" onclick="rotateCarousel(-1)" aria-label="Previous Destination">&lsaquo;</button>
                     
                     <div class="carousel-3d-container" id="carousel-track">
                         <!-- Card 0: India -->
@@ -1220,7 +1222,7 @@
                         </div>
                     </div>
 
-                    <button class="carousel-nav-btn nav-next" onclick="rotateCarousel(1)" aria-label="Next Destination">â€º</button>
+                    <button class="carousel-nav-btn nav-next" onclick="rotateCarousel(1)" aria-label="Next Destination">&rsaquo;</button>
                 </div>
 
             </div>
@@ -1271,7 +1273,7 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                         </svg>
                     </div>
-                    <div class="stat-number" data-target="12000">0</div>
+                    <div class="stat-number" data-target="8000">0</div>
                     <div class="stat-label">Happy Travelers</div>
                 </div>
                 <div class="stat-item">
@@ -1576,7 +1578,7 @@
                     
                     <button type="submit" class="hero-cta">
                         <span>SEND ENQUIRY</span>
-                        <span class="arrow">â†’</span>
+                        <span class="arrow">&rarr;</span>
                     </button>
                 </form>
             </div>
@@ -1592,17 +1594,7 @@
         </section>
     </main>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="site-footer">
-        <div class="footer-links">
-            <a href="legal-notice.html" data-i18n="legal_notice">Legal Notice</a>
-            <a href="privacy-policy.html" data-i18n="privacy_policy">Privacy Policy</a>
-            <a href="cookie-policy.html" data-i18n="cookie_policy">Cookie Policy</a>
-            <a href="terms-and-conditions.html" data-i18n="terms_conditions">Terms & Conditions</a>
-            <a href="cancellation-policy.html" data-i18n="cancellation_policy">Cancellation Policy</a>
-        </div>
-        <p class="copyright">&copy; 2026 INDTARA TRAVELS. ALL RIGHTS RESERVED.</p>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner">
@@ -1616,100 +1608,112 @@
         </div>
     </div>
 
-    <!-- ========== SCRIPTS ========== -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="auth.js"></script>
-    <script src="translations.js"></script>
-    <script src="i18n.js"></script>
-    <script src="script.js"></script>
+    <!-- ========== SCRIPTS (deferred for performance) ========== -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script defer src="supabase-config.js"></script>
+    <script defer src="auth.js"></script>
+    <script defer src="translations.js"></script>
+    <script defer src="i18n.js"></script>
+    <script defer src="script.js"></script>
 
     <!-- Infinite Luxury 3D Carousel Implementation Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.carousel-card');
             const totalCards = cards.length;
-            let currentIndex = 0;
+            
+            let currentProgress = 0; // Float position of current rendering
+            let targetProgress = 0;  // Float target position
+            let isDragging = false;
+            let dragStartX = 0;
+            let startProgressVal = 0;
+            let dragDistance = 0;
             let autoRotateInterval;
+            let isCarouselVisible = true; // IntersectionObserver visibility flag
+            let rafId = null;
+            
             const trackCurrentStr = document.getElementById('track-current-idx');
             const trackProgressBar = document.getElementById('track-progress-bar');
             const carouselContainer = document.querySelector('.luxury-carousel-right');
 
-            // Responsive multi-device layout configuration for the 3D curves
-            function updateCarousel() {
+            // Shortest path difference helper for infinite looping
+            function shortestDiff(target, current, modulus) {
+                let diff = (target - current) % modulus;
+                diff = ((diff + modulus / 2) % modulus) - modulus / 2;
+                if (diff < -modulus / 2) diff += modulus;
+                if (diff > modulus / 2) diff -= modulus;
+                return diff;
+            }
+
+            // Continuous render update using interpolation (Apple-style inertia)
+            function updateCarouselVisuals(progress) {
                 const isMobile = window.innerWidth <= 600;
                 const isTablet = window.innerWidth <= 992 && window.innerWidth > 600;
 
                 cards.forEach((card) => {
                     const index = parseInt(card.dataset.index);
-                    // Calculate direct offset in circular sequence
-                    let diff = (index - currentIndex + totalCards) % totalCards;
                     
-                    // Convert back/fwd circular diffs to symmetrical ranges
-                    // e.g., for total 8: diff 0 is center, diffs 1,2,3 are right, diffs 5,6,7 are left (-3,-2,-1)
+                    // Circular offset from current progress position
+                    let diff = index - progress;
+                    diff = ((diff + totalCards / 2) % totalCards) - totalCards / 2;
+                    if (diff < -totalCards / 2) diff += totalCards;
+                    if (diff > totalCards / 2) diff -= totalCards;
+                    
+                    const absDiff = Math.abs(diff);
+                    
                     let styleTransform = '';
                     let opacityVal = 0;
                     let filterVal = 'brightness(0.2)';
                     let zIdx = 1;
                     let isActive = false;
 
-                    if (diff === 0) {
-                        // Center/Active Card
-                        styleTransform = 'translateZ(0px) translateX(0px) scale(1)';
-                        opacityVal = 1;
-                        filterVal = 'brightness(1)';
-                        zIdx = 10;
-                        isActive = true;
-                    } else if (diff === 1) {
-                        // 1st Right
-                        const xOffset = isMobile ? 110 : (isTablet ? 140 : 180);
-                        styleTransform = `translateX(${xOffset}px) translateZ(-120px) rotateY(-18deg) scale(0.85)`;
-                        opacityVal = 0.8;
-                        filterVal = 'brightness(0.65)';
-                        zIdx = 9;
-                    } else if (diff === 2) {
-                        // 2nd Right
-                        const xOffset = isMobile ? 180 : (isTablet ? 240 : 320);
-                        styleTransform = `translateX(${xOffset}px) translateZ(-260px) rotateY(-28deg) scale(0.72)`;
-                        opacityVal = 0.5;
-                        filterVal = 'brightness(0.4)';
-                        zIdx = 8;
-                    } else if (diff === 3) {
-                        // 3rd Right
-                        const xOffset = isMobile ? 230 : (isTablet ? 310 : 430);
-                        styleTransform = `translateX(${xOffset}px) translateZ(-400px) rotateY(-36deg) scale(0.6)`;
-                        opacityVal = 0.2;
-                        filterVal = 'brightness(0.2)';
-                        zIdx = 7;
-                    } else if (diff === totalCards - 1) {
-                        // 1st Left (-1)
-                        const xOffset = isMobile ? -110 : (isTablet ? -140 : -180);
-                        styleTransform = `translateX(${xOffset}px) translateZ(-120px) rotateY(18deg) scale(0.85)`;
-                        opacityVal = 0.8;
-                        filterVal = 'brightness(0.65)';
-                        zIdx = 9;
-                    } else if (diff === totalCards - 2) {
-                        // 2nd Left (-2)
-                        const xOffset = isMobile ? -180 : (isTablet ? -240 : -320);
-                        styleTransform = `translateX(${xOffset}px) translateZ(-260px) rotateY(28deg) scale(0.72)`;
-                        opacityVal = 0.5;
-                        filterVal = 'brightness(0.4)';
-                        zIdx = 8;
-                    } else if (diff === totalCards - 3) {
-                        // 3rd Left (-3)
-                        const xOffset = isMobile ? -230 : (isTablet ? -310 : -430);
-                        styleTransform = `translateX(${xOffset}px) translateZ(-400px) rotateY(36deg) scale(0.6)`;
-                        opacityVal = 0.2;
-                        filterVal = 'brightness(0.2)';
-                        zIdx = 7;
-                    } else {
-                        // Hidden in far back
+                    if (absDiff > 3.2) {
                         styleTransform = 'translateZ(-600px) scale(0.4)';
                         opacityVal = 0;
                         zIdx = 1;
+                    } else {
+                        // Discrete control coordinates
+                        const points = [
+                            { x: -3, xOffset: -430, zOffset: -400, rotateY: 36, scale: 0.6, opacity: 0.2, brightness: 0.2, zIndex: 7 },
+                            { x: -2, xOffset: -320, zOffset: -260, rotateY: 28, scale: 0.72, opacity: 0.5, brightness: 0.4, zIndex: 8 },
+                            { x: -1, xOffset: -180, zOffset: -120, rotateY: 18, scale: 0.85, opacity: 0.8, brightness: 0.65, zIndex: 9 },
+                            { x: 0, xOffset: 0, zOffset: 0, rotateY: 0, scale: 1.0, opacity: 1.0, brightness: 1.0, zIndex: 10 },
+                            { x: 1, xOffset: 180, zOffset: -120, rotateY: -18, scale: 0.85, opacity: 0.8, brightness: 0.65, zIndex: 9 },
+                            { x: 2, xOffset: 320, zOffset: -260, rotateY: -28, scale: 0.72, opacity: 0.5, brightness: 0.4, zIndex: 8 },
+                            { x: 3, xOffset: 430, zOffset: -400, rotateY: -36, scale: 0.6, opacity: 0.2, brightness: 0.2, zIndex: 7 }
+                        ];
+
+                        // Find p1, p2
+                        let p1 = points[0];
+                        let p2 = points[points.length - 1];
+
+                        for (let i = 0; i < points.length - 1; i++) {
+                            if (diff >= points[i].x && diff <= points[i + 1].x) {
+                                p1 = points[i];
+                                p2 = points[i + 1];
+                                break;
+                            }
+                        }
+
+                        const t = (diff - p1.x) / (p2.x - p1.x);
+
+                        const xMultiplier = isMobile ? 0.61 : (isTablet ? 0.78 : 1.0);
+                        const xOffset = (p1.xOffset + t * (p2.xOffset - p1.xOffset)) * xMultiplier;
+                        const zOffset = p1.zOffset + t * (p2.zOffset - p1.zOffset);
+                        const rotateY = p1.rotateY + t * (p2.rotateY - p1.rotateY);
+                        const scale = p1.scale + t * (p2.scale - p1.scale);
+                        opacityVal = p1.opacity + t * (p2.opacity - p1.opacity);
+                        const brightness = p1.brightness + t * (p2.brightness - p1.brightness);
+                        zIdx = Math.round(p1.zIndex + t * (p2.zIndex - p1.zIndex));
+
+                        styleTransform = `translateX(${xOffset}px) translateZ(${zOffset}px) rotateY(${rotateY}deg) scale(${scale})`;
+                        filterVal = `brightness(${brightness})`;
+                        
+                        if (absDiff < 0.5) {
+                            isActive = true;
+                        }
                     }
 
-                    // Apply styles
                     card.style.transform = styleTransform;
                     card.style.opacity = opacityVal;
                     card.style.filter = filterVal;
@@ -1723,32 +1727,119 @@
                 });
 
                 // Update pagination slider track string & indicator
-                const displayNum = currentIndex + 1;
+                const activeIndex = (Math.round(progress) + totalCards) % totalCards;
+                const displayNum = activeIndex + 1;
                 trackCurrentStr.textContent = displayNum < 10 ? `0${displayNum}` : displayNum;
-                const progressPct = ((currentIndex + 1) / totalCards) * 100;
+                
+                // Smooth track line position
+                const progressPct = ((progress + 1) / totalCards) * 100;
                 trackProgressBar.style.left = `${progressPct - (100 / totalCards)}%`;
                 trackProgressBar.style.width = `${100 / totalCards}%`;
             }
 
-            // Expose carousel control globally
+            // Dynamic ticking animation loop (pauses when off-screen)
+            function tick() {
+                if (!isCarouselVisible) {
+                    rafId = null; // Stop the loop
+                    return;
+                }
+                if (!isDragging) {
+                    const diff = shortestDiff(targetProgress, currentProgress, totalCards);
+                    currentProgress += diff * 0.08; // Lerp step
+                    currentProgress = (currentProgress + totalCards) % totalCards;
+                } else {
+                    targetProgress = currentProgress;
+                }
+                updateCarouselVisuals(currentProgress);
+                rafId = requestAnimationFrame(tick);
+            }
+
+            function startTick() {
+                if (!rafId) {
+                    rafId = requestAnimationFrame(tick);
+                }
+            }
+
+            // IntersectionObserver: pause carousel RAF when off-screen
+            const heroSection = document.querySelector('.luxury-carousel-hero') || carouselContainer;
+            if (heroSection) {
+                const carouselObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        isCarouselVisible = entry.isIntersecting;
+                        if (isCarouselVisible) {
+                            startTick();
+                            startAutoRotate();
+                        } else {
+                            pauseAutoRotate();
+                        }
+                    });
+                }, { threshold: 0.05 });
+                carouselObserver.observe(heroSection);
+            }
+
+            // Expose carousel control globally (for buttons)
             window.rotateCarousel = function(direction) {
-                currentIndex = (currentIndex + direction + totalCards) % totalCards;
-                updateCarousel();
+                targetProgress = Math.round(targetProgress + direction);
                 resetAutoRotate();
             };
 
-            // Direct Click on any card navigates immediately
+            // Direct clicks with drag protection
             cards.forEach((card) => {
+                let startX = 0;
+                let startY = 0;
+                let dragDist = 0;
+
+                card.addEventListener('mousedown', (e) => {
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    dragDist = 0;
+                });
+
+                card.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    dragDist = 0;
+                }, { passive: true });
+
+                card.addEventListener('touchmove', (e) => {
+                    const dx = e.touches[0].clientX - startX;
+                    const dy = e.touches[0].clientY - startY;
+                    dragDist = Math.sqrt(dx * dx + dy * dy);
+                }, { passive: true });
+
                 card.addEventListener('click', (e) => {
+                    // If mouse drag occurred, compute mouse drag distance
+                    if (e.clientX !== 0 || e.clientY !== 0) {
+                        const dx = e.clientX - startX;
+                        const dy = e.clientY - startY;
+                        dragDist = Math.sqrt(dx * dx + dy * dy);
+                    }
+
+                    if (dragDist > 10) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        return;
+                    }
+
                     const clickedIndex = parseInt(card.dataset.index);
-                    // Navigate to destination page
-                    window.location.href = card.dataset.href;
+                    const currentActiveIndex = (Math.round(currentProgress) + totalCards) % totalCards;
+
+                    if (clickedIndex === currentActiveIndex) {
+                        window.location.href = card.dataset.href;
+                    } else {
+                        // Click side card -> slide it into view
+                        e.preventDefault();
+                        e.stopPropagation();
+                        targetProgress = clickedIndex;
+                        resetAutoRotate();
+                    }
                 });
             });
 
             // Action triggers
             window.goToActiveDestination = function() {
-                const activeCard = document.querySelector('.carousel-card[data-index="' + currentIndex + '"]');
+                const currentActiveIndex = (Math.round(currentProgress) + totalCards) % totalCards;
+                const activeCard = document.querySelector(`.carousel-card[data-index="${currentActiveIndex}"]`);
                 if (activeCard && activeCard.dataset.href) {
                     window.location.href = activeCard.dataset.href;
                 }
@@ -1760,57 +1851,96 @@
                 const pct = clickX / rect.width;
                 const targetIdx = Math.floor(pct * totalCards);
                 if (targetIdx >= 0 && targetIdx < totalCards) {
-                    currentIndex = targetIdx;
-                    updateCarousel();
+                    targetProgress = targetIdx;
                     resetAutoRotate();
                 }
             };
 
-            // Touch support for swiping carousel
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            carouselContainer.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
+            // Input handlers
+            function onDragStart(clientX) {
+                isDragging = true;
+                dragStartX = clientX;
+                startProgressVal = currentProgress;
                 pauseAutoRotate();
-            }, { passive: true });
-
-            carouselContainer.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-                startAutoRotate();
-            }, { passive: true });
-
-            function handleSwipe() {
-                const threshold = 40;
-                if (touchStartX - touchEndX > threshold) {
-                    // Swipe left -> Next
-                    rotateCarousel(1);
-                } else if (touchEndX - touchStartX > threshold) {
-                    // Swipe right -> Prev
-                    rotateCarousel(-1);
-                }
             }
 
-            // Optional Mousewheel sliding over carousel container
+            function onDragMove(clientX) {
+                if (!isDragging) return;
+                const deltaX = clientX - dragStartX;
+                const containerWidth = carouselContainer.clientWidth || window.innerWidth;
+                const sensitivity = 2.2;
+                const progressDelta = -(deltaX / containerWidth) * sensitivity;
+                currentProgress = (startProgressVal + progressDelta + totalCards) % totalCards;
+                targetProgress = currentProgress;
+            }
+
+            function onDragEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                // Snap target
+                targetProgress = Math.round(currentProgress) % totalCards;
+                startAutoRotate();
+            }
+
+            // Mouse event listeners
+            carouselContainer.addEventListener('mousedown', (e) => {
+                if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
+                    e.preventDefault();
+                }
+                onDragStart(e.clientX);
+            });
+
+            // Mouse event listeners (gated behind isDragging for performance)
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                onDragMove(e.clientX);
+            }, { passive: true });
+
+            window.addEventListener('mouseup', () => {
+                if (!isDragging) return;
+                onDragEnd();
+            }, { passive: true });
+
+            // Touch event listeners
+            carouselContainer.addEventListener('touchstart', (e) => {
+                onDragStart(e.touches[0].clientX);
+            }, { passive: true });
+
+            carouselContainer.addEventListener('touchmove', (e) => {
+                onDragMove(e.touches[0].clientX);
+            }, { passive: true });
+
+            carouselContainer.addEventListener('touchend', () => {
+                onDragEnd();
+            }, { passive: true });
+
+            // Wheel event listeners with snap physics
             carouselContainer.addEventListener('wheel', (e) => {
                 e.preventDefault();
-                if (e.deltaY > 0 || e.deltaX > 0) {
-                    rotateCarousel(1);
-                } else {
-                    rotateCarousel(-1);
-                }
+                const wheelSpeed = 0.005;
+                targetProgress += e.deltaY * wheelSpeed;
+                resetAutoRotate();
+                
+                clearTimeout(window.wheelSnapTimeout);
+                window.wheelSnapTimeout = setTimeout(() => {
+                    targetProgress = Math.round(targetProgress) % totalCards;
+                }, 200);
             }, { passive: false });
 
             // Auto rotation controller
             function startAutoRotate() {
                 if (!autoRotateInterval) {
                     autoRotateInterval = setInterval(() => {
-                        currentIndex = (currentIndex + 1) % totalCards;
-                        updateCarousel();
+                        if (!isDragging) {
+                            targetProgress = Math.round(targetProgress + 1);
+                        }
                     }, 4500);
                 }
             }
+
+            // Hover listeners to pause/resume
+            carouselContainer.addEventListener('mouseenter', pauseAutoRotate);
+            carouselContainer.addEventListener('mouseleave', startAutoRotate);
 
             function pauseAutoRotate() {
                 if (autoRotateInterval) {
@@ -1824,22 +1954,29 @@
                 startAutoRotate();
             }
 
-            // Hover listeners to pause
-            carouselContainer.addEventListener('mouseenter', pauseAutoRotate);
-            carouselContainer.addEventListener('mouseleave', startAutoRotate);
+            // Responsive redraw trigger (debounced)
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => updateCarouselVisuals(currentProgress), 150);
+            }, { passive: true });
 
-            // Responsive redraw trigger
-            window.addEventListener('resize', updateCarousel);
+            // Intro Animations (wait for GSAP to be available)
+            function runIntroAnimations() {
+                if (typeof gsap === 'undefined') {
+                    setTimeout(runIntroAnimations, 100);
+                    return;
+                }
+                gsap.from('.luxury-brand-badge', { opacity: 0, y: 20, duration: 1, delay: 0.2 });
+                gsap.from('.luxury-hero-title', { opacity: 0, y: 40, duration: 1.2, delay: 0.4 });
+                gsap.from('.luxury-hero-desc', { opacity: 0, y: 30, duration: 1, delay: 0.6 });
+                gsap.from('.luxury-hero-actions', { opacity: 0, y: 20, duration: 1, delay: 0.8 });
+                gsap.from('.luxury-carousel-track-wrapper', { opacity: 0, y: 20, duration: 1, delay: 1 });
+            }
+            runIntroAnimations();
 
-            // Intro Animations
-            gsap.from('.luxury-brand-badge', { opacity: 0, y: 20, duration: 1, delay: 0.2 });
-            gsap.from('.luxury-hero-title', { opacity: 0, y: 40, duration: 1.2, delay: 0.4 });
-            gsap.from('.luxury-hero-desc', { opacity: 0, y: 30, duration: 1, delay: 0.6 });
-            gsap.from('.luxury-hero-actions', { opacity: 0, y: 20, duration: 1, delay: 0.8 });
-            gsap.from('.luxury-carousel-track-wrapper', { opacity: 0, y: 20, duration: 1, delay: 1 });
-
-            // Initialize display
-            updateCarousel();
+            // Start animation loop
+            startTick();
             startAutoRotate();
         });
     </script>

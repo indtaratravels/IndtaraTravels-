@@ -1,15 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Your Journey | Indtara Travels</title>
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+    <title>Secure Your Journey | Indtara Experiences</title>
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
     <style>
         :root {
             --gold: #cba153;
@@ -271,7 +273,7 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="packages.js"></script>
+    <script src="packages.js" defer></script>
     <script>
         let currentStep = 1;
         const totalSteps = 3;
@@ -349,9 +351,9 @@
                 setTimeout(() => {
                     document.querySelector('.booking-card').innerHTML = `
                         <div style="text-align: center; padding: 40px 0;">
-                            <div style="font-size: 4rem; color: #28a745; margin-bottom: 20px;">âœ“</div>
+                            <div style="font-size: 4rem; color: #28a745; margin-bottom: 20px;">&check;</div>
                             <h2 style="font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 20px;">Your Journey Begins</h2>
-                            <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">Thank you for choosing Indtara Travels. Our luxury specialist will contact you within 24 hours to refine your itinerary.</p>
+                            <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">Thank you for choosing Indtara Experiences. Our luxury specialist will contact you within 24 hours to refine your itinerary.</p>
                             <a href="index.html" class="btn-next" style="display: inline-block; margin-top: 30px; text-decoration: none;">Return Home</a>
                         </div>
                     `;

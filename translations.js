@@ -1,8 +1,8 @@
 const translations = {
     en: {
-        title: "Indtara Travels | Curated Journeys",
+        title: "Indtara Experiences | Curated Journeys",
         meta_desc: "An intimate curated journey to India, Thailand, Singapore and more. Luxury, curated experiences, expert local guides.",
-        logo: "INDTARA TRAVELS",
+        logo: "INDTARA EXPERIENCES",
         nav_india: "INDIA",
         nav_thailand: "THAILAND",
         nav_singapore: "SINGAPORE",
@@ -11,7 +11,9 @@ const translations = {
         nav_vietnam: "VIETNAM",
         nav_maldives: "MALDIVES",
         nav_mauritius: "MAURITIUS",
+        nav_usa: "USA",
         nav_packages: "PACKAGES",
+        nav_login: "LOGIN/REGISTER",
         packages_title: "Luxury Packages",
         packages_desc: "Handcrafted itineraries designed for the discerning traveler.",
         hero_tagline: "DISCOVER THE SOUL OF",
@@ -60,6 +62,8 @@ const translations = {
         cookie_policy: "Cookie Policy",
         terms_conditions: "Terms & Conditions",
         cancellation_policy: "Cancellation Policy",
+        disclaimer: "Disclaimer",
+        contact: "Contact",
         // Thailand
         thailand_h1: "THAILAND",
         thailand_h2: "Serene & Bold",
@@ -107,6 +111,11 @@ const translations = {
         mauritius_h2: "ISLAND SOUL",
         mauritius_desc: "A mosaic of cultures, colors, and pristine tropical beauty.",
         mauritius_btn: "EXPLORE MAURITIUS",
+        // USA
+        usa_h1: "USA,",
+        usa_h2: "THE AMERICAN DREAM",
+        usa_desc: "Experience the iconic skylines of New York, historical monument tours, and majestic natural wonders.",
+        usa_btn: "EXPLORE USA",
         beach_title: "BEACHES",
         beach_desc: "Tropical bliss",
         // Showcase section
@@ -144,9 +153,9 @@ const translations = {
         showcase_mauritius_why_3: "Endless White Sand Beaches & Water Sports"
     },
     es: {
-        title: "Indtara Travels | Viajes Curados",
+        title: "Indtara Experiences | Viajes Curados",
         meta_desc: "Un viaje íntimo y curado a la India, Tailandia, Singapur y más. Lujo, experiencias curadas, guías locales expertos.",
-        logo: "INDTARA TRAVELS",
+        logo: "INDTARA EXPERIENCES",
         nav_india: "INDIA",
         nav_thailand: "TAILANDIA",
         nav_singapore: "SINGAPUR",
@@ -155,6 +164,9 @@ const translations = {
         nav_vietnam: "VIETNAM",
         nav_maldives: "MALDIVAS",
         nav_mauritius: "MAURICIO",
+        nav_usa: "EE.UU.",
+        nav_packages: "PAQUETES",
+        nav_login: "INICIAR SESIÓN / REGISTRARSE",
         hero_tagline: "DESCUBRE EL ALMA DE",
         hero_h1: "INDIA,",
         hero_h2: "REIMAGINADA",
@@ -201,6 +213,8 @@ const translations = {
         cookie_policy: "Política de Cookies",
         terms_conditions: "Términos y Condiciones",
         cancellation_policy: "Política de Cancelación",
+        disclaimer: "Descargo de Responsabilidad",
+        contact: "Contacto",
         // Thailand
         thailand_h1: "TAILANDIA",
         thailand_h2: "Serena y Atrevida",
@@ -248,6 +262,11 @@ const translations = {
         mauritius_h2: "ALMA ISLEÑA",
         mauritius_desc: "Un mosaico de culturas, colores y belleza tropical virgen.",
         mauritius_btn: "EXPLORAR MAURICIO",
+        // USA
+        usa_h1: "EE.UU.,",
+        usa_h2: "EL SUEÑO AMERICANO",
+        usa_desc: "Experimente los horizontes icónicos de Nueva York, recorridos por monumentos históricos y majestuosas maravillas naturales.",
+        usa_btn: "EXPLORAR EE.UU.",
         beach_title: "PLAYAS",
         beach_desc: "Dicha tropical",
         // Sección Showcase
@@ -285,9 +304,9 @@ const translations = {
         showcase_mauritius_why_3: "Interminables playas de arena blanca y deportes acuáticos"
     },
     it: {
-        title: "Indtara Travels | Viaggi Curati",
+        title: "Indtara Experiences | Viaggi Curati",
         meta_desc: "Un viaggio intimo e curato in India, Thailandia, Singapore e altro ancora. Lusso, esperienze curate, guide locali esperte.",
-        logo: "INDTARA TRAVELS",
+        logo: "INDTARA EXPERIENCES",
         nav_india: "INDIA",
         nav_thailand: "THAILANDIA",
         nav_singapore: "SINGAPORE",
@@ -296,7 +315,9 @@ const translations = {
         nav_vietnam: "VIETNAM",
         nav_maldives: "MALDIVE",
         nav_mauritius: "MAURITIUS",
+        nav_usa: "USA",
         nav_packages: "PACCHETTI",
+        nav_login: "ACCEDI / REGISTRATI",
         packages_title: "Pacchetti di Lusso",
         packages_desc: "Itinerari artigianali progettati per il viaggiatore esigente.",
         hero_tagline: "SCOPRI L'ANIMA DELL'",
@@ -345,6 +366,8 @@ const translations = {
         cookie_policy: "Informativa sui Cookie",
         terms_conditions: "Termini e Condizioni",
         cancellation_policy: "Politica di Cancellazione",
+        disclaimer: "Dichiarazione di Non Responsabilità",
+        contact: "Contatto",
         // Thailand
         thailand_h1: "THAILANDIA",
         thailand_h2: "Serena e Audace",
@@ -392,6 +415,11 @@ const translations = {
         mauritius_h2: "ANIMA DELL'ISOLA",
         mauritius_desc: "Un mosaico di culture, colori e incontaminata bellezza tropicale.",
         mauritius_btn: "ESPLORA MAURITIUS",
+        // USA
+        usa_h1: "USA,",
+        usa_h2: "IL SOGNO AMERICANO",
+        usa_desc: "Vivi gli skyline iconici di New York, tour dei monumenti storici e maestose meraviglie naturali.",
+        usa_btn: "ESPLORA USA",
         beach_title: "SPIAGGE",
         beach_desc: "Beatitudine tropicale",
         // Sezione Showcase

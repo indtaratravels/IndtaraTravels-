@@ -1,16 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maldives | Indtara Travels</title>
+    <title>Maldives | Indtara Experiences</title>
     <meta name="description"
-        content="Escape to the Maldives with Indtara Travels. Luxury curated journeys through crystal clear waters and white sand atolls.">
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+        content="Escape to the Maldives with Indtara Experiences. Luxury curated journeys through crystal clear waters and white sand atolls.">
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
@@ -19,136 +21,390 @@
     <link rel="preload" as="image" href="assets/maldives_resort.png" fetchpriority="high">
     <link rel="icon" type="image/png" href="assets/indtara logo.png">
     <script src="components.js" defer></script>
+    <style>
+        /* Custom Hero overrides for Maldives page */
+        .hero-section {
+            display: none !important;
+        }
+        
+        .bespoke-maldives-hero {
+            max-width: 1400px;
+            margin: 140px auto 40px;
+            padding: 0 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-inner-container {
+            display: flex;
+            background: linear-gradient(135deg, #031b29 0%, #010e17 100%);
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0, 206, 209, 0.15);
+            border-bottom: none;
+            min-height: 540px;
+            position: relative;
+        }
+
+        .hero-left-content {
+            width: 48%;
+            padding: 60px 40px 60px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .discover-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: #00ced1;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .maldives-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4.8rem;
+            color: #ffffff;
+            margin: 0;
+            line-height: 0.95;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .pure-escape-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            letter-spacing: 8px;
+            color: #00ced1;
+            font-weight: 400;
+            margin-top: 5px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .maldives-description {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #b0f4f5;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 420px;
+            opacity: 0.95;
+        }
+
+        .explore-btn {
+            background: transparent;
+            color: #00ced1;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            border: 1px solid rgba(0, 206, 209, 0.4);
+            text-transform: uppercase;
+        }
+
+        .explore-btn:hover {
+            background: #00ced1;
+            color: #010e17;
+            box-shadow: 0 5px 20px rgba(0, 206, 209, 0.4);
+            border-color: #00ced1;
+        }
+
+        .explore-btn .arrow {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .explore-btn:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        /* Right Circular Image Layout */
+        .hero-right-circle-wrapper {
+            width: 52%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 540px;
+            box-sizing: border-box;
+            overflow: visible;
+            padding-right: 20px;
+        }
+
+        .crescent-bg {
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 206, 209, 0.12) 0%, rgba(0, 206, 209, 0.02) 75%);
+            left: calc(50% - 245px);
+            top: calc(50% - 230px);
+            z-index: 1;
+            pointer-events: none;
+            transition: all 0.5s ease;
+        }
+
+        .circle-image-card {
+            position: relative;
+            width: 430px;
+            height: 430px;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(0, 206, 209, 0.25);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .circle-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .circle-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(1, 14, 23, 0.3) 0%, rgba(1, 14, 23, 0) 40%);
+            pointer-events: none;
+        }
+
+        .hero-inner-container:hover .circle-image {
+            transform: scale(1.08);
+        }
+
+        .hero-inner-container:hover .crescent-bg {
+            transform: scale(1.04);
+            background: radial-gradient(circle, rgba(0, 206, 209, 0.16) 0%, rgba(0, 206, 209, 0.03) 75%);
+        }
+
+        /* Features Bar Styling */
+        .hero-features-bar {
+            background: #010e17;
+            border-radius: 0 0 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 50px;
+            border: 1px solid rgba(0, 206, 209, 0.15);
+            border-top: 1px solid rgba(0, 206, 209, 0.1);
+        }
+
+        .hero-index {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: rgba(0, 206, 209, 0.7);
+            letter-spacing: 1px;
+            padding-right: 30px;
+            border-right: 1px solid rgba(0, 206, 209, 0.25);
+            flex-shrink: 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #ffffff;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .feature-icon {
+            color: #00ced1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .feature-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-text h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            line-height: 1.3;
+            color: #ffffff;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-inner-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .hero-left-content {
+                width: 100%;
+                padding: 60px 40px 40px;
+                text-align: center;
+                align-items: center;
+            }
+            .hero-right-circle-wrapper {
+                width: 100%;
+                height: 400px;
+                justify-content: center;
+                overflow: hidden;
+            }
+            .circle-image-card {
+                position: relative;
+                right: 0;
+                top: 0;
+                width: 360px;
+                height: 360px;
+            }
+            .crescent-bg {
+                display: none;
+            }
+            .hero-features-bar {
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 30px;
+            }
+            .hero-index {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 206, 209, 0.25);
+                padding-right: 0;
+                padding-bottom: 10px;
+                text-align: center;
+                margin-right: 0;
+            }
+            .feature-item {
+                width: 45%;
+                flex: none;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .feature-item {
+                width: 100%;
+            }
+            .maldives-title {
+                font-size: 3.5rem;
+            }
+            .hero-right-circle-wrapper {
+                height: 300px;
+            }
+            .circle-image-card {
+                width: 270px;
+                height: 270px;
+            }
+        }
+    </style>
 </head>
 
 <body class="theme-maldives">
     <div id="header-placeholder"></div>
 
-    
-
-    
-
     <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="mandala-bg">
-                <svg viewBox="0 0 800 800" class="mandala-svg">
-                    <circle cx="400" cy="400" r="350" fill="none" stroke="var(--color-accent-glow)" stroke-width="0.5" />
-                </svg>
+        <!-- Bespoke Maldives Hero Section -->
+        <section class="bespoke-maldives-hero">
+            <div class="hero-inner-container">
+                <!-- Left Content Area -->
+                <div class="hero-left-content">
+                    <span class="discover-eyebrow" data-i18n="hero_tagline">DISCOVER THE SOUL OF</span>
+                    <h1 class="maldives-title" data-i18n="maldives_h1">MALDIVES,</h1>
+                    <span class="pure-escape-subtitle" data-i18n="maldives_h2">PURE ESCAPE</span>
+                    
+                    <p class="maldives-description" data-i18n="maldives_desc">Unparalleled luxury amidst crystal clear waters and white sand atolls.</p>
+                    
+                    <a href="#contact" class="explore-btn">
+                        <span data-i18n="maldives_btn">EXPLORE MALDIVES</span>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Right Circle Image Area -->
+                <div class="hero-right-circle-wrapper">
+                    <!-- Crescent background decoration -->
+                    <div class="crescent-bg"></div>
+                    <!-- Main circular image -->
+                    <div class="circle-image-card">
+                        <div class="circle-image" style="background-image: url('assets/maldives_resort.png');"></div>
+                        <div class="circle-overlay"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="hero-collage">
-                <div class="main-arch-wrapper">
-                    <div class="main-arch-border"></div>
-                    <div class="arch-top-icon">
-                        <svg viewBox="0 0 24 24" fill="var(--color-accent)">
-                            <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
+            <!-- Features Bar -->
+            <div class="hero-features-bar">
+                <div class="hero-index">04</div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
                         </svg>
                     </div>
-                    <div class="main-arch-image" style="background-image: url('assets/maldives_resort.png');"></div>
-                    <div class="main-arch-overlay"></div>
-                </div>
-
-                <div class="hero-foreground">
-                    <!-- Left Arch: Ocean -->
-                    <div class="side-arch-container arch-left-container">
-                        <div class="side-arch">
-                            <div class="side-arch-image" style="background-image: url('assets/maldives_ocean_view.png');"></div>
-                            <div class="side-arch-overlay"></div>
-                            <div class="side-arch-content">
-                                <h3 data-i18n="ocean_title">OCEAN</h3>
-                                <p data-i18n="ocean_desc">Crystal serenity</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Center Text -->
-                    <div class="center-text">
-                        <div class="tagline-container">
-                            <span class="tagline-line" style="background: var(--color-accent);"></span>
-                            <svg class="tagline-icon" viewBox="0 0 24 24" fill="var(--color-accent)">
-                                <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
-                            </svg>
-                            <span class="tagline-line" style="background: var(--color-accent);"></span>
-                        </div>
-                        <p class="hero-tagline" data-i18n="hero_tagline">DISCOVER THE SOUL OF</p>
-                        <h1 data-i18n="maldives_h1">MALDIVES,</h1>
-                        <h2 class="reimagined" data-i18n="maldives_h2">PURE ESCAPE</h2>
-                        <p class="hero-description" data-i18n="maldives_desc">Unparalleled luxury amidst crystal clear waters and white sand atolls.</p>
-                        <div class="diamond-divider">
-                            <span class="diamond" style="background: var(--color-accent);"></span>
-                        </div>
-                        <a href="#contact" class="hero-cta">
-                            <span data-i18n="maldives_btn">EXPLORE MALDIVES</span>
-                            <span class="arrow">?</span>
-                        </a>
-                    </div>
-
-                    <!-- Right Arch: Luxury (Placeholder for now) -->
-                    <div class="side-arch-container arch-right-container">
-                        <div class="side-arch">
-                            <div class="side-arch-image" style="background-image: url('assets/thailand_island.png');"></div>
-                            <div class="side-arch-overlay"></div>
-                            <div class="side-arch-content">
-                                <h3 data-i18n="culture_title">LUXURY</h3>
-                                <p data-i18n="culture_desc">Private paradise</p>
-                            </div>
-                        </div>
+                    <div class="feature-text">
+                        <h4 data-i18n="feature_curated">CURATED<br>Experiences</h4>
                     </div>
                 </div>
-
-                <div class="features-capsule">
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_curated">CURATED<br>Experiences</h4>
-                        </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_authentic">AUTHENTIC<br>Connections</h4>
-                        </div>
+                    <div class="feature-text">
+                        <h4 data-i18n="feature_authentic">AUTHENTIC<br>Connections</h4>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="var(--color-accent-glow)"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_responsible">RESPONSIBLE<br>Travel</h4>
-                        </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                <circle cx="12" cy="7" r="4" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_personalized">PERSONALIZED<br>Just for you</h4>
-                        </div>
+                    <div class="feature-text">
+                        <h4 data-i18n="feature_responsible">RESPONSIBLE<br>Travel</h4>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="5" y="3" width="14" height="18" rx="2" />
+                            <circle cx="12" cy="9" r="2.5" />
+                            <path d="M8 17c0-2 2-3 4-3s4 1 4 3" />
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h4 data-i18n="feature_personalized">PERSONALIZED<br>Just for you</h4>
                     </div>
                 </div>
             </div>
-            <div class="hero-bottom-fade"></div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="contact-container">
                 <h2 class="section-title">Enquire Now</h2>
+
                 <p class="section-subtitle">Let us design your perfect journey.</p>
                 <form id="enquiry-form" class="contact-form">
                     <div class="form-row">
@@ -176,7 +432,7 @@
                     
                     <button type="submit" class="hero-cta">
                         <span>SEND ENQUIRY</span>
-                        <span class="arrow">?</span>
+                        <span class="arrow">&rarr;</span>
                     </button>
                 </form>
             </div>
@@ -204,7 +460,7 @@
             </div>
         </section>
 
-        <script src="packages.js"></script>
+        <script src="packages.js" defer></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const container = document.getElementById('maldives-packages-grid');
@@ -216,7 +472,7 @@
                     card.className = 'package-card';
                     card.innerHTML = `
                         <div class="package-image-container">
-                            <img src="${pkg.image}" alt="${pkg.title}">
+                            <img loading="lazy" src="${pkg.image}" alt="${pkg.title}">
                             <div class="package-price-badge">${pkg.price}</div>
                         </div>
                         <div class="package-body">
@@ -251,12 +507,12 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="auth.js"></script>
-    <script src="translations.js"></script>
-    <script src="i18n.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="auth.js" defer></script>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
     <div id="footer-placeholder"></div>
 </body>
 

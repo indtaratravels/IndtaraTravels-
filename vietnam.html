@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,10 +7,12 @@
     <title>Vietnam | Indtara Travels</title>
     <meta name="description"
         content="Discover the timeless charm of Vietnam with Indtara Travels. Luxury curated journeys through emerald bays and ancient heritage.">
-    <link rel="stylesheet" href="styles.css\?v=1.2">
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
@@ -19,6 +21,365 @@
     <link rel="preload" as="image" href="assets/vietnam_halong_bay.png" fetchpriority="high">
     <link rel="icon" type="image/png" href="assets/indtara logo.png">
     <script src="components.js" defer></script>
+    <style>
+        /* Vietnam Bespoke Hero Style Overrides */
+        .hero-section {
+            display: none !important;
+        }
+
+        .bespoke-vietnam-hero {
+            max-width: 1400px;
+            margin: 140px auto 40px;
+            padding: 0 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-inner-container {
+            display: flex;
+            background: linear-gradient(135deg, #020b08 0%, #051610 100%);
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+            border: 1px solid rgba(0, 168, 107, 0.18);
+            border-bottom: none;
+            min-height: 580px;
+            position: relative;
+        }
+
+        .hero-left-content {
+            width: 48%;
+            padding: 60px 50px 60px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .discover-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: #00a86b;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .vietnam-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4.8rem;
+            color: #ffffff;
+            margin: 0;
+            line-height: 0.95;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .vietnam-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            letter-spacing: 6px;
+            color: #00a86b;
+            font-weight: 400;
+            margin-top: 8px;
+            margin-bottom: 25px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .vietnam-description {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #b2c9c0;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            max-width: 440px;
+        }
+
+        .explore-btn {
+            background: #00a86b;
+            color: #020b08;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            align-self: flex-start;
+            border: 1px solid rgba(0, 168, 107, 0.3);
+            text-transform: uppercase;
+        }
+
+        .explore-btn:hover {
+            background: #ffffff;
+            color: #020b08;
+            box-shadow: 0 5px 25px rgba(0, 168, 107, 0.45);
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .explore-btn .arrow {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .explore-btn:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        /* Right Asymmetrical Collage Layout */
+        .hero-right-collage-wrapper {
+            width: 52%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 580px;
+            box-sizing: border-box;
+            overflow: visible;
+        }
+
+        .collage-base-glow {
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 168, 107, 0.12) 0%, rgba(0, 168, 107, 0.02) 75%);
+            left: calc(50% - 230px);
+            top: calc(50% - 230px);
+            z-index: 1;
+            pointer-events: none;
+            transition: all 0.5s ease;
+        }
+
+        .collage-card-main {
+            position: relative;
+            width: 270px;
+            height: 380px;
+            border-radius: 15px;
+            overflow: hidden;
+            z-index: 3;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(0, 168, 107, 0.25);
+            transform: rotate(-3deg);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .collage-card-sub1 {
+            position: absolute;
+            width: 170px;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            z-index: 4;
+            left: 35px;
+            bottom: 45px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 1.5px solid rgba(0, 168, 107, 0.2);
+            transform: rotate(5deg);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .collage-card-sub2 {
+            position: absolute;
+            width: 180px;
+            height: 230px;
+            border-radius: 12px;
+            overflow: hidden;
+            z-index: 2;
+            right: 40px;
+            top: 45px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 1.5px solid rgba(0, 168, 107, 0.2);
+            transform: rotate(-8deg);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .collage-img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Hover interactions */
+        .hero-inner-container:hover .collage-card-main {
+            transform: rotate(0deg) scale(1.02);
+            border-color: rgba(0, 168, 107, 0.55);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-inner-container:hover .collage-card-sub1 {
+            transform: rotate(2deg) translate(-10px, 5px) scale(1.03);
+            border-color: rgba(0, 168, 107, 0.45);
+        }
+
+        .hero-inner-container:hover .collage-card-sub2 {
+            transform: rotate(-4deg) translate(10px, -5px) scale(1.03);
+            border-color: rgba(0, 168, 107, 0.45);
+        }
+
+        .hero-inner-container:hover .collage-img {
+            transform: scale(1.06);
+        }
+
+        .hero-inner-container:hover .collage-base-glow {
+            transform: scale(1.05);
+            background: radial-gradient(circle, rgba(0, 168, 107, 0.16) 0%, rgba(0, 168, 107, 0.03) 75%);
+        }
+
+        /* Features Bar Styling */
+        .vietnam-features-bar {
+            background: #020b08;
+            border-radius: 0 0 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 50px;
+            border: 1px solid rgba(0, 168, 107, 0.18);
+            border-top: 1px solid rgba(0, 168, 107, 0.1);
+        }
+
+        .vietnam-index {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: rgba(0, 168, 107, 0.7);
+            letter-spacing: 1px;
+            padding-right: 30px;
+            border-right: 1px solid rgba(0, 168, 107, 0.25);
+            flex-shrink: 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #ffffff;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .feature-icon {
+            color: #00a86b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .feature-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-text h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            line-height: 1.3;
+            color: #ffffff;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-inner-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .hero-left-content {
+                width: 100%;
+                padding: 60px 40px 40px;
+                text-align: center;
+                align-items: center;
+            }
+            .hero-right-collage-wrapper {
+                width: 100%;
+                height: 480px;
+                justify-content: center;
+            }
+            .collage-card-main {
+                width: 220px;
+                height: 310px;
+            }
+            .collage-card-sub1 {
+                width: 140px;
+                height: 180px;
+                left: calc(50% - 190px);
+                bottom: 40px;
+            }
+            .collage-card-sub2 {
+                width: 150px;
+                height: 190px;
+                right: calc(50% - 190px);
+                top: 40px;
+            }
+            .collage-base-glow {
+                display: none;
+            }
+            .vietnam-features-bar {
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 30px;
+            }
+            .vietnam-index {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 168, 107, 0.25);
+                padding-right: 0;
+                padding-bottom: 10px;
+                text-align: center;
+                margin-right: 0;
+            }
+            .feature-item {
+                width: 45%;
+                flex: none;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .feature-item {
+                width: 100%;
+            }
+            .vietnam-title {
+                font-size: 3.5rem;
+            }
+            .hero-right-collage-wrapper {
+                height: 380px;
+            }
+            .collage-card-main {
+                width: 170px;
+                height: 240px;
+            }
+            .collage-card-sub1 {
+                width: 110px;
+                height: 140px;
+                left: calc(50% - 140px);
+                bottom: 30px;
+            }
+            .collage-card-sub2 {
+                width: 120px;
+                height: 150px;
+                right: calc(50% - 140px);
+                top: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body class="theme-vietnam">
@@ -29,122 +390,95 @@
     
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="mandala-bg">
-                <svg viewBox="0 0 800 800" class="mandala-svg">
-                    <circle cx="400" cy="400" r="350" fill="none" stroke="var(--color-accent-glow)" stroke-width="0.5" />
-                </svg>
+        <!-- Bespoke Vietnam Hero Section -->
+        <section class="bespoke-vietnam-hero">
+            <div class="hero-inner-container">
+                <!-- Left Content Area -->
+                <div class="hero-left-content">
+                    <span class="discover-eyebrow" data-i18n="hero_tagline">DISCOVER THE SOUL OF</span>
+                    <h1 class="vietnam-title" data-i18n="vietnam_h1">VIETNAM,</h1>
+                    <span class="vietnam-subtitle" data-i18n="vietnam_h2">TIMELESS CHARM</span>
+                    
+                    <p class="vietnam-description" data-i18n="vietnam_desc">Journey through emerald waters, heritage-rich ancient towns, and breathtaking terraced landscapes.</p>
+                    
+                    <a href="#contact" class="explore-btn">
+                        <span data-i18n="vietnam_btn">EXPLORE VIETNAM</span>
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Right Collage Area -->
+                <div class="hero-right-collage-wrapper">
+                    <!-- Glow behind collage -->
+                    <div class="collage-base-glow"></div>
+                    
+                    <!-- Main Image Card (Halong Bay) -->
+                    <div class="collage-card-main">
+                        <div class="collage-img" style="background-image: url('assets/vietnam_halong_bay.png');"></div>
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(2, 11, 8, 0.45), transparent); pointer-events: none;"></div>
+                    </div>
+                    
+                    <!-- Floating Sub Card 1 (Hoi An Lanterns) -->
+                    <div class="collage-card-sub1">
+                        <div class="collage-img" style="background-image: url('assets/vietnam_lanterns.png');"></div>
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(2, 11, 8, 0.45), transparent); pointer-events: none;"></div>
+                    </div>
+                    
+                    <!-- Floating Sub Card 2 (Rice Fields) -->
+                    <div class="collage-card-sub2">
+                        <div class="collage-img" style="background-image: url('assets/vietnam_rice_fields.png');"></div>
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(2, 11, 8, 0.45), transparent); pointer-events: none;"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="hero-collage">
-                <div class="main-arch-wrapper">
-                    <div class="main-arch-border"></div>
-                    <div class="arch-top-icon">
-                        <svg viewBox="0 0 24 24" fill="var(--color-accent)">
-                            <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
+            <!-- Features Bar -->
+            <div class="vietnam-features-bar">
+                <div class="vietnam-index">05</div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
                         </svg>
                     </div>
-                    <div class="main-arch-image" style="background-image: url('assets/vietnam_halong_bay.png');"></div>
-                    <div class="main-arch-overlay"></div>
-                </div>
-
-                <div class="hero-foreground">
-                    <!-- Left Arch: Heritage -->
-                    <div class="side-arch-container arch-left-container">
-                        <div class="side-arch">
-                            <div class="side-arch-image" style="background-image: url('assets/vietnam_lanterns.png');"></div>
-                            <div class="side-arch-overlay"></div>
-                            <div class="side-arch-content">
-                                <h3 data-i18n="heritage_title">HERITAGE</h3>
-                                <p data-i18n="heritage_desc">Living history</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Center Text -->
-                    <div class="center-text">
-                        <div class="tagline-container">
-                            <span class="tagline-line" style="background: var(--color-accent);"></span>
-                            <svg class="tagline-icon" viewBox="0 0 24 24" fill="var(--color-accent)">
-                                <path d="M12 2C12 2 15 8 18 10C21 12 22 15 22 15C22 15 18 14 15 15C12 16 12 22 12 22C12 22 12 16 9 15C6 14 2 15 2 15C2 15 3 12 6 10C9 8 12 2 12 2Z"/>
-                            </svg>
-                            <span class="tagline-line" style="background: var(--color-accent);"></span>
-                        </div>
-                        <p class="hero-tagline" data-i18n="hero_tagline">DISCOVER THE SOUL OF</p>
-                        <h1 data-i18n="vietnam_h1">VIETNAM,</h1>
-                        <h2 class="reimagined" data-i18n="vietnam_h2">TIMELESS CHARM</h2>
-                        <p class="hero-description" data-i18n="vietnam_desc">Journey through emerald bays, ancient towns, and breathtaking landscapes.</p>
-                        <div class="diamond-divider">
-                            <span class="diamond" style="background: var(--color-accent);"></span>
-                        </div>
-                        <a href="#contact" class="hero-cta">
-                            <span data-i18n="vietnam_btn">EXPLORE VIETNAM</span>
-                            <span class="arrow">?</span>
-                        </a>
-                    </div>
-
-                    <!-- Right Arch: Nature -->
-                    <div class="side-arch-container arch-right-container">
-                        <div class="side-arch">
-                            <div class="side-arch-image" style="background-image: url('assets/vietnam_rice_fields.png');"></div>
-                            <div class="side-arch-overlay"></div>
-                            <div class="side-arch-content">
-                                <h3 data-i18n="wildlife_title">NATURE</h3>
-                                <p data-i18n="wildlife_desc">Emerald landscapes</p>
-                            </div>
-                        </div>
+                    <div class="feature-text">
+                        <h4 data-i18n="feature_curated">CURATED<br>Experiences</h4>
                     </div>
                 </div>
-
-                <div class="features-capsule">
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_curated">CURATED<br>Experiences</h4>
-                        </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_authentic">AUTHENTIC<br>Connections</h4>
-                        </div>
+                    <div class="feature-text">
+                        <h4 data-i18n="feature_authentic">AUTHENTIC<br>Connections</h4>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="var(--color-accent-glow)"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_responsible">RESPONSIBLE<br>Travel</h4>
-                        </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
                     </div>
-                    <div class="capsule-item">
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                <circle cx="12" cy="7" r="4" fill="var(--color-accent-glow)"/>
-                            </svg>
-                        </div>
-                        <div class="capsule-text">
-                            <h4 data-i18n="feature_personalized">PERSONALIZED<br>Just for you</h4>
-                        </div>
+                    <div class="feature-text">
+                        <h4 data-i18n="feature_responsible">RESPONSIBLE<br>Travel</h4>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="5" y="3" width="14" height="18" rx="2" />
+                            <circle cx="12" cy="9" r="2.5" />
+                            <path d="M8 17c0-2 2-3 4-3s4 1 4 3" />
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h4 data-i18n="feature_personalized">PERSONALIZED<br>Just for you</h4>
                     </div>
                 </div>
             </div>
-            <div class="hero-bottom-fade"></div>
         </section>
-
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="contact-container">
@@ -204,7 +538,7 @@
             </div>
         </section>
 
-        <script src="packages.js"></script>
+        <script src="packages.js" defer></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const container = document.getElementById('vietnam-packages-grid');
@@ -216,7 +550,7 @@
                     card.className = 'package-card';
                     card.innerHTML = `
                         <div class="package-image-container">
-                            <img src="${pkg.image}" alt="${pkg.title}">
+                            <img loading="lazy" src="${pkg.image}" alt="${pkg.title}">
                             <div class="package-price-badge">${pkg.price}</div>
                         </div>
                         <div class="package-body">
@@ -251,12 +585,12 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="auth.js"></script>
-    <script src="translations.js"></script>
-    <script src="i18n.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="auth.js" defer></script>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
     <div id="footer-placeholder"></div>
 </body>
 

@@ -14,72 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Hamburger menu toggle
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
-    }
-
-    // Unified Mobile Menu Consolidation
-    function setupMobileMenu() {
-        if (window.innerWidth <= 1024) {
-            const mobileLinks = document.querySelector('.nav-links');
-            const topNavLinks = document.querySelector('.top-nav-links');
-            const authLink = document.querySelector('.login-nav-link');
-            
-            if (mobileLinks && topNavLinks && !document.querySelector('.mobile-consolidated')) {
-                // Get original destination links
-                const originalItems = Array.from(mobileLinks.querySelectorAll('li'));
-                
-                // Clear the menu to rebuild in order
-                mobileLinks.innerHTML = '';
-
-                // 1. Add "Main Menu" header
-                const navHeader = document.createElement('li');
-                navHeader.className = 'mobile-consolidated mobile-nav-label';
-                navHeader.innerHTML = '<span>Main Menu</span>';
-                mobileLinks.appendChild(navHeader);
-
-                // 2. Add Cloned links from top header (Home, Packages, etc.)
-                const items = topNavLinks.querySelectorAll('li');
-                items.forEach(item => {
-                    const link = item.querySelector('a');
-                    // Skip 'Travel' dropdown as we have the destination list
-                    if (link && !link.textContent.includes('Travel')) {
-                        const clone = item.cloneNode(true);
-                        clone.classList.add('mobile-consolidated', 'top-link-item');
-                        mobileLinks.appendChild(clone);
-                    }
-                });
-
-                // 3. Add "Destinations" label
-                const destHeader = document.createElement('li');
-                destHeader.className = 'mobile-consolidated mobile-nav-label dest-label';
-                destHeader.innerHTML = '<span>Our Destinations</span>';
-                mobileLinks.appendChild(destHeader);
-
-                // 4. Add original destination links back
-                originalItems.forEach(item => {
-                    mobileLinks.appendChild(item);
-                });
-
-                // 5. Add Auth link at the very bottom
-                if (authLink) {
-                    const authLi = document.createElement('li');
-                    authLi.className = 'mobile-consolidated auth-mobile-item';
-                    const authClone = authLink.cloneNode(true);
-                    authLi.appendChild(authClone);
-                    mobileLinks.appendChild(authLi);
-                }
-            }
-        }
-    }
-
-    setupMobileMenu();
-    window.addEventListener('resize', setupMobileMenu);
+    // Hamburger toggle and mobile menu consolidation are now handled dynamically by components.js
 
     // Sticky Navbar on scroll
     window.addEventListener('scroll', () => {
@@ -112,30 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // Cookie Banner Logic
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptCookies = document.getElementById('accept-cookies');
-    const rejectCookies = document.getElementById('reject-cookies');
-
-    if (!localStorage.getItem('cookiesAccepted')) {
-        setTimeout(() => {
-            cookieBanner.classList.add('show');
-        }, 2000);
-    }
-
-    if (acceptCookies) {
-        acceptCookies.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            cookieBanner.classList.remove('show');
-        });
-    }
-
-    if (rejectCookies) {
-        rejectCookies.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'false');
-            cookieBanner.classList.remove('show');
-        });
-    }
+    // Cookie Banner handled dynamically in components.js
 
     // Form Handling
     const enquiryForm = document.getElementById('enquiry-form');
