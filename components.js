@@ -1,42 +1,42 @@
 const HeaderHTML = `
     <!-- ========== TOP HEADER ========== -->
-    <header class="top-header" style="background: #050d0a; border-bottom: 1px solid rgba(203, 161, 83, 0.15); height: 45px; display: flex; align-items: center; padding: 0 40px; position: fixed; top: 0; width: 100%; z-index: 2000;">
-        <ul class="top-nav-links" style="display: flex; list-style: none; gap: 30px; margin: 0; padding: 0;">
-            <li><a href="index.html" style="color: #fff; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat', sans-serif; opacity: 0.8;">Home</a></li>
-            <li class="dropdown" style="position: relative;">
-                <a href="#" style="color: #fff; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat', sans-serif; opacity: 0.8;">Travel <span class="dropdown-arrow">&#9662;</span></a>
-                <ul class="dropdown-menu" style="position: absolute; top: 100%; left: 0; background: #0a1712; border: 1px solid #cba153; list-style: none; padding: 10px 0; min-width: 150px; display: none;">
-                    <li><a href="india.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">India</a></li>
-                    <li><a href="thailand.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Thailand</a></li>
-                    <li><a href="singapore.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Singapore</a></li>
-                    <li><a href="dubai.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Dubai</a></li>
-                    <li><a href="malaysia.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Malaysia</a></li>
-                    <li><a href="maldives.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Maldives</a></li>
-                    <li><a href="mauritius.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Mauritius</a></li>
-                    <li><a href="vietnam.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Vietnam</a></li>
-                    <li><a href="usa.html" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">USA</a></li>
+    <header class="top-header">
+        <ul class="top-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Travel <span class="dropdown-arrow">&#9662;</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="india.html">India</a></li>
+                    <li><a href="thailand.html">Thailand</a></li>
+                    <li><a href="singapore.html">Singapore</a></li>
+                    <li><a href="dubai.html">Dubai</a></li>
+                    <li><a href="malaysia.html">Malaysia</a></li>
+                    <li><a href="maldives.html">Maldives</a></li>
+                    <li><a href="mauritius.html">Mauritius</a></li>
+                    <li><a href="vietnam.html">Vietnam</a></li>
+                    <li><a href="usa.html">USA</a></li>
                     <li><hr style="border: 0; border-top: 1px solid rgba(203, 161, 83, 0.2); margin: 5px 10px;"></li>
-                    <li><a href="#" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Canada</a></li>
-                    <li><a href="#" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">United Kingdom</a></li>
-                    <li><a href="#" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">Switzerland</a></li>
-                    <li><a href="#" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.8;">France</a></li>
+                    <li><a href="#">Canada</a></li>
+                    <li><a href="#">United Kingdom</a></li>
+                    <li><a href="#">Switzerland</a></li>
+                    <li><a href="#">France</a></li>
                 </ul>
             </li>
-            <li><a href="packages.html" style="color: #fff; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat', sans-serif; opacity: 0.8;">Packages</a></li>
-            <li><a href="index.html#about" style="color: #fff; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat', sans-serif; opacity: 0.8;">About</a></li>
-            <li><a href="index.html#contact" style="color: #fff; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat', sans-serif; opacity: 0.8;">Contact</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
         </ul>
-        <div class="top-right-links" style="margin-left: auto;">
-            <a href="login.html" class="login-nav-link" data-i18n="nav_login" style="color: #cba153; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; border: 1px solid rgba(203,161,83,0.5); padding: 5px 15px; border-radius: 3px;">LOGIN/REGISTER</a>
+        <div class="top-right-links">
+            <a href="login.html" class="login-nav-link" data-i18n="nav_login">LOGIN/REGISTER</a>
         </div>
     </header>
 
     <!-- ========== NAVBAR ========== -->
-    <nav class="navbar" style="background: rgba(5, 13, 10, 0.95); backdrop-filter: blur(10px); top: 45px; height: 80px; display: flex; align-items: center; padding: 0 40px; position: fixed; width: 100%; z-index: 1900; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-bottom: 1px solid rgba(255,255,255,0.05);">
-        <div class="logo-container" onclick="window.location.href='index.html'" style="cursor: pointer; display: flex; align-items: center;">
-            <img src="assets/indtara logo.png" alt="Indtara Experiences" style="height: 60px;">
+    <nav class="navbar">
+        <div class="logo-container" onclick="window.location.href='index.html'">
+            <img src="assets/indtara logo.png" alt="Indtara Experiences">
         </div>
-        <div class="nav-right" style="margin-left: auto; display: flex; align-items: center; gap: 20px;">
+        <div class="nav-right">
             <div class="language-picker">
                 <select id="language-selector">
                     <option value="en">EN</option>
@@ -44,23 +44,23 @@ const HeaderHTML = `
                     <option value="it">IT</option>
                 </select>
             </div>
-            <ul class="nav-links" style="display: flex; list-style: none; gap: 15px; margin: 0; padding: 0;">
-                <li><a href="india.html" data-i18n="nav_india" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">India</a></li>
-                <li><a href="thailand.html" data-i18n="nav_thailand" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">Thailand</a></li>
-                <li><a href="singapore.html" data-i18n="nav_singapore" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">Singapore</a></li>
-                <li><a href="dubai.html" data-i18n="nav_dubai" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">Dubai</a></li>
-                <li><a href="malaysia.html" data-i18n="nav_malaysia" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">Malaysia</a></li>
-                <li><a href="maldives.html" data-i18n="nav_maldives" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">Maldives</a></li>
-                <li><a href="mauritius.html" data-i18n="nav_mauritius" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">Mauritius</a></li>
-                <li><a href="vietnam.html" data-i18n="nav_vietnam" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">Vietnam</a></li>
-                <li><a href="usa.html" data-i18n="nav_usa" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">USA</a></li>
-                <li class="dropdown" style="position: relative;">
-                    <a href="#" style="color: #fff; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; opacity: 0.9;">More <span class="dropdown-arrow">&#9662;</span></a>
-                    <ul class="dropdown-menu dropdown-menu-right" style="position: absolute; top: 100%; right: 0; background: #0a1712; border: 1px solid #cba153; list-style: none; padding: 10px 0; min-width: 150px; display: none; z-index: 10000;">
-                        <li><a href="#" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.7rem; opacity: 0.8;">Canada</a></li>
-                        <li><a href="#" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.7rem; opacity: 0.8;">United Kingdom</a></li>
-                        <li><a href="#" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.7rem; opacity: 0.8;">Switzerland</a></li>
-                        <li><a href="#" style="padding: 10px 20px; display: block; color: #fff; text-decoration: none; font-size: 0.7rem; opacity: 0.8;">France</a></li>
+            <ul class="nav-links">
+                <li><a href="india.html" data-i18n="nav_india">India</a></li>
+                <li><a href="thailand.html" data-i18n="nav_thailand">Thailand</a></li>
+                <li><a href="singapore.html" data-i18n="nav_singapore">Singapore</a></li>
+                <li><a href="dubai.html" data-i18n="nav_dubai">Dubai</a></li>
+                <li><a href="malaysia.html" data-i18n="nav_malaysia">Malaysia</a></li>
+                <li><a href="maldives.html" data-i18n="nav_maldives">Maldives</a></li>
+                <li><a href="mauritius.html" data-i18n="nav_mauritius">Mauritius</a></li>
+                <li><a href="vietnam.html" data-i18n="nav_vietnam">Vietnam</a></li>
+                <li><a href="usa.html" data-i18n="nav_usa">USA</a></li>
+                <li class="dropdown">
+                    <a href="#">More <span class="dropdown-arrow">&#9662;</span></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Canada</a></li>
+                        <li><a href="#">United Kingdom</a></li>
+                        <li><a href="#">Switzerland</a></li>
+                        <li><a href="#">France</a></li>
                     </ul>
                 </li>
             </ul>
