@@ -684,6 +684,16 @@ p {
     backdrop-filter: blur(10px);
 }
 
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+}
+
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -1486,6 +1496,7 @@ p {
     }
 
     .nav-links.active {
+        display: flex !important;
         right: 0;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
     }

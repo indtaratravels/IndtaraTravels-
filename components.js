@@ -34,7 +34,7 @@ const HeaderHTML = `
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar">
         <div class="logo-container" onclick="window.location.href='index.html'">
-            <img src="assets/indtara logo.png" alt="Indtara Experiences">
+            <img src="assets/indtara logo.png" alt="Indtara Experiences" class="main-logo-img">
         </div>
         <div class="nav-right">
             <div class="language-picker">
@@ -132,7 +132,7 @@ const FooterHTML = `
     </footer>
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/your-number" target="_blank" class="whatsapp-sticky" style="position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 5000; transition: transform 0.3s ease;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.548 0 10.058-4.51 10.06-10.059.002-2.689-1.047-5.215-2.951-7.121-1.905-1.904-4.432-2.951-7.125-2.952-5.548 0-10.06 4.512-10.063 10.06-.001 2.132.547 3.53 1.554 5.09l-.994 3.635 3.705-.97zm10.103-8.132c-.333-.167-1.969-.971-2.274-1.081-.306-.11-.528-.167-.75.167-.221.333-.859 1.081-1.054 1.304-.194.223-.389.25-.722.083-.333-.167-1.405-.518-2.675-1.651-.988-.881-1.654-1.969-1.848-2.304-.194-.334-.021-.515.145-.681.15-.15.333-.389.5-.583.166-.194.222-.333.333-.555.111-.222.056-.417-.028-.583-.083-.167-.75-1.804-1.027-2.47-.27-.652-.546-.564-.75-.574l-.638-.01c-.222 0-.583.083-.889.417-.305.333-1.166 1.139-1.166 2.776 0 1.637 1.193 3.219 1.359 3.441.166.222 2.348 3.585 5.688 5.031.794.344 1.415.549 1.899.703.797.253 1.524.217 2.097.131.641-.096 1.969-.805 2.247-1.583.278-.778.278-1.444.194-1.583-.083-.139-.306-.222-.639-.389z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16" fill="#fff"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.69-7.82c-.2-.099-1.185-.583-1.37-.648-.184-.066-.318-.099-.452.099-.133.201-.52 0-.648-.201-.13-.2-.184-.266-.38-.366-.197-.1-.924-.378-1.758-1.122-.647-.578-1.08-1.292-1.207-1.502-.127-.21-.014-.324.09-.425.093-.092.203-.239.3-.358.1-.12.133-.2.2-.33.067-.136.034-.252-.017-.353-.05-.101-.452-1.09-.619-1.498-.163-.395-.343-.34-.472-.346-.124-.006-.266-.008-.407-.008-.142 0-.374.053-.57.266-.197.213-.75.733-.75 1.787s.766 2.073.87 2.217c.105.145 1.507 2.3 3.65 3.226.51.22 1.083.352 1.5.385.57.056 1.083.029 1.49-.033.453-.069 1.37-.56 1.562-1.102.193-.541.193-1.005.13-1.102-.062-.1-.23-.162-.43-.263"/></svg>
     </a>
 `;
 
@@ -398,7 +398,7 @@ const CookiePrefsModalHTML = `
             <div class="cookie-pref-item">
                 <div class="cookie-pref-info">
                     <h4>Essential Cookies</h4>
-                    <p>Required for security, Supabase login authentication, and core functionality. Cannot be disabled.</p>
+                    <p>Required for security, database authentication, and core functionality. Cannot be disabled.</p>
                 </div>
                 <div class="cookie-pref-toggle">
                     <input type="checkbox" id="pref-essential" checked disabled>
@@ -631,6 +631,52 @@ function injectCookieConsent() {
             window.showCookiePreferences();
         }
     });
+
+    // Clean links dynamically to support clean URLs and hide empty # links
+    function cleanLink(a) {
+        const href = a.getAttribute('href');
+        if (href) {
+            if (href.includes('package-details.html?id=')) {
+                const pkgId = href.split('?id=')[1];
+                a.setAttribute('href', '/packages/' + pkgId);
+                return;
+            }
+            if (href.endsWith('.html')) {
+                a.setAttribute('href', href.slice(0, -5));
+            } else if (href.includes('.html?')) {
+                a.setAttribute('href', href.replace('.html?', '?'));
+            } else if (href.includes('.html#')) {
+                a.setAttribute('href', href.replace('.html#', '#'));
+            }
+            if (href === '#') {
+                a.removeAttribute('href');
+                a.style.cursor = 'pointer';
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                });
+            }
+        }
+    }
+
+    function cleanAllLinks() {
+        document.querySelectorAll('a').forEach(cleanLink);
+    }
+
+    cleanAllLinks();
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    if (node.tagName === 'A') {
+                        cleanLink(node);
+                    }
+                    node.querySelectorAll('a').forEach(cleanLink);
+                }
+            });
+        });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
 }
 
 document.addEventListener('DOMContentLoaded', injectComponents);

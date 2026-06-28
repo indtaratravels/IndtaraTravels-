@@ -72,7 +72,7 @@
 
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
             gap: 40px;
             padding: 60px 5%;
             max-width: 1400px;
@@ -81,7 +81,21 @@
 
         @media (max-width: 768px) {
             .packages-hero h1 { font-size: 2.5rem; }
-            .filter-section { top: 80px; }
+            .filter-section {
+                top: 80px;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding: 15px 5%;
+                scroll-behavior: smooth;
+            }
+            .filter-section::-webkit-scrollbar {
+                display: none;
+            }
+            .filter-btn {
+                flex-shrink: 0;
+            }
         }
     </style>
     <script src="components.js" defer></script>

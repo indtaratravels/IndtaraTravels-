@@ -47,6 +47,56 @@ const packages = {
     ],
     india: [
         {
+            id: 'goa-inner-coast-journey',
+            title: 'Indtara — Goa Inner Coast Journey',
+            duration: '10 Days (Sept 2026)',
+            price: 'Limited to 8 Guests',
+            image: 'assets/goa_retreat.png',
+            category: 'Wellbeing',
+            highlights: ['Sunrise yoga & sound healing', 'Pottery & artisan workshops', 'Spice plantation & cooking class', 'Private spa & breathwork'],
+            tags: ['Wellbeing', 'Culture', 'Luxury', 'Reconnection'],
+            gallery: ['assets/goa_yoga.png', 'assets/goa_mangroves.png'],
+            description: 'A 10-day premium immersion designed for travellers seeking wellbeing, culture, luxury and emotional reconnection.',
+            whatWeOffer: {
+                intro: 'We design and personally accompany every journey.',
+                details: 'We curate the route, coordinate logistics, manage the flow and provide continuous support.'
+            },
+            included: [
+                'Flights from Madrid',
+                'Boutique accommodation',
+                'Breakfast, lunch and dinner',
+                'Private luxury transport',
+                'Private driver',
+                'Workshops',
+                'Yoga',
+                'Spa experiences',
+                'Cultural immersions',
+                'Beach days',
+                'Temple visits',
+                'Artisan workshops'
+            ],
+            notIncluded: [
+                'Travel insurance',
+                'Visa fees',
+                'Medical expenses',
+                'Personal shopping',
+                'Extra drinks',
+                'Optional personal upgrades'
+            ],
+            itinerary: [
+                { day: 1, title: 'Madrid departure', description: 'Depart from Madrid for your flight to India.' },
+                { day: 2, title: 'Arrival Goa + private transfer + sunset welcome dinner', description: 'Arrive in Goa, meet your private transfer, and enjoy a sunset welcome dinner.' },
+                { day: 3, title: 'Sunrise yoga + pottery workshop + sound healing', description: 'Begin with sunrise yoga, followed by a pottery workshop and sound healing session.' },
+                { day: 4, title: 'Spice plantation + ayurvedic cooking class', description: 'Visit a local spice plantation and participate in an ayurvedic cooking class.' },
+                { day: 5, title: 'Temple ritual + village immersion + meditation', description: 'Participate in a temple ritual, immerse yourself in local village life, and end with meditation.' },
+                { day: 6, title: 'Transfer to South Goa + breathwork + beach ceremony', description: 'Transfer to South Goa, experience a breathwork session, and attend a beach ceremony.' },
+                { day: 7, title: 'Private spa + yoga + free beach time', description: 'Indulge in a private spa experience, practice yoga, and enjoy free beach time.' },
+                { day: 8, title: 'Kayaking mangroves + artisan workshop', description: 'Go kayaking through the mangroves and join an artisan workshop.' },
+                { day: 9, title: 'Free integration day + farewell dinner', description: 'Spend a free day integrating your experiences, followed by a farewell dinner.' },
+                { day: 10, title: 'Airport transfer + Madrid return', description: 'Private transfer to the airport for your return flight to Madrid.' }
+            ]
+        },
+        {
             id: 'rajasthan-royal-heritage',
             title: 'Rajasthan Royal Heritage',
             duration: '8 Days / 7 Nights',

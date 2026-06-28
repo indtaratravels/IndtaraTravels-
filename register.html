@@ -181,6 +181,29 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+
+        @media (max-width: 480px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                padding: 40px 20px;
+                box-sizing: border-box;
+                overflow-y: auto;
+            }
+            .login-container {
+                padding: 30px 20px;
+            }
+            .login-title {
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+            }
+            .login-logo {
+                margin-bottom: 25px;
+            }
+            .login-logo img {
+                width: 120px;
+            }
+        }
     </style>
     <link rel="icon" type="image/png" href="assets/indtara logo.png">
 </head>
@@ -256,9 +279,7 @@
         <circle cx="400" cy="400" r="350" fill="none" stroke="#cba153" stroke-width="1" />
     </svg>
 
-    <!-- Supabase SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-    <script src="supabase-config.js" defer></script>
+    <!-- Auth Handler -->
     <script src="auth.js" defer></script>
 </body>
 </html>

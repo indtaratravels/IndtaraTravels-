@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const interest = enquiryForm.querySelector('input[placeholder*="Travel Interest"]').value;
             const message = enquiryForm.querySelector('textarea').value;
 
-            // Send to FormSubmit (Email) and Supabase (Database)
+            // Send to FormSubmit (Email) and Express Backend (Database)
             const formSubmitPromise = fetch("https://formsubmit.co/ajax/indtara.travel@gmail.com", {
                 method: "POST",
                 headers: { 
@@ -92,19 +92,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
 
-            const supabasePromise = supabaseClient.from('enquiries').insert([
-                { 
+            const mongoPromise = fetch('/api/enquiries', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
                     full_name: fullName, 
                     email: email, 
                     phone: phone, 
                     interest: interest, 
-                    message: message 
-                }
-            ]);
+                    message: message
+                })
+            }).then(res => {
+                if (!res.ok) throw new Error('Failed to save enquiry');
+                return res.json();
+            });
 
-            Promise.all([formSubmitPromise, supabasePromise])
-                .then(([fsRes, sbRes]) => {
-                    if (sbRes.error) throw sbRes.error;
+            Promise.all([formSubmitPromise, mongoPromise])
+                .then(() => {
                     
                     submitBtn.innerHTML = '<span>MESSAGE SENT</span><span class="arrow">✓</span>';
                     submitBtn.style.background = 'var(--color-accent)';

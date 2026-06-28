@@ -1,4 +1,4 @@
-// Authentication Logic for Indtara Travels
+// Authentication Logic using MongoDB & Express Backend API for Indtara Travels
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const errorBox = document.getElementById('error-box');
@@ -11,42 +11,40 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
 
-
             // Update UI to loading state
             loginSubmit.disabled = true;
             loginSubmit.textContent = 'AUTHENTICATING...';
             errorBox.style.display = 'none';
 
             try {
-                const { data, error } = await supabaseClient.auth.signInWithPassword({
-                    email: email,
-                    password: password,
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
                 });
 
-                if (error) throw error;
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.error || 'Authentication failed');
+                }
 
                 // Successful login
                 loginSubmit.textContent = 'SUCCESS';
                 loginSubmit.style.background = '#28a745'; // Green for success
                 
                 setTimeout(() => {
-                    window.location.href = 'index.html'; // Redirect to home or dashboard
+                    window.location.href = '/index'; // Redirect to home (clean URL)
                 }, 1000);
 
             } catch (error) {
                 console.error('Login error:', error.message);
-                if (error.message === 'Invalid login credentials') {
-                    errorBox.textContent = 'Invalid email or password. Please check your credentials and try again.';
-                } else if (error.message.includes('Email not confirmed')) {
-                    errorBox.textContent = 'Please confirm your email address. Check your inbox for the confirmation link.';
-                } else {
-                    errorBox.textContent = error.message;
-                }
+                errorBox.textContent = error.message;
                 errorBox.style.display = 'block';
                 loginSubmit.disabled = false;
                 loginSubmit.textContent = 'SIGN IN';
             }
-
         });
     }
 
@@ -63,48 +61,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
 
-
             registerSubmit.disabled = true;
             registerSubmit.textContent = 'CREATING ACCOUNT...';
             errorBox.style.display = 'none';
             successBox.style.display = 'none';
 
             try {
-                const { data, error } = await supabaseClient.auth.signUp({
-                    email: email,
-                    password: password,
-                    options: {
-                        data: {
-                            full_name: fullname
-                        }
-                    }
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ fullname, email, password })
                 });
 
-                if (error) throw error;
-
-                // Successful signup
-                if (data.user && data.session) {
-                    // Auto-logged in (confirmation likely disabled)
-                    registerSubmit.textContent = 'ACCOUNT CREATED';
-                    registerSubmit.style.background = '#28a745';
-                    successBox.textContent = 'Registration successful! You are now logged in.';
-                    successBox.style.display = 'block';
-                    setTimeout(() => {
-                        window.location.href = 'index.html';
-                    }, 2000);
-                } else {
-                    // Confirmation required
-                    registerSubmit.textContent = 'CHECK EMAIL';
-                    registerSubmit.style.background = '#cba153';
-                    successBox.textContent = 'Account created! Please check your email inbox to confirm your account before logging in.';
-                    successBox.style.display = 'block';
-                    
-                    // Don't redirect immediately so they can read the message
-                    registerSubmit.disabled = false;
-                    registerSubmit.textContent = 'RESEND EMAIL?';
-                    registerSubmit.onclick = () => window.location.reload();
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to create account');
                 }
 
+                // Successful signup
+                registerSubmit.textContent = 'ACCOUNT CREATED';
+                registerSubmit.style.background = '#28a745';
+                successBox.textContent = 'Registration successful! You are now logged in.';
+                successBox.style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = '/index'; // Redirect to home
+                }, 2000);
 
             } catch (error) {
                 console.error('Registration error:', error.message);
@@ -118,18 +101,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sign out function
     window.signOut = async () => {
-        const { error } = await supabaseClient.auth.signOut();
-        if (error) console.error('Error signing out:', error.message);
+        try {
+            await fetch('/api/auth/logout', { method: 'POST' });
+        } catch (error) {
+            console.error('Error signing out:', error.message);
+        }
         window.location.reload();
     };
 
     // Check session on load
     const checkSession = async () => {
-        const { data: { session } } = await supabaseClient.auth.getSession();
-        if (session) {
-            console.log('Logged in as:', session.user.email);
-            // Update UI if needed (e.g., change "Login" to "Logout" in navbar)
-            updateNavbarForUser(session.user);
+        try {
+            const response = await fetch('/api/auth/session');
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Logged in as:', data.user.email);
+                updateNavbarForUser(data.user);
+            }
+        } catch (error) {
+            console.log('No active session.');
         }
     };
 
@@ -137,7 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const loginLinks = document.querySelectorAll('.login-nav-link');
         loginLinks.forEach(link => {
             link.textContent = 'LOGOUT';
-            link.href = '#';
+            link.removeAttribute('href'); // Clean URL behavior
+            link.style.cursor = 'pointer';
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 signOut();
